@@ -28,6 +28,65 @@ if (blob3) blob3.style.bottom = `calc(10% - ${scrollY * 0.02}px)`;
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
 <style>
+/* === DARK MODE CUSTOM PROPERTIES === */
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #FAF7F6;
+  --bg-pink: #EED6DC;
+  --bg-pink-subtle: #faf0f4;
+  --text-primary: #4A4A4A;
+  --text-secondary: #9C9C9C;
+  --accent: #D38BA1;
+  --accent-light: #E5A5B5;
+  --glass-bg: rgba(255,255,255,0.85);
+  --glass-bg-strong: rgba(255,255,255,0.95);
+  --glass-bg-strongest: rgba(255,255,255,0.98);
+  --glass-border: rgba(238,214,220,0.3);
+  --glass-border-strong: rgba(238,214,220,0.6);
+  --gradient-start: #D38BA1;
+  --gradient-end: #EED6DC;
+  --gradient-bg: #FAF7F6;
+  --blob-opacity: 0.35;
+  --blob-opacity-med: 0.30;
+  --blob-opacity-low: 0.25;
+  --separator: #EED6DC;
+  --gold-accent: #C9956B;
+  --input-bg: rgba(255,255,255,0.7);
+  --hero-overlay-top: rgba(255,255,255,0.95);
+  --hero-overlay-mid: rgba(255,255,255,0.85);
+  --hero-overlay-pink: rgba(238,214,220,0.5);
+  --hero-overlay-bottom: rgba(238,214,220,0.85);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1A1014;
+    --bg-secondary: #251820;
+    --bg-pink: #2E1E24;
+    --bg-pink-subtle: #2A1C22;
+    --text-primary: #F2E8EA;
+    --text-secondary: #A08A90;
+    --accent: #C47A90;
+    --accent-light: #E5A5B5;
+    --glass-bg: rgba(26,16,20,0.8);
+    --glass-bg-strong: rgba(26,16,20,0.92);
+    --glass-bg-strongest: rgba(26,16,20,0.95);
+    --glass-border: rgba(46,30,36,0.3);
+    --glass-border-strong: rgba(46,30,36,0.5);
+    --gradient-start: #3A2830;
+    --gradient-end: #2E1E24;
+    --gradient-bg: #251820;
+    --blob-opacity: 0.20;
+    --blob-opacity-med: 0.15;
+    --blob-opacity-low: 0.15;
+    --separator: #2E1E24;
+    --gold-accent: #C9956B;
+    --input-bg: rgba(37,24,32,0.7);
+    --hero-overlay-top: rgba(26,16,20,0.95);
+    --hero-overlay-mid: rgba(26,16,20,0.85);
+    --hero-overlay-pink: rgba(46,30,36,0.5);
+    --hero-overlay-bottom: rgba(46,30,36,0.85);
+  }
+}
 @keyframes morphBlob1 {
 0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(0, 0) rotate(0deg) scale(1); }
 25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: translate(50px, -30px) rotate(45deg) scale(1.05); }
@@ -71,12 +130,12 @@ background-repeat: repeat;
 background-size: 128px 128px;
 }
 .glass-card {
-background: rgba(255, 255, 255, 0.85);
+background: var(--glass-bg);
 backdrop-filter: blur(12px);
 -webkit-backdrop-filter: blur(12px);
 }
 .glass-nav {
-background: rgba(255,255,255,0.95);
+background: var(--glass-bg-strong);
 backdrop-filter: blur(16px);
 -webkit-backdrop-filter: blur(16px);
 }
@@ -118,7 +177,7 @@ body {
   font-weight: 400;
   line-height: 1.8rem;
   letter-spacing: 0.5px;
-  color: #4A4A4A;
+  color: var(--text-primary);
 }
 h1 {
   font-family: 'EB Garamond', serif;
@@ -203,7 +262,7 @@ nav a, .nav-link, .glass-nav a {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(255, 255, 255, 0.98);
+  background: var(--glass-bg-strongest);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -230,19 +289,24 @@ nav a, .nav-link, .glass-nav a {
   .desktop-nav-links { display: none !important; }
   .mobile-menu-panel { display: block; }
 }
+/* === DARK MODE OVERRIDES === */
+@media (prefers-color-scheme: dark) {
+  .nav-logo { filter: brightness(2); }
+  .hamburger-btn svg { stroke: var(--accent); }
+}
 </style></head>
-  <body style="background-color: #FAF7F6; color: #4A4A4A; overflow-x: hidden; position: relative; font-size: 1.1rem;">
+  <body style="background-color: var(--bg-secondary); color: var(--text-primary); overflow-x: hidden; position: relative; font-size: 1.1rem;">
     <!-- Noise Overlay -->
     <div class="noise-overlay fixed inset-0 pointer-events-none z-50" style="opacity: 0.4;"></div>
 
     <!-- Animated Blob - Primary (Hero area) -->
-    <div class="blob-primary fixed pointer-events-none z-0" style="width: 1000px; height: 1000px; top: -200px; left: -200px; background: linear-gradient(135deg, #D38BA1, #EED6DC, #FAF7F6); opacity: 0.35; filter: blur(100px);"></div>
+    <div class="blob-primary fixed pointer-events-none z-0" style="width: 1000px; height: 1000px; top: -200px; left: -200px; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end), var(--gradient-bg)); opacity: var(--blob-opacity); filter: blur(100px);"></div>
 
     <!-- Animated Blob - Secondary (Mid page) -->
-    <div class="blob-secondary fixed pointer-events-none z-0" style="width: 450px; height: 450px; top: 50%; right: -100px; background: linear-gradient(225deg, #EED6DC, #D38BA1, #FAF7F6); opacity: 0.3; filter: blur(90px);"></div>
+    <div class="blob-secondary fixed pointer-events-none z-0" style="width: 450px; height: 450px; top: 50%; right: -100px; background: linear-gradient(225deg, var(--gradient-end), var(--gradient-start), var(--gradient-bg)); opacity: var(--blob-opacity-med); filter: blur(90px);"></div>
 
     <!-- Animated Blob - Tertiary (Bottom) -->
-    <div class="blob-tertiary fixed pointer-events-none z-0" style="width: 400px; height: 400px; bottom: 10%; left: 5%; background: linear-gradient(45deg, #D38BA1, #EED6DC); opacity: 0.25; filter: blur(80px);"></div>
+    <div class="blob-tertiary fixed pointer-events-none z-0" style="width: 400px; height: 400px; bottom: 10%; left: 5%; background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end)); opacity: var(--blob-opacity-low); filter: blur(80px);"></div>
 
     <!-- Sparkle Stars -->
 
@@ -257,7 +321,7 @@ nav a, .nav-link, .glass-nav a {
               ✦
             </span>
             <a href="/" style="text-decoration: none;">
-              <img src="images/aurorabranding-logo-RGB-01.png" alt="Aurora Branding Co." style="width: 280px; height: auto;">
+              <img class="nav-logo" src="images/aurorabranding-logo-RGB-01.png" alt="Aurora Branding Co." style="width: 280px; height: auto;">
             </a>
           </div>
           <!-- Hamburger Button (mobile only) -->
@@ -274,33 +338,33 @@ nav a, .nav-link, .glass-nav a {
           </button>
           <!-- Desktop Nav Links -->
           <div class="flex items-center gap-0 desktop-nav-links">
-            <a href="/" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300" style="font-size: 1rem; color: #9C9C9C; letter-spacing: 0.08em;">
+            <a href="/" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300" style="font-size: 1rem; color: var(--text-secondary); letter-spacing: 0.08em;">
               Home
             </a>
-            <span style="color: #EED6DC;">|</span>
-            <a href="/#about" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">
+            <span style="color: var(--separator);">|</span>
+            <a href="/#about" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: var(--accent); letter-spacing: 0.08em;">
               About
             </a>
-            <span style="color: #EED6DC;">|</span>
-            <a href="/blog" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">
+            <span style="color: var(--separator);">|</span>
+            <a href="/blog" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: var(--accent); letter-spacing: 0.08em;">
               Blog
             </a>
-            <span style="color: #EED6DC;">|</span>
-            <a href="/aurora-circle" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">
+            <span style="color: var(--separator);">|</span>
+            <a href="/aurora-circle" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: var(--accent); letter-spacing: 0.08em;">
               Aurora Circle
             </a>
-            <a href="#" class="ml-6 transition-opacity duration-300 hover:opacity-60" style="color: #D38BA1;">
+            <a href="#" class="ml-6 transition-opacity duration-300 hover:opacity-60" style="color: var(--accent);">
               <iconify-icon icon="solar:magnifer-linear" width="18" style="stroke-width: 1.5;"></iconify-icon>
             </a>
           </div>
         </div>
         <!-- Mobile Menu Panel -->
         <div class="mobile-menu-panel">
-          <div class="py-4 px-6" style="border-top: 1px solid #EED6DC;">
-            <a href="/" style="color: #9C9C9C;">Home</a>
-            <a href="/#about" style="color: #D38BA1;">About</a>
-            <a href="/blog" style="color: #D38BA1;">Blog</a>
-            <a href="/aurora-circle" style="color: #D38BA1;">Aurora Circle</a>
+          <div class="py-4 px-6" style="border-top: 1px solid var(--separator);">
+            <a href="/" style="color: var(--text-secondary);">Home</a>
+            <a href="/#about" style="color: var(--accent);">About</a>
+            <a href="/blog" style="color: var(--accent);">Blog</a>
+            <a href="/aurora-circle" style="color: var(--accent);">Aurora Circle</a>
           </div>
         </div>
       </nav>
@@ -312,9 +376,9 @@ nav a, .nav-link, .glass-nav a {
           <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&amp;q=80" alt="Beauty workspace" class="w-full h-full object-cover" style="opacity: 0.09;">
         </div>
         <!-- Gradient Overlay -->
-        <div class="absolute inset-0 z-1" style="background: linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 15%, rgba(238,214,220,0.5) 45%, rgba(238,214,220,0.85) 100%);"></div>
-        <!-- Bottom fade to #EED6DC -->
-        <div class="absolute inset-x-0 bottom-0 z-2" style="height: 30%; background: linear-gradient(to bottom, transparent 0%, #EED6DC 100%);"></div>
+        <div class="absolute inset-0 z-1" style="background: linear-gradient(to bottom, var(--hero-overlay-top) 0%, var(--hero-overlay-mid) 15%, var(--hero-overlay-pink) 45%, var(--hero-overlay-bottom) 100%);"></div>
+        <!-- Bottom fade -->
+        <div class="absolute inset-x-0 bottom-0 z-2" style="height: 30%; background: linear-gradient(to bottom, transparent 0%, var(--bg-pink) 100%);"></div>
 
         <!-- Sparkles in hero -->
 
@@ -350,27 +414,27 @@ nav a, .nav-link, .glass-nav a {
           </span>
         </div>
         <div class="relative z-10 text-center px-6 w-full mx-auto hero-text-container">
-          <p class="font-cursive hero-script mb-4" style="font-size: 2.8rem; line-height: 3.5rem; color: #D38BA1; font-weight: 400; letter-spacing: 0;">
+          <p class="font-cursive hero-script mb-4" style="font-size: 2.8rem; line-height: 3.5rem; color: var(--accent); font-weight: 400; letter-spacing: 0;">
             If you're ready to build your dream beauty brand
           </p>
-          <h2 class="font-serif hero-heading mb-6" style="font-size: 3.3rem; color: #4A4A4A; line-height: 1.15; letter-spacing: 0.12em; font-weight: 700; text-transform: uppercase;">
+          <h2 class="font-serif hero-heading mb-6" style="font-size: 3.3rem; color: var(--text-primary); line-height: 1.15; letter-spacing: 0.12em; font-weight: 700; text-transform: uppercase;">
             ELEVATE YOUR BEAUTY BRAND
           </h2>
-          <p class="hero-subtitle mb-10 max-w-lg mx-auto" style="font-family: 'DM Sans', sans-serif; color: #9C9C9C; font-size: 1.15rem; font-weight: 400; letter-spacing: 0.03em; line-height: 1.8;">
+          <p class="hero-subtitle mb-10 max-w-lg mx-auto" style="font-family: 'DM Sans', sans-serif; color: var(--text-secondary); font-size: 1.15rem; font-weight: 400; letter-spacing: 0.03em; line-height: 1.8;">
             Luxury visuals and timeless strategy for modern beauty entrepreneurs.
           </p>
-          <a href="/blog" class="btn-hover inline-block rounded-full uppercase transition-all duration-300 hero-btn" style="background: #4A4A4A; color: #FFFFFF; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 50px; padding: 18px 48px;" onmouseover="this.style.background='#D38BA1';this.style.color='#FFFFFF'" onmouseout="this.style.background='#4A4A4A';this.style.color='#FFFFFF'">
+          <a href="/blog" class="btn-hover inline-block rounded-full uppercase transition-all duration-300 hero-btn" style="background: var(--text-primary); color: var(--bg-primary); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 50px; padding: 18px 48px;" onmouseover="this.style.background='var(--accent)';this.style.color='#FFFFFF'" onmouseout="this.style.background='var(--text-primary)';this.style.color='#FFFFFF'">
             EXPLORE THE BLOG
           </a>
         </div>
       </section>
 
       <!-- ==================== BRAND STATEMENT ==================== -->
-      <section class="relative py-20 px-6" style="background: #FAF7F6;">
+      <section class="relative py-20 px-6" style="background: var(--bg-secondary);">
         <div class="max-w-3xl mx-auto text-center relative">
           <!-- Top decorative line -->
-          <div class="w-24 h-px mx-auto mb-8" style="background: #C9956B; opacity: 0.4;"></div>
-          <p class="font-light leading-relaxed" style="font-size: clamp(1rem, 2vw, 1.25rem); color: #4A4A4A; line-height: 1.9;">
+          <div class="w-24 h-px mx-auto mb-8" style="background: var(--gold-accent); opacity: 0.4;"></div>
+          <p class="font-light leading-relaxed" style="font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-primary); line-height: 1.9;">
             Where strategy meets
             <span class="font-normal" style="font-weight: 600;">elegance</span>
             . Empowering beauty entrepreneurs through
@@ -382,7 +446,7 @@ nav a, .nav-link, .glass-nav a {
             .
           </p>
           <!-- Bottom decorative line -->
-          <div class="w-24 h-px mx-auto mt-8" style="background: #C9956B; opacity: 0.4;"></div>
+          <div class="w-24 h-px mx-auto mt-8" style="background: var(--gold-accent); opacity: 0.4;"></div>
         </div>
       </section>
 
@@ -423,9 +487,9 @@ nav a, .nav-link, .glass-nav a {
                 <!-- Outer gold ring -->
                 <div class="absolute inset-0 rounded-full" style="border: 1px solid rgba(201, 149, 107, 0.3);"></div>
                 <!-- Gradient border ring -->
-                <div class="absolute rounded-full" style="inset: 12px; padding: 2px; background: linear-gradient(135deg, #D38BA1, #EED6DC);">
-                  <div class="w-full h-full rounded-full flex items-center justify-center" style="background: white;">
-                    <span class="font-script" style="font-size: 5rem; color: #D38BA1; line-height: 1;">
+                <div class="absolute rounded-full" style="inset: 12px; padding: 2px; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));">
+                  <div class="w-full h-full rounded-full flex items-center justify-center" style="background: var(--bg-primary);">
+                    <span class="font-script" style="font-size: 5rem; color: var(--accent); line-height: 1;">
                       A
                     </span>
                   </div>
@@ -441,14 +505,14 @@ nav a, .nav-link, .glass-nav a {
               </div>
             </div>
             <!-- Right: Content -->
-            <div class="glass-card rounded-2xl p-10 relative" style="border: 1px solid rgba(238, 214, 220, 0.3);">
-              <h3 class="font-serif font-medium tracking-tight mb-2" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: #4A4A4A;">
+            <div class="glass-card rounded-2xl p-10 relative" style="border: 1px solid var(--glass-border);">
+              <h3 class="font-serif font-medium tracking-tight mb-2" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: var(--text-primary);">
                 More Than A Brand Studio
               </h3>
-              <p class="font-cursive mb-6" style="color: #D38BA1; font-size: clamp(1rem, 1.5vw, 1.125rem);">
+              <p class="font-cursive mb-6" style="color: var(--accent); font-size: clamp(1rem, 1.5vw, 1.125rem);">
                 — a mentor for beauty entrepreneurs
               </p>
-              <div class="space-y-4" style="color: #4A4A4A; opacity: 0.65;">
+              <div class="space-y-4" style="color: var(--text-primary); opacity: 0.65;">
                 <p class="font-light leading-relaxed" style="font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);">
                   Aurora Branding Co. was born from a deep love for the beauty
                   industry and a desire to see more entrepreneurs build brands
@@ -472,14 +536,14 @@ nav a, .nav-link, .glass-nav a {
       </section>
 
       <!-- ==================== EXPLORE AURORA ==================== -->
-      <section class="relative py-24 px-6" style="background: linear-gradient(180deg, #FAF7F6 0%, #faf0f4 50%, #FAF7F6 100%);">
+      <section class="relative py-24 px-6" style="background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-pink-subtle) 50%, var(--bg-secondary) 100%);">
         <div class="max-w-6xl mx-auto">
           <!-- Section Header -->
           <div class="text-center mb-16">
-            <p class="uppercase tracking-widest font-light mb-3" style="font-size: 0.625rem; color: #9C9C9C; letter-spacing: 0.25em;">
+            <p class="uppercase tracking-widest font-light mb-3" style="font-size: 0.625rem; color: var(--text-secondary); letter-spacing: 0.25em;">
               Discover What Awaits
             </p>
-            <h3 class="font-serif font-medium tracking-tight" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: #4A4A4A;">
+            <h3 class="font-serif font-medium tracking-tight" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: var(--text-primary);">
               EXPLORE AURORA
             </h3>
           </div>
@@ -487,23 +551,23 @@ nav a, .nav-link, .glass-nav a {
           <!-- Three Cards -->
           <div class="grid md:grid-cols-3 gap-8">
             <!-- Card 1 -->
-            <div class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid rgba(238, 214, 220, 0.4); box-shadow: 0 4px 24px rgba(211, 139, 161, 0.06);" onmouseover="this.style.boxShadow='0 12px 40px rgba(211, 139, 161, 0.12)'" onmouseout="this.style.boxShadow='0 4px 24px rgba(211, 139, 161, 0.06)'">
+            <div class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid var(--glass-border); box-shadow: 0 4px 24px rgba(211, 139, 161, 0.06);" onmouseover="this.style.boxShadow='0 12px 40px rgba(211, 139, 161, 0.12)'" onmouseout="this.style.boxShadow='0 4px 24px rgba(211, 139, 161, 0.06)'">
               <div class="relative overflow-hidden" style="height: 220px;">
                 <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600&amp;q=80" alt="Learn and Grow" class="img-hover w-full h-full object-cover cursor-pointer">
                 <!-- Number badge -->
-                <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10 font-serif" style="background: linear-gradient(135deg, #D38BA1, #EED6DC); color: white; font-size: 0.8125rem;">
+                <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10 font-serif" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: white; font-size: 0.8125rem;">
                   1
                 </div>
               </div>
               <div class="p-8 pt-8 text-center">
-                <h4 class="font-cursive mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: #4A4A4A;">
+                <h4 class="font-cursive mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: var(--text-primary);">
                   Learn &amp; Grow
                 </h4>
-                <p class="font-light mb-6 leading-relaxed" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.65;">
+                <p class="font-light mb-6 leading-relaxed" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.65;">
                   Explore articles and resources designed to help you refine
                   your brand strategy and creative direction.
                 </p>
-                <a href="/blog" class="inline-flex items-center gap-1.5 uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.625rem; color: #D38BA1; letter-spacing: 0.15em;">
+                <a href="/blog" class="inline-flex items-center gap-1.5 uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.625rem; color: var(--accent); letter-spacing: 0.15em;">
                   Read The Blog
                   <span>→</span>
                 </a>
@@ -511,22 +575,22 @@ nav a, .nav-link, .glass-nav a {
             </div>
 
             <!-- Card 2 -->
-            <div class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid rgba(238, 214, 220, 0.4); box-shadow: 0 4px 24px rgba(211, 139, 161, 0.06);" onmouseover="this.style.boxShadow='0 12px 40px rgba(211, 139, 161, 0.12)'" onmouseout="this.style.boxShadow='0 4px 24px rgba(211, 139, 161, 0.06)'">
+            <div class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid var(--glass-border); box-shadow: 0 4px 24px rgba(211, 139, 161, 0.06);" onmouseover="this.style.boxShadow='0 12px 40px rgba(211, 139, 161, 0.12)'" onmouseout="this.style.boxShadow='0 4px 24px rgba(211, 139, 161, 0.06)'">
               <div class="relative overflow-hidden" style="height: 220px;">
                 <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&amp;q=80" alt="Join The Circle" class="img-hover w-full h-full object-cover cursor-pointer">
-                <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10 font-serif" style="background: linear-gradient(135deg, #D38BA1, #EED6DC); color: white; font-size: 0.8125rem;">
+                <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10 font-serif" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: white; font-size: 0.8125rem;">
                   2
                 </div>
               </div>
               <div class="p-8 pt-8 text-center">
-                <h4 class="font-cursive mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: #4A4A4A;">
+                <h4 class="font-cursive mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: var(--text-primary);">
                   Join The Circle
                 </h4>
-                <p class="font-light mb-6 leading-relaxed" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.65;">
+                <p class="font-light mb-6 leading-relaxed" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.65;">
                   Become part of a supportive community of beauty entrepreneurs
                   who share your ambition and vision.
                 </p>
-                <a href="/aurora-circle" class="inline-flex items-center gap-1.5 uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.625rem; color: #D38BA1; letter-spacing: 0.15em;">
+                <a href="/aurora-circle" class="inline-flex items-center gap-1.5 uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.625rem; color: var(--accent); letter-spacing: 0.15em;">
                   Join More
                   <span>→</span>
                 </a>
@@ -534,22 +598,22 @@ nav a, .nav-link, .glass-nav a {
             </div>
 
             <!-- Card 3 -->
-            <div class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid rgba(238, 214, 220, 0.4); box-shadow: 0 4px 24px rgba(211, 139, 161, 0.06);" onmouseover="this.style.boxShadow='0 12px 40px rgba(211, 139, 161, 0.12)'" onmouseout="this.style.boxShadow='0 4px 24px rgba(211, 139, 161, 0.06)'">
+            <div class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid var(--glass-border); box-shadow: 0 4px 24px rgba(211, 139, 161, 0.06);" onmouseover="this.style.boxShadow='0 12px 40px rgba(211, 139, 161, 0.12)'" onmouseout="this.style.boxShadow='0 4px 24px rgba(211, 139, 161, 0.06)'">
               <div class="relative overflow-hidden" style="height: 220px;">
                 <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&amp;q=80" alt="Free Resources" class="img-hover w-full h-full object-cover cursor-pointer">
-                <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10 font-serif" style="background: linear-gradient(135deg, #D38BA1, #EED6DC); color: white; font-size: 0.8125rem;">
+                <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10 font-serif" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: white; font-size: 0.8125rem;">
                   3
                 </div>
               </div>
               <div class="p-8 pt-8 text-center">
-                <h4 class="font-cursive mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: #4A4A4A;">
+                <h4 class="font-cursive mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: var(--text-primary);">
                   Start For Free
                 </h4>
-                <p class="font-light mb-6 leading-relaxed" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.65;">
+                <p class="font-light mb-6 leading-relaxed" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.65;">
                   Download beautifully designed templates, checklists and guides
                   to start elevating your brand today.
                 </p>
-                <a href="#" class="inline-flex items-center gap-1.5 uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.625rem; color: #D38BA1; letter-spacing: 0.15em;">
+                <a href="#" class="inline-flex items-center gap-1.5 uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.625rem; color: var(--accent); letter-spacing: 0.15em;">
                   Get Free Resources
                   <span>→</span>
                 </a>
@@ -560,14 +624,14 @@ nav a, .nav-link, .glass-nav a {
       </section>
 
       <!-- ==================== LATEST FROM THE BLOG ==================== -->
-      <section class="relative py-24 px-6" style="background: #FFFFFF;">
+      <section class="relative py-24 px-6" style="background: var(--bg-primary);">
         <div class="max-w-6xl mx-auto">
           <!-- Section Header -->
           <div class="text-center mb-16">
-            <h3 class="font-serif font-medium tracking-tight mb-3" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: #4A4A4A;">
+            <h3 class="font-serif font-medium tracking-tight mb-3" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: var(--text-primary);">
               Latest From The Blog
             </h3>
-            <p class="font-light" style="color: #9C9C9C; font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);">
+            <p class="font-light" style="color: var(--text-secondary); font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);">
               Insights, inspiration and practical guidance for your beauty brand
               journey.
             </p>
@@ -580,17 +644,17 @@ nav a, .nav-link, .glass-nav a {
               <div class="overflow-hidden rounded-xl mb-5" style="height: 240px;">
                 <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=600&amp;q=80" alt="Blog post" class="img-hover w-full h-full object-cover">
               </div>
-              <p class="uppercase tracking-widest font-light mb-2" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">
+              <p class="uppercase tracking-widest font-light mb-2" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">
                 Client Experience
               </p>
-              <h4 class="font-serif font-medium mb-2 tracking-tight group-hover:opacity-70 transition-opacity" style="font-size: 1.6rem; line-height: 2rem; letter-spacing: 0.02em; color: #4A4A4A;">
+              <h4 class="font-serif font-medium mb-2 tracking-tight group-hover:opacity-70 transition-opacity" style="font-size: 1.6rem; line-height: 2rem; letter-spacing: 0.02em; color: var(--text-primary);">
                 How To Create A Luxury Client Experience That Keeps Them Coming
                 Back
               </h4>
-              <p class="font-light mb-3" style="font-size: 0.75rem; color: #9C9C9C;">
+              <p class="font-light mb-3" style="font-size: 0.75rem; color: var(--text-secondary);">
                 January 15, 2026
               </p>
-              <p class="font-light leading-relaxed" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.6;">
+              <p class="font-light leading-relaxed" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.6;">
                 Discover the key touchpoints that transform a simple appointment
                 into a memorable brand experience your clients will rave
                 about...
@@ -602,16 +666,16 @@ nav a, .nav-link, .glass-nav a {
               <div class="overflow-hidden rounded-xl mb-5" style="height: 240px;">
                 <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&amp;q=80" alt="Blog post" class="img-hover w-full h-full object-cover">
               </div>
-              <p class="uppercase tracking-widest font-light mb-2" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">
+              <p class="uppercase tracking-widest font-light mb-2" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">
                 Brand Strategy
               </p>
-              <h4 class="font-serif font-medium mb-2 tracking-tight group-hover:opacity-70 transition-opacity" style="font-size: 1.6rem; line-height: 2rem; letter-spacing: 0.02em; color: #4A4A4A;">
+              <h4 class="font-serif font-medium mb-2 tracking-tight group-hover:opacity-70 transition-opacity" style="font-size: 1.6rem; line-height: 2rem; letter-spacing: 0.02em; color: var(--text-primary);">
                 5 Signs Your Beauty Brand Is Ready For A Visual Refresh
               </h4>
-              <p class="font-light mb-3" style="font-size: 0.75rem; color: #9C9C9C;">
+              <p class="font-light mb-3" style="font-size: 0.75rem; color: var(--text-secondary);">
                 January 8, 2026
               </p>
-              <p class="font-light leading-relaxed" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.6;">
+              <p class="font-light leading-relaxed" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.6;">
                 Your brand has grown — but has your visual identity kept up?
                 Here are the telltale signs it's time to evolve your look...
               </p>
@@ -620,7 +684,7 @@ nav a, .nav-link, .glass-nav a {
 
           <!-- CTA Button -->
           <div class="text-center mt-14">
-            <a href="/blog" class="btn-hover inline-block rounded-full uppercase tracking-widest font-light px-8 py-3.5 transition-all duration-300" style="border: 1.5px solid #E5A5B5; color: #D38BA1; font-size: 0.6875rem; letter-spacing: 0.2em;" onmouseover="this.style.background='#E5A5B5'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#D38BA1'">
+            <a href="/blog" class="btn-hover inline-block rounded-full uppercase tracking-widest font-light px-8 py-3.5 transition-all duration-300" style="border: 1.5px solid var(--accent-light); color: var(--accent); font-size: 0.6875rem; letter-spacing: 0.2em;" onmouseover="this.style.background='var(--accent-light)'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='var(--accent)'">
               Read The Blog
             </a>
           </div>
@@ -628,7 +692,7 @@ nav a, .nav-link, .glass-nav a {
       </section>
 
       <!-- ==================== JOIN THE AURORA CIRCLE ==================== -->
-      <section class="relative py-24 px-6" style="background: linear-gradient(180deg, #FAF7F6 0%, #faf0f4 50%, #FAF7F6 100%);">
+      <section class="relative py-24 px-6" style="background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-pink-subtle) 50%, var(--bg-secondary) 100%);">
         <div class="max-w-6xl mx-auto">
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <!-- Left: Image -->
@@ -636,11 +700,11 @@ nav a, .nav-link, .glass-nav a {
               <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700&amp;q=80" alt="Beauty products flatlay" class="w-full h-full object-cover">
             </div>
             <!-- Right: Form -->
-            <div class="glass-card rounded-2xl p-10" style="border: 1px solid rgba(238, 214, 220, 0.3);">
-              <h3 class="font-script tracking-tight mb-4" style="font-size: 2.4rem; line-height: 3.2rem; color: #D38BA1;">
+            <div class="glass-card rounded-2xl p-10" style="border: 1px solid var(--glass-border);">
+              <h3 class="font-script tracking-tight mb-4" style="font-size: 2.4rem; line-height: 3.2rem; color: var(--accent);">
                 Join The Aurora Circle
               </h3>
-              <p class="font-light leading-relaxed mb-8" style="font-size: 0.9375rem; color: #4A4A4A; opacity: 0.65;">
+              <p class="font-light leading-relaxed mb-8" style="font-size: 0.9375rem; color: var(--text-primary); opacity: 0.65;">
                 Be the first to receive exclusive brand tips, free resources,
                 and behind-the-scenes insights delivered straight to your inbox.
                 Join a community of beauty entrepreneurs building with
@@ -649,28 +713,28 @@ nav a, .nav-link, .glass-nav a {
 
               <form class="space-y-5" onsubmit="event.preventDefault();">
                 <div>
-                  <input type="text" placeholder="Your name" class="w-full rounded-full px-6 py-3.5 font-light outline-none transition-all duration-300 focus:ring-2" style="border: 1.5px solid #EED6DC; background: rgba(255,255,255,0.7); font-size: 0.875rem; color: #4A4A4A; --tw-ring-color: #E5A5B5;" onfocus="this.style.borderColor='#E5A5B5'" onblur="this.style.borderColor='#EED6DC'">
+                  <input type="text" placeholder="Your name" class="w-full rounded-full px-6 py-3.5 font-light outline-none transition-all duration-300 focus:ring-2" style="border: 1.5px solid var(--separator); background: var(--input-bg); font-size: 0.875rem; color: var(--text-primary); --tw-ring-color: #E5A5B5;" onfocus="this.style.borderColor='var(--accent-light)'" onblur="this.style.borderColor='var(--separator)'">
                 </div>
                 <div>
-                  <input type="email" placeholder="Your email address" class="w-full rounded-full px-6 py-3.5 font-light outline-none transition-all duration-300 focus:ring-2" style="border: 1.5px solid #EED6DC; background: rgba(255,255,255,0.7); font-size: 0.875rem; color: #4A4A4A; --tw-ring-color: #E5A5B5;" onfocus="this.style.borderColor='#E5A5B5'" onblur="this.style.borderColor='#EED6DC'">
+                  <input type="email" placeholder="Your email address" class="w-full rounded-full px-6 py-3.5 font-light outline-none transition-all duration-300 focus:ring-2" style="border: 1.5px solid var(--separator); background: var(--input-bg); font-size: 0.875rem; color: var(--text-primary); --tw-ring-color: #E5A5B5;" onfocus="this.style.borderColor='var(--accent-light)'" onblur="this.style.borderColor='var(--separator)'">
                 </div>
 
                 <!-- Custom Checkbox -->
                 <label class="flex items-start gap-3 cursor-pointer group">
                   <div class="relative flex-shrink-0 mt-0.5">
                     <input type="checkbox" class="sr-only peer" id="privacyCheck">
-                    <div class="w-5 h-5 rounded border-2 transition-all duration-300 peer-checked:border-transparent flex items-center justify-center" style="border-color: #EED6DC;" onclick="let cb = this.previousElementSibling; cb.checked = !cb.checked; if(cb.checked){this.style.background='linear-gradient(135deg, #D38BA1, #E5A5B5)'; this.style.borderColor='transparent'; this.innerHTML='&lt;svg width=12 height=12 viewBox=\'0 0 12 12\' fill=\'none\'&gt;&lt;path d=\'M2 6l3 3 5-5\' stroke=\'white\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/&gt;&lt;/svg&gt;';} else {this.style.background='transparent'; this.style.borderColor='#EED6DC'; this.innerHTML='';}"></div>
+                    <div class="w-5 h-5 rounded border-2 transition-all duration-300 peer-checked:border-transparent flex items-center justify-center" style="border-color: var(--separator);" onclick="let cb = this.previousElementSibling; cb.checked = !cb.checked; if(cb.checked){this.style.background='linear-gradient(135deg, #D38BA1, #E5A5B5)'; this.style.borderColor='transparent'; this.innerHTML='&lt;svg width=12 height=12 viewBox=\'0 0 12 12\' fill=\'none\'&gt;&lt;path d=\'M2 6l3 3 5-5\' stroke=\'white\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/&gt;&lt;/svg&gt;';} else {this.style.background='transparent'; this.style.borderColor='var(--separator)'; this.innerHTML='';}"></div>
                   </div>
-                  <span class="font-light" style="font-size: 0.75rem; color: #9C9C9C;">
+                  <span class="font-light" style="font-size: 0.75rem; color: var(--text-secondary);">
                     I agree to the
-                    <a href="#" style="color: #D38BA1;" class="underline">
+                    <a href="#" style="color: var(--accent);" class="underline">
                       Privacy Policy
                     </a>
                     and consent to receiving emails from Aurora Branding Co.
                   </span>
                 </label>
 
-                <button type="submit" class="btn-hover w-full rounded-full uppercase tracking-widest font-light py-3.5 transition-all duration-300" style="background: #E5A5B5; color: white; font-size: 0.6875rem; letter-spacing: 0.2em;" onmouseover="this.style.background='#D38BA1'" onmouseout="this.style.background='#E5A5B5'">
+                <button type="submit" class="btn-hover w-full rounded-full uppercase tracking-widest font-light py-3.5 transition-all duration-300" style="background: var(--accent-light); color: white; font-size: 0.6875rem; letter-spacing: 0.2em;" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--accent-light)'">
                   Join The Circle
                 </button>
               </form>
@@ -680,7 +744,7 @@ nav a, .nav-link, .glass-nav a {
       </section>
 
       <!-- ==================== MOTIVATION STRIP ==================== -->
-      <section class="py-14 px-6" style="background: linear-gradient(to right, #D38BA1, #EED6DC);">
+      <section class="py-14 px-6" style="background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));">
         <div class="max-w-4xl mx-auto text-center">
           <p class="font-light leading-relaxed" style="color: white; font-size: clamp(0.9375rem, 1.8vw, 1.125rem);">
             <span class="font-normal" style="font-weight: 600;">
@@ -696,14 +760,14 @@ nav a, .nav-link, .glass-nav a {
       </section>
 
       <!-- ==================== FAQ ==================== -->
-      <section class="relative py-24 px-6" style="background: #FAF7F6;">
+      <section class="relative py-24 px-6" style="background: var(--bg-secondary);">
         <div class="max-w-5xl mx-auto">
           <!-- Section Header -->
           <div class="text-center mb-16">
-            <h3 class="font-script tracking-tight mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: #D38BA1;">
+            <h3 class="font-script tracking-tight mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: var(--accent);">
               Frequently Asked Questions
             </h3>
-            <p class="font-serif" style="font-size: clamp(0.875rem, 1.5vw, 1.0625rem); color: #4A4A4A;">
+            <p class="font-serif" style="font-size: clamp(0.875rem, 1.5vw, 1.0625rem); color: var(--text-primary);">
               Everything you need to know about Aurora
             </p>
           </div>
@@ -711,14 +775,14 @@ nav a, .nav-link, .glass-nav a {
           <!-- FAQ Grid -->
           <div class="grid md:grid-cols-2 gap-5" id="faqGrid">
             <!-- FAQ 1 -->
-            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid rgba(238, 214, 220, 0.25);">
+            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid var(--glass-border);">
               <button class="w-full text-left px-7 py-5 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                <span class="font-serif font-normal" style="font-size: 0.9375rem; color: #4A4A4A;">
+                <span class="font-serif font-normal" style="font-size: 0.9375rem; color: var(--text-primary);">
                   What is Aurora Branding Co.?
                 </span>
-                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: #D38BA1; transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
+                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: var(--accent); transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
               </button>
-              <div class="faq-content px-7" style="color: #4A4A4A; opacity: 0.65;">
+              <div class="faq-content px-7" style="color: var(--text-primary); opacity: 0.65;">
                 <p class="font-light pb-5 leading-relaxed" style="font-size: 0.8125rem;">
                   Aurora Branding Co. is a mentoring and design resource hub
                   created specifically for beauty professionals. We provide
@@ -730,14 +794,14 @@ nav a, .nav-link, .glass-nav a {
             </div>
 
             <!-- FAQ 2 -->
-            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid rgba(238, 214, 220, 0.25);">
+            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid var(--glass-border);">
               <button class="w-full text-left px-7 py-5 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                <span class="font-serif font-normal" style="font-size: 0.9375rem; color: #4A4A4A;">
+                <span class="font-serif font-normal" style="font-size: 0.9375rem; color: var(--text-primary);">
                   Who is Aurora designed for?
                 </span>
-                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: #D38BA1; transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
+                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: var(--accent); transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
               </button>
-              <div class="faq-content px-7" style="color: #4A4A4A; opacity: 0.65;">
+              <div class="faq-content px-7" style="color: var(--text-primary); opacity: 0.65;">
                 <p class="font-light pb-5 leading-relaxed" style="font-size: 0.8125rem;">
                   Aurora is for beauty entrepreneurs — hairstylists, makeup
                   artists, estheticians, nail artists, and anyone in the beauty
@@ -748,14 +812,14 @@ nav a, .nav-link, .glass-nav a {
             </div>
 
             <!-- FAQ 3 -->
-            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid rgba(238, 214, 220, 0.25);">
+            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid var(--glass-border);">
               <button class="w-full text-left px-7 py-5 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                <span class="font-serif font-normal" style="font-size: 0.9375rem; color: #4A4A4A;">
+                <span class="font-serif font-normal" style="font-size: 0.9375rem; color: var(--text-primary);">
                   What is the Aurora Circle?
                 </span>
-                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: #D38BA1; transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
+                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: var(--accent); transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
               </button>
-              <div class="faq-content px-7" style="color: #4A4A4A; opacity: 0.65;">
+              <div class="faq-content px-7" style="color: var(--text-primary); opacity: 0.65;">
                 <p class="font-light pb-5 leading-relaxed" style="font-size: 0.8125rem;">
                   The Aurora Circle is our exclusive newsletter community.
                   Members receive early access to resources, brand tips,
@@ -767,14 +831,14 @@ nav a, .nav-link, .glass-nav a {
             </div>
 
             <!-- FAQ 4 -->
-            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid rgba(238, 214, 220, 0.25);">
+            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid var(--glass-border);">
               <button class="w-full text-left px-7 py-5 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                <span class="font-serif font-normal" style="font-size: 0.9375rem; color: #4A4A4A;">
+                <span class="font-serif font-normal" style="font-size: 0.9375rem; color: var(--text-primary);">
                   Are the resources really free?
                 </span>
-                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: #D38BA1; transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
+                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: var(--accent); transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
               </button>
-              <div class="faq-content px-7" style="color: #4A4A4A; opacity: 0.65;">
+              <div class="faq-content px-7" style="color: var(--text-primary); opacity: 0.65;">
                 <p class="font-light pb-5 leading-relaxed" style="font-size: 0.8125rem;">
                   Yes! We offer a curated selection of completely free resources
                   including brand checklists, social media templates, and
@@ -785,14 +849,14 @@ nav a, .nav-link, .glass-nav a {
             </div>
 
             <!-- FAQ 5 -->
-            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid rgba(238, 214, 220, 0.25);">
+            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid var(--glass-border);">
               <button class="w-full text-left px-7 py-5 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                <span class="font-serif font-normal" style="font-size: 0.9375rem; color: #4A4A4A;">
+                <span class="font-serif font-normal" style="font-size: 0.9375rem; color: var(--text-primary);">
                   How often is the blog updated?
                 </span>
-                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: #D38BA1; transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
+                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: var(--accent); transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
               </button>
-              <div class="faq-content px-7" style="color: #4A4A4A; opacity: 0.65;">
+              <div class="faq-content px-7" style="color: var(--text-primary); opacity: 0.65;">
                 <p class="font-light pb-5 leading-relaxed" style="font-size: 0.8125rem;">
                   We publish new articles weekly, covering topics from brand
                   strategy and client experience to social media tips and
@@ -803,14 +867,14 @@ nav a, .nav-link, .glass-nav a {
             </div>
 
             <!-- FAQ 6 -->
-            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid rgba(238, 214, 220, 0.25);">
+            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid var(--glass-border);">
               <button class="w-full text-left px-7 py-5 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                <span class="font-serif font-normal" style="font-size: 0.9375rem; color: #4A4A4A;">
+                <span class="font-serif font-normal" style="font-size: 0.9375rem; color: var(--text-primary);">
                   Can I suggest a blog topic?
                 </span>
-                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: #D38BA1; transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
+                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: var(--accent); transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
               </button>
-              <div class="faq-content px-7" style="color: #4A4A4A; opacity: 0.65;">
+              <div class="faq-content px-7" style="color: var(--text-primary); opacity: 0.65;">
                 <p class="font-light pb-5 leading-relaxed" style="font-size: 0.8125rem;">
                   Absolutely! We love hearing from our community. You can reach
                   out through our contact form or reply to any Aurora Circle
@@ -824,12 +888,12 @@ nav a, .nav-link, .glass-nav a {
       </section>
 
       <!-- ==================== FOOTER ==================== -->
-      <footer class="py-8 px-6" style="border-top: 1px solid rgba(238, 214, 220, 0.25);">
+      <footer class="py-8 px-6" style="border-top: 1px solid var(--glass-border);">
         <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p class="uppercase tracking-widest font-light" style="font-size: 0.5625rem; color: #9C9C9C; letter-spacing: 0.15em;">
+          <p class="uppercase tracking-widest font-light" style="font-size: 0.5625rem; color: var(--text-secondary); letter-spacing: 0.15em;">
             Copyright © 2026 – Aurora Branding Co.
           </p>
-          <a href="#" class="uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.15em;">
+          <a href="#" class="uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.15em;">
             Cookie Policy
           </a>
         </div>

@@ -6,6 +6,55 @@
     <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
     <style>
+        /* === DARK MODE CUSTOM PROPERTIES === */
+        :root {
+          --bg-primary: #FFFFFF;
+          --bg-secondary: #FAF7F6;
+          --bg-pink: #EED6DC;
+          --text-primary: #4A4A4A;
+          --text-secondary: #9C9C9C;
+          --accent: #D38BA1;
+          --accent-light: #E5A5B5;
+          --glass-bg: rgba(255,255,255,0.85);
+          --glass-bg-strong: rgba(250,247,246,0.8);
+          --glass-bg-strongest: rgba(255,255,255,0.98);
+          --glass-border: rgba(238,214,220,0.3);
+          --glass-border-strong: rgba(238,214,220,0.6);
+          --gradient-start: #D38BA1;
+          --gradient-end: #EED6DC;
+          --gradient-bg: #FAF7F6;
+          --blob-opacity: 0.35;
+          --blob-opacity-med: 0.28;
+          --blob-opacity-low: 0.25;
+          --separator: #EED6DC;
+          --filter-active-bg: rgba(238, 214, 220, 0.45);
+          --filter-active-border: rgba(238, 214, 220, 0.6);
+        }
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --bg-primary: #1A1014;
+            --bg-secondary: #251820;
+            --bg-pink: #2E1E24;
+            --text-primary: #F2E8EA;
+            --text-secondary: #A08A90;
+            --accent: #C47A90;
+            --accent-light: #E5A5B5;
+            --glass-bg: rgba(26,16,20,0.8);
+            --glass-bg-strong: rgba(26,16,20,0.85);
+            --glass-bg-strongest: rgba(26,16,20,0.95);
+            --glass-border: rgba(46,30,36,0.3);
+            --glass-border-strong: rgba(46,30,36,0.5);
+            --gradient-start: #3A2830;
+            --gradient-end: #2E1E24;
+            --gradient-bg: #251820;
+            --blob-opacity: 0.20;
+            --blob-opacity-med: 0.15;
+            --blob-opacity-low: 0.15;
+            --separator: #2E1E24;
+            --filter-active-bg: rgba(46, 30, 36, 0.45);
+            --filter-active-border: rgba(46, 30, 36, 0.6);
+          }
+        }
         @keyframes morphBlob1 {
             0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(0, 0) rotate(0deg) scale(1); }
             25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: translate(50px, -30px) rotate(45deg) scale(1.05); }
@@ -50,12 +99,12 @@
             background-size: 128px 128px;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.85);
+            background: var(--glass-bg);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
         }
         .glass-nav {
-            background: rgba(250, 247, 246, 0.8);
+            background: var(--glass-bg-strong);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
@@ -82,7 +131,7 @@
           font-weight: 400;
           line-height: 1.8rem;
           letter-spacing: 0.5px;
-          color: #4A4A4A;
+          color: var(--text-primary);
         }
         h1 {
           font-family: 'EB Garamond', serif;
@@ -168,7 +217,7 @@
           max-height: 0;
           overflow: hidden;
           transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          background: rgba(255, 255, 255, 0.98);
+          background: var(--glass-bg-strongest);
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
         }
@@ -191,21 +240,26 @@
           .desktop-nav-links { display: none !important; }
           .mobile-menu-panel { display: block; }
         }
+        /* === DARK MODE OVERRIDES === */
+        @media (prefers-color-scheme: dark) {
+          .nav-logo { filter: brightness(2); }
+          .hamburger-btn svg { stroke: var(--accent); }
+        }
     </style>
 </head>
-<body style="background-color: #FAF7F6; color: #4A4A4A; overflow-x: hidden; position: relative; font-size: 1.1rem;">
+<body style="background-color: var(--bg-secondary); color: var(--text-primary); overflow-x: hidden; position: relative; font-size: 1.1rem;">
 
     <!-- Noise Overlay -->
     <div class="noise-overlay fixed inset-0 pointer-events-none z-50" style="opacity: 0.4;"></div>
 
     <!-- Animated Blob 1 - Top Right, behind hero -->
-    <div class="blob-primary fixed pointer-events-none z-0" style="width: 900px; height: 900px; top: -150px; right: -200px; background: linear-gradient(135deg, #D38BA1, #EED6DC, #FAF7F6); opacity: 0.35; filter: blur(100px);"></div>
+    <div class="blob-primary fixed pointer-events-none z-0" style="width: 900px; height: 900px; top: -150px; right: -200px; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end), var(--gradient-bg)); opacity: var(--blob-opacity); filter: blur(100px);"></div>
 
     <!-- Animated Blob 2 - Center Left, behind blog grid -->
-    <div class="blob-secondary fixed pointer-events-none z-0" style="width: 600px; height: 600px; top: 45%; left: -150px; background: linear-gradient(225deg, #EED6DC, #D38BA1, #FAF7F6); opacity: 0.28; filter: blur(90px);"></div>
+    <div class="blob-secondary fixed pointer-events-none z-0" style="width: 600px; height: 600px; top: 45%; left: -150px; background: linear-gradient(225deg, var(--gradient-end), var(--gradient-start), var(--gradient-bg)); opacity: var(--blob-opacity-med); filter: blur(90px);"></div>
 
     <!-- Animated Blob 3 - Bottom Right, near footer -->
-    <div class="blob-tertiary fixed pointer-events-none z-0" style="width: 500px; height: 500px; bottom: -50px; right: -100px; background: linear-gradient(45deg, #D38BA1, #EED6DC); opacity: 0.25; filter: blur(80px);"></div>
+    <div class="blob-tertiary fixed pointer-events-none z-0" style="width: 500px; height: 500px; bottom: -50px; right: -100px; background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end)); opacity: var(--blob-opacity-low); filter: blur(80px);"></div>
 
     <!-- ==================== SPARKLE STARS ==================== -->
     <!-- Hero area sparkles -->
@@ -266,7 +320,7 @@
                 <div class="text-center mb-5 relative">
                     <span class="sparkle-3 absolute -top-1 -left-1" style="color: #B0B0B0; font-size: 0.5rem;">✦</span>
                     <a href="/" style="text-decoration: none;">
-                        <img src="../images/aurorabranding-logo-RGB-01.png" alt="Aurora Branding Co." style="width: 280px; height: auto;">
+                        <img class="nav-logo" src="../images/aurorabranding-logo-RGB-01.png" alt="Aurora Branding Co." style="width: 280px; height: auto;">
                     </a>
                 </div>
                 <!-- Hamburger Button (mobile only) -->
@@ -276,25 +330,25 @@
                 </button>
                 <!-- Desktop Nav Links -->
                 <div class="flex items-center gap-0 desktop-nav-links">
-                    <a href="/" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">Home</a>
-                    <span style="color: #EED6DC;">|</span>
-                    <a href="/#about" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">About</a>
-                    <span style="color: #EED6DC;">|</span>
-                    <a href="/blog" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300" style="font-size: 1rem; color: #9C9C9C; letter-spacing: 0.08em;">Blog</a>
-                    <span style="color: #EED6DC;">|</span>
-                    <a href="/aurora-circle" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">Aurora Circle</a>
-                    <a href="#" class="ml-6 transition-opacity duration-300 hover:opacity-60" style="color: #D38BA1;">
+                    <a href="/" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: var(--accent); letter-spacing: 0.08em;">Home</a>
+                    <span style="color: var(--separator);">|</span>
+                    <a href="/#about" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: var(--accent); letter-spacing: 0.08em;">About</a>
+                    <span style="color: var(--separator);">|</span>
+                    <a href="/blog" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300" style="font-size: 1rem; color: var(--text-secondary); letter-spacing: 0.08em;">Blog</a>
+                    <span style="color: var(--separator);">|</span>
+                    <a href="/aurora-circle" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: var(--accent); letter-spacing: 0.08em;">Aurora Circle</a>
+                    <a href="#" class="ml-6 transition-opacity duration-300 hover:opacity-60" style="color: var(--accent);">
                         <iconify-icon icon="solar:magnifer-linear" width="18" style="stroke-width: 1.5;"></iconify-icon>
                     </a>
                 </div>
             </div>
             <!-- Mobile Menu Panel -->
             <div class="mobile-menu-panel">
-                <div class="py-4 px-6" style="border-top: 1px solid #EED6DC;">
-                    <a href="/" style="color: #D38BA1;">Home</a>
-                    <a href="/#about" style="color: #D38BA1;">About</a>
-                    <a href="/blog" style="color: #9C9C9C;">Blog</a>
-                    <a href="/aurora-circle" style="color: #D38BA1;">Aurora Circle</a>
+                <div class="py-4 px-6" style="border-top: 1px solid var(--separator);">
+                    <a href="/" style="color: var(--accent);">Home</a>
+                    <a href="/#about" style="color: var(--accent);">About</a>
+                    <a href="/blog" style="color: var(--text-secondary);">Blog</a>
+                    <a href="/aurora-circle" style="color: var(--accent);">Aurora Circle</a>
                 </div>
             </div>
         </nav>
@@ -302,13 +356,13 @@
         <!-- ==================== HERO SECTION ==================== -->
         <section class="relative px-6" style="padding-top: 100px; padding-bottom: 110px;">
             <div class="max-w-3xl mx-auto text-center relative">
-                <h2 class="font-serif font-medium tracking-tight mb-8" style="font-size: 2.3rem; color: #4A4A4A; line-height: 2.6rem; letter-spacing: 0.02em;">
+                <h2 class="font-serif font-medium tracking-tight mb-8" style="font-size: 2.3rem; color: var(--text-primary); line-height: 2.6rem; letter-spacing: 0.02em;">
                     Strategy &amp; Style For<br>Beauty Entrepreneurs
                 </h2>
-                <p class="font-light leading-relaxed mb-6 max-w-2xl mx-auto" style="color: #9C9C9C; font-size: clamp(0.875rem, 1.4vw, 1rem); line-height: 1.8;">
+                <p class="font-light leading-relaxed mb-6 max-w-2xl mx-auto" style="color: var(--text-secondary); font-size: clamp(0.875rem, 1.4vw, 1rem); line-height: 1.8;">
                     Welcome to the heart of Aurora Branding Co. — a curated space where beauty meets business. Here, you'll find powerful branding tips, proven growth strategies, and creative inspiration to help you elevate your beauty business and build a brand that clients can't forget.
                 </p>
-                <p class="font-light" style="color: #9C9C9C; font-size: clamp(0.75rem, 1.2vw, 0.875rem);">
+                <p class="font-light" style="color: var(--text-secondary); font-size: clamp(0.75rem, 1.2vw, 0.875rem);">
                     Explore the categories below and start transforming your vision into a timeless, profitable brand. <span style="color: #B0B0B0;">✦</span>
                 </p>
             </div>
@@ -318,14 +372,14 @@
         <section class="relative px-6 pb-16">
             <div class="max-w-5xl mx-auto">
                 <div class="filter-scroll flex flex-wrap justify-center gap-2.5 md:gap-3" id="filterBar">
-                    <button class="filter-pill active-filter rounded-full px-5 py-2 uppercase tracking-widest" style="font-size: 0.6875rem; letter-spacing: 0.15em; background: rgba(238, 214, 220, 0.45); border: 1px solid rgba(238, 214, 220, 0.6); color: #4A4A4A;" onclick="setActiveFilter(this)">All</button>
-                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: #D38BA1; background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Branding &amp; Design</button>
-                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: #D38BA1; background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Business &amp; Strategy</button>
-                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: #D38BA1; background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Client Experience</button>
-                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: #D38BA1; background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Founder's Notes</button>
-                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: #D38BA1; background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Marketing &amp; Social Media</button>
-                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: #D38BA1; background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Gifts &amp; Printables</button>
-                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: #D38BA1; background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Salon Tools &amp; Templates</button>
+                    <button class="filter-pill active-filter rounded-full px-5 py-2 uppercase tracking-widest" style="font-size: 0.6875rem; letter-spacing: 0.15em; background: var(--filter-active-bg); border: 1px solid var(--filter-active-border); color: var(--text-primary);" onclick="setActiveFilter(this)">All</button>
+                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: var(--accent); background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Branding &amp; Design</button>
+                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: var(--accent); background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Business &amp; Strategy</button>
+                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: var(--accent); background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Client Experience</button>
+                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: var(--accent); background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Founder's Notes</button>
+                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: var(--accent); background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Marketing &amp; Social Media</button>
+                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: var(--accent); background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Gifts &amp; Printables</button>
+                    <button class="filter-pill rounded-full px-5 py-2 uppercase tracking-widest font-light" style="font-size: 0.6875rem; letter-spacing: 0.15em; color: var(--accent); background: transparent; border: 1px solid transparent;" onclick="setActiveFilter(this)" onmouseover="if(!this.classList.contains('active-filter')){this.style.opacity='0.75'}" onmouseout="this.style.opacity='1'">Salon Tools &amp; Templates</button>
                 </div>
             </div>
         </section>
@@ -336,116 +390,116 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                     <!-- Blog Card 1 -->
-                    <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid rgba(238, 214, 220, 0.3); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);" onmouseover="this.style.boxShadow='0 10px 40px rgba(211, 139, 161, 0.15)'" onmouseout="this.style.boxShadow='0 2px 20px rgba(211, 139, 161, 0.08)'">
+                    <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid var(--glass-border); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);" onmouseover="this.style.boxShadow='0 10px 40px rgba(211, 139, 161, 0.15)'" onmouseout="this.style.boxShadow='0 2px 20px rgba(211, 139, 161, 0.08)'">
                         <div class="relative overflow-hidden" style="height: 200px;">
                             <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&amp;q=80" alt="Salon interior" class="img-hover w-full h-full object-cover cursor-pointer">
                         </div>
                         <div class="p-7">
-                            <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Client Experience</p>
-                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: #D38BA1; line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">Client Experience</p>
+                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: var(--accent); line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                                 Salon Policies For Beauty Businesses: What To Set And Why
                             </h3>
-                            <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">March 4, 2026</p>
-                            <div class="mb-4" style="height: 1px; background: #EED6DC; opacity: 0.3;"></div>
-                            <p class="font-light leading-relaxed mb-6" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            <p class="font-light mb-4" style="font-size: 0.6875rem; color: var(--text-secondary);">March 4, 2026</p>
+                            <div class="mb-4" style="height: 1px; background: var(--separator); opacity: 0.3;"></div>
+                            <p class="font-light leading-relaxed mb-6" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
                                 Clear salon policies help beauty businesses reduce cancellations, set expectations, and protect time and income without losing clients.
                             </p>
-                            <a href="/blog/salon-policies-for-beauty-businesses" class="read-more-btn inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid #E5A5B5; color: #D38BA1;" onmouseover="this.style.background='#E5A5B5'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#D38BA1'">Read More</a>
+                            <a href="/blog/salon-policies-for-beauty-businesses" class="read-more-btn inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid var(--accent-light); color: var(--accent);" onmouseover="this.style.background='var(--accent-light)'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='var(--accent)'">Read More</a>
                         </div>
                     </article>
 
                     <!-- Blog Card 2 -->
-                    <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid rgba(238, 214, 220, 0.3); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);" onmouseover="this.style.boxShadow='0 10px 40px rgba(211, 139, 161, 0.15)'" onmouseout="this.style.boxShadow='0 2px 20px rgba(211, 139, 161, 0.08)'">
+                    <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid var(--glass-border); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);" onmouseover="this.style.boxShadow='0 10px 40px rgba(211, 139, 161, 0.15)'" onmouseout="this.style.boxShadow='0 2px 20px rgba(211, 139, 161, 0.08)'">
                         <div class="relative overflow-hidden" style="height: 200px;">
                             <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&amp;q=80" alt="Brand design" class="img-hover w-full h-full object-cover cursor-pointer">
                         </div>
                         <div class="p-7">
-                            <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Branding &amp; Design</p>
-                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: #D38BA1; line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">Branding &amp; Design</p>
+                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: var(--accent); line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                                 How To Create A Visual Identity That Attracts Your Dream Clients
                             </h3>
-                            <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">February 18, 2026</p>
-                            <div class="mb-4" style="height: 1px; background: #EED6DC; opacity: 0.3;"></div>
-                            <p class="font-light leading-relaxed mb-6" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            <p class="font-light mb-4" style="font-size: 0.6875rem; color: var(--text-secondary);">February 18, 2026</p>
+                            <div class="mb-4" style="height: 1px; background: var(--separator); opacity: 0.3;"></div>
+                            <p class="font-light leading-relaxed mb-6" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
                                 Your visual identity is more than a logo — it's the first impression that tells potential clients who you are.
                             </p>
-                            <a href="#" class="read-more-btn inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid #E5A5B5; color: #D38BA1;" onmouseover="this.style.background='#E5A5B5'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#D38BA1'">Read More</a>
+                            <a href="#" class="read-more-btn inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid var(--accent-light); color: var(--accent);" onmouseover="this.style.background='var(--accent-light)'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='var(--accent)'">Read More</a>
                         </div>
                     </article>
 
                     <!-- Blog Card 3 -->
-                    <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid rgba(238, 214, 220, 0.3); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);" onmouseover="this.style.boxShadow='0 10px 40px rgba(211, 139, 161, 0.15)'" onmouseout="this.style.boxShadow='0 2px 20px rgba(211, 139, 161, 0.08)'">
+                    <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid var(--glass-border); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);" onmouseover="this.style.boxShadow='0 10px 40px rgba(211, 139, 161, 0.15)'" onmouseout="this.style.boxShadow='0 2px 20px rgba(211, 139, 161, 0.08)'">
                         <div class="relative overflow-hidden" style="height: 200px;">
                             <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600&amp;q=80" alt="Business strategy" class="img-hover w-full h-full object-cover cursor-pointer">
                         </div>
                         <div class="p-7">
-                            <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Business &amp; Strategy</p>
-                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: #D38BA1; line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">Business &amp; Strategy</p>
+                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: var(--accent); line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                                 5 Signs Your Beauty Brand Needs A Strategic Refresh
                             </h3>
-                            <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">February 3, 2026</p>
-                            <div class="mb-4" style="height: 1px; background: #EED6DC; opacity: 0.3;"></div>
-                            <p class="font-light leading-relaxed mb-6" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            <p class="font-light mb-4" style="font-size: 0.6875rem; color: var(--text-secondary);">February 3, 2026</p>
+                            <div class="mb-4" style="height: 1px; background: var(--separator); opacity: 0.3;"></div>
+                            <p class="font-light leading-relaxed mb-6" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
                                 If your brand no longer feels like you, it might be time for a strategic refresh that aligns with your growth.
                             </p>
-                            <a href="#" class="read-more-btn inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid #E5A5B5; color: #D38BA1;" onmouseover="this.style.background='#E5A5B5'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#D38BA1'">Read More</a>
+                            <a href="#" class="read-more-btn inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid var(--accent-light); color: var(--accent);" onmouseover="this.style.background='var(--accent-light)'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='var(--accent)'">Read More</a>
                         </div>
                     </article>
 
                     <!-- Blog Card 4 -->
-                    <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid rgba(238, 214, 220, 0.3); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);" onmouseover="this.style.boxShadow='0 10px 40px rgba(211, 139, 161, 0.15)'" onmouseout="this.style.boxShadow='0 2px 20px rgba(211, 139, 161, 0.08)'">
+                    <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid var(--glass-border); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);" onmouseover="this.style.boxShadow='0 10px 40px rgba(211, 139, 161, 0.15)'" onmouseout="this.style.boxShadow='0 2px 20px rgba(211, 139, 161, 0.08)'">
                         <div class="relative overflow-hidden" style="height: 200px;">
                             <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&amp;q=80" alt="Instagram marketing" class="img-hover w-full h-full object-cover cursor-pointer">
                         </div>
                         <div class="p-7">
-                            <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Marketing &amp; Social Media</p>
-                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: #D38BA1; line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">Marketing &amp; Social Media</p>
+                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: var(--accent); line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                                 Instagram Content Ideas For Beauty Professionals Who Hate Posting
                             </h3>
-                            <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">January 20, 2026</p>
-                            <div class="mb-4" style="height: 1px; background: #EED6DC; opacity: 0.3;"></div>
-                            <p class="font-light leading-relaxed mb-6" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            <p class="font-light mb-4" style="font-size: 0.6875rem; color: var(--text-secondary);">January 20, 2026</p>
+                            <div class="mb-4" style="height: 1px; background: var(--separator); opacity: 0.3;"></div>
+                            <p class="font-light leading-relaxed mb-6" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
                                 You don't need to post every day. You need a strategy that works with your schedule and attracts the right clients.
                             </p>
-                            <a href="#" class="read-more-btn inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid #E5A5B5; color: #D38BA1;" onmouseover="this.style.background='#E5A5B5'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#D38BA1'">Read More</a>
+                            <a href="#" class="read-more-btn inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid var(--accent-light); color: var(--accent);" onmouseover="this.style.background='var(--accent-light)'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='var(--accent)'">Read More</a>
                         </div>
                     </article>
 
                     <!-- Blog Card 5 -->
-                    <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid rgba(238, 214, 220, 0.3); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);" onmouseover="this.style.boxShadow='0 10px 40px rgba(211, 139, 161, 0.15)'" onmouseout="this.style.boxShadow='0 2px 20px rgba(211, 139, 161, 0.08)'">
+                    <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid var(--glass-border); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);" onmouseover="this.style.boxShadow='0 10px 40px rgba(211, 139, 161, 0.15)'" onmouseout="this.style.boxShadow='0 2px 20px rgba(211, 139, 161, 0.08)'">
                         <div class="relative overflow-hidden" style="height: 200px;">
                             <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=600&amp;q=80" alt="Founder story" class="img-hover w-full h-full object-cover cursor-pointer">
                         </div>
                         <div class="p-7">
-                            <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Founder's Notes</p>
-                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: #D38BA1; line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">Founder's Notes</p>
+                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: var(--accent); line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                                 Why I Built Aurora — And What It Means For Your Brand
                             </h3>
-                            <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">January 8, 2026</p>
-                            <div class="mb-4" style="height: 1px; background: #EED6DC; opacity: 0.3;"></div>
-                            <p class="font-light leading-relaxed mb-6" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            <p class="font-light mb-4" style="font-size: 0.6875rem; color: var(--text-secondary);">January 8, 2026</p>
+                            <div class="mb-4" style="height: 1px; background: var(--separator); opacity: 0.3;"></div>
+                            <p class="font-light leading-relaxed mb-6" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
                                 The story behind Aurora Branding Co. and the vision for empowering beauty entrepreneurs worldwide.
                             </p>
-                            <a href="#" class="read-more-btn inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid #E5A5B5; color: #D38BA1;" onmouseover="this.style.background='#E5A5B5'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#D38BA1'">Read More</a>
+                            <a href="#" class="read-more-btn inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid var(--accent-light); color: var(--accent);" onmouseover="this.style.background='var(--accent-light)'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='var(--accent)'">Read More</a>
                         </div>
                     </article>
 
                     <!-- Blog Card 6 -->
-                    <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid rgba(238, 214, 220, 0.3); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);" onmouseover="this.style.boxShadow='0 10px 40px rgba(211, 139, 161, 0.15)'" onmouseout="this.style.boxShadow='0 2px 20px rgba(211, 139, 161, 0.08)'">
+                    <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid var(--glass-border); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);" onmouseover="this.style.boxShadow='0 10px 40px rgba(211, 139, 161, 0.15)'" onmouseout="this.style.boxShadow='0 2px 20px rgba(211, 139, 161, 0.08)'">
                         <div class="relative overflow-hidden" style="height: 200px;">
                             <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&amp;q=80" alt="Consultation form" class="img-hover w-full h-full object-cover cursor-pointer">
                         </div>
                         <div class="p-7">
-                            <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Salon Tools &amp; Templates</p>
-                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: #D38BA1; line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">Salon Tools &amp; Templates</p>
+                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: var(--accent); line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                                 Free Consultation Form Template For Beauty Professionals
                             </h3>
-                            <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">December 15, 2025</p>
-                            <div class="mb-4" style="height: 1px; background: #EED6DC; opacity: 0.3;"></div>
-                            <p class="font-light leading-relaxed mb-6" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            <p class="font-light mb-4" style="font-size: 0.6875rem; color: var(--text-secondary);">December 15, 2025</p>
+                            <div class="mb-4" style="height: 1px; background: var(--separator); opacity: 0.3;"></div>
+                            <p class="font-light leading-relaxed mb-6" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
                                 A professionally designed consultation form that helps you understand your clients before they walk through the door.
                             </p>
-                            <a href="#" class="read-more-btn inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid #E5A5B5; color: #D38BA1;" onmouseover="this.style.background='#E5A5B5'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#D38BA1'">Read More</a>
+                            <a href="#" class="read-more-btn inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid var(--accent-light); color: var(--accent);" onmouseover="this.style.background='var(--accent-light)'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='var(--accent)'">Read More</a>
                         </div>
                     </article>
 
@@ -454,10 +508,10 @@
         </section>
 
         <!-- ==================== FOOTER ==================== -->
-        <footer class="py-8 px-6" style="border-top: 1px solid rgba(238, 214, 220, 0.25);">
+        <footer class="py-8 px-6" style="border-top: 1px solid var(--glass-border);">
             <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p class="uppercase tracking-widest font-light" style="font-size: 0.5625rem; color: #9C9C9C; letter-spacing: 0.15em;">Copyright © 2026 – Aurora Branding Co.</p>
-                <a href="#" class="uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.15em;">Cookie Policy</a>
+                <p class="uppercase tracking-widest font-light" style="font-size: 0.5625rem; color: var(--text-secondary); letter-spacing: 0.15em;">Copyright © 2026 – Aurora Branding Co.</p>
+                <a href="#" class="uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.15em;">Cookie Policy</a>
             </div>
         </footer>
 
@@ -470,15 +524,15 @@
                 pill.classList.remove('active-filter');
                 pill.style.background = 'transparent';
                 pill.style.border = '1px solid transparent';
-                pill.style.color = '#D38BA1';
+                pill.style.color = 'var(--accent)';
                 pill.style.fontWeight = '300';
             });
 
             // Set active state on clicked
             button.classList.add('active-filter');
-            button.style.background = 'rgba(238, 214, 220, 0.45)';
-            button.style.border = '1px solid rgba(238, 214, 220, 0.6)';
-            button.style.color = '#4A4A4A';
+            button.style.background = 'var(--filter-active-bg)';
+            button.style.border = '1px solid var(--filter-active-border)';
+            button.style.color = 'var(--text-primary)';
             button.style.fontWeight = '400';
         }
     </script>

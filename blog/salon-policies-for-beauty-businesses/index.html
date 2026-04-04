@@ -8,6 +8,62 @@
     <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
     <style>
+        /* === DARK MODE CUSTOM PROPERTIES === */
+        :root {
+          --bg-primary: #FFFFFF;
+          --bg-secondary: #FAF7F6;
+          --bg-pink: #EED6DC;
+          --text-primary: #4A4A4A;
+          --text-secondary: #9C9C9C;
+          --accent: #D38BA1;
+          --accent-light: #E5A5B5;
+          --glass-bg: rgba(255,255,255,0.8);
+          --glass-bg-strong: rgba(255,255,255,0.95);
+          --glass-bg-strongest: rgba(255,255,255,0.98);
+          --glass-border: rgba(238,214,220,0.2);
+          --glass-border-light: rgba(238,214,220,0.25);
+          --gradient-start: #D38BA1;
+          --gradient-end: #EED6DC;
+          --gradient-bg: #FAF7F6;
+          --blob-opacity: 0.30;
+          --blob-opacity-med: 0.25;
+          --blob-opacity-low: 0.20;
+          --separator: #EED6DC;
+          --input-bg: #FAF7F6;
+          --hero-overlay-top: rgba(255,255,255,0.95);
+          --hero-overlay-mid: rgba(255,255,255,0.85);
+          --hero-overlay-pink: rgba(238,214,220,0.5);
+          --hero-overlay-bottom: rgba(238,214,220,0.85);
+        }
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --bg-primary: #1A1014;
+            --bg-secondary: #251820;
+            --bg-pink: #2E1E24;
+            --text-primary: #F2E8EA;
+            --text-secondary: #A08A90;
+            --accent: #C47A90;
+            --accent-light: #E5A5B5;
+            --glass-bg: rgba(26,16,20,0.8);
+            --glass-bg-strong: rgba(26,16,20,0.92);
+            --glass-bg-strongest: rgba(26,16,20,0.95);
+            --glass-border: rgba(46,30,36,0.3);
+            --glass-border-light: rgba(46,30,36,0.25);
+            --gradient-start: #3A2830;
+            --gradient-end: #2E1E24;
+            --gradient-bg: #251820;
+            --blob-opacity: 0.15;
+            --blob-opacity-med: 0.12;
+            --blob-opacity-low: 0.10;
+            --separator: #2E1E24;
+            --input-bg: #251820;
+            --hero-overlay-top: rgba(26,16,20,0.95);
+            --hero-overlay-mid: rgba(26,16,20,0.85);
+            --hero-overlay-pink: rgba(46,30,36,0.5);
+            --hero-overlay-bottom: rgba(46,30,36,0.85);
+          }
+        }
+
         /* ==================== BLOB ANIMATIONS ==================== */
         @keyframes morphBlob1 {
             0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(0, 0) rotate(0deg) scale(1); }
@@ -57,12 +113,12 @@
             background-size: 128px 128px;
         }
         .glass-nav {
-            background: rgba(255,255,255,0.95);
+            background: var(--glass-bg-strong);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.8);
+            background: var(--glass-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
@@ -77,7 +133,7 @@
           font-weight: 400;
           line-height: 1.8rem;
           letter-spacing: 0.5px;
-          color: #4A4A4A;
+          color: var(--text-primary);
         }
         h1 {
           font-family: 'EB Garamond', serif;
@@ -160,7 +216,7 @@
           max-height: 0;
           overflow: hidden;
           transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          background: rgba(255, 255, 255, 0.98);
+          background: var(--glass-bg-strongest);
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
         }
@@ -186,12 +242,12 @@
         html { scroll-behavior: smooth; }
 
         /* ==================== ARTICLE TYPOGRAPHY ==================== */
-        .article-body { font-size: 17px; line-height: 1.8; color: #4A4A4A; }
+        .article-body { font-size: 17px; line-height: 1.8; color: var(--text-primary); }
         .article-body p { margin-bottom: 1.6em; }
         .article-body h2 {
             font-family: 'EB Garamond', serif;
             letter-spacing: 0.025em;
-            color: #D38BA1;
+            color: var(--accent);
             font-size: 2.3rem;
             font-weight: 800;
             margin-top: 2.8em;
@@ -204,13 +260,13 @@
             display: block;
             width: 50px;
             height: 2px;
-            background: linear-gradient(90deg, #D38BA1, #EED6DC);
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
             margin-bottom: 1em;
         }
         .article-body h3 {
             font-family: 'EB Garamond', serif;
             font-weight: 600;
-            color: #4A4A4A;
+            color: var(--text-primary);
             font-size: 2.1rem;
             text-transform: capitalize;
             letter-spacing: 0.02em;
@@ -230,7 +286,7 @@
         }
         .article-body ul li::before {
             content: '•';
-            color: #D38BA1;
+            color: var(--accent);
             font-weight: 700;
             font-size: 1.2em;
             position: absolute;
@@ -238,13 +294,13 @@
             top: -0.05em;
         }
         .article-body a {
-            color: #D38BA1;
+            color: var(--accent);
             text-decoration: none;
             border-bottom: 1px solid rgba(211, 139, 161, 0.3);
             transition: border-color 0.3s ease;
         }
         .article-body a:hover {
-            border-bottom-color: #D38BA1;
+            border-bottom-color: var(--accent);
         }
         .article-body img {
             width: 100%;
@@ -257,16 +313,16 @@
 
         /* Pull quote */
         .pull-quote {
-            background: rgba(255, 255, 255, 0.8);
+            background: var(--glass-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-left: 4px solid #D38BA1;
+            border-left: 4px solid var(--accent);
             border-radius: 0 14px 14px 0;
             padding: 1.8em 2em;
             margin: 2.4em 0;
-            border-top: 1px solid rgba(238, 214, 220, 0.25);
-            border-right: 1px solid rgba(238, 214, 220, 0.25);
-            border-bottom: 1px solid rgba(238, 214, 220, 0.25);
+            border-top: 1px solid var(--glass-border-light);
+            border-right: 1px solid var(--glass-border-light);
+            border-bottom: 1px solid var(--glass-border-light);
             box-shadow: 0 4px 20px rgba(211, 139, 161, 0.06);
         }
         .pull-quote p {
@@ -274,7 +330,7 @@
             letter-spacing: 0.025em;
             font-style: italic;
             font-size: 1.1rem;
-            color: #4A4A4A;
+            color: var(--text-primary);
             line-height: 1.7;
             margin-bottom: 0 !important;
         }
@@ -286,16 +342,16 @@
             font-size: 0.9375rem;
         }
         .related-callout a {
-            color: #D38BA1;
+            color: var(--accent);
             font-weight: 400;
         }
 
         /* Sidebar */
         .sidebar-card {
-            background: rgba(255, 255, 255, 0.8);
+            background: var(--glass-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(238, 214, 220, 0.2);
+            border: 1px solid var(--glass-border);
             border-radius: 18px;
             padding: 1.8em;
             margin-bottom: 1.5em;
@@ -307,7 +363,7 @@
             line-height: 3.2rem;
             font-weight: 400;
             letter-spacing: 0;
-            color: #D38BA1;
+            color: var(--accent);
             margin-bottom: 0.8em;
         }
 
@@ -316,7 +372,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .btn-fill:hover {
-            background-color: #D38BA1 !important;
+            background-color: var(--accent) !important;
             box-shadow: 0 6px 24px rgba(211, 139, 161, 0.25);
         }
 
@@ -339,21 +395,26 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .aurora-input:focus {
-            border-color: #E5A5B5;
+            border-color: var(--accent-light);
             box-shadow: 0 0 0 3px rgba(229, 165, 181, 0.15);
             outline: none;
         }
+        /* === DARK MODE OVERRIDES === */
+        @media (prefers-color-scheme: dark) {
+          .nav-logo { filter: brightness(2); }
+          .hamburger-btn svg { stroke: var(--accent); }
+        }
     </style>
 </head>
-<body style="background-color: #FAF7F6; color: #4A4A4A; overflow-x: hidden; position: relative; font-size: 1.1rem;">
+<body style="background-color: var(--bg-secondary); color: var(--text-primary); overflow-x: hidden; position: relative; font-size: 1.1rem;">
 
     <!-- Noise Overlay -->
     <div class="noise-overlay fixed inset-0 pointer-events-none z-50" style="opacity: 0.4;"></div>
 
     <!-- ==================== ANIMATED BLOBS ==================== -->
-    <div class="blob-primary fixed pointer-events-none z-0" style="width: 800px; height: 800px; top: -180px; right: -200px; background: linear-gradient(135deg, #D38BA1, #EED6DC, #FAF7F6); opacity: 0.3; filter: blur(100px);"></div>
-    <div class="blob-secondary fixed pointer-events-none z-0" style="width: 650px; height: 650px; top: 50%; left: -180px; background: linear-gradient(225deg, #EED6DC, #D38BA1, #FAF7F6); opacity: 0.25; filter: blur(90px);"></div>
-    <div class="blob-tertiary fixed pointer-events-none z-0" style="width: 550px; height: 550px; bottom: -80px; right: -100px; background: linear-gradient(45deg, #D38BA1, #EED6DC); opacity: 0.2; filter: blur(80px);"></div>
+    <div class="blob-primary fixed pointer-events-none z-0" style="width: 800px; height: 800px; top: -180px; right: -200px; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end), var(--gradient-bg)); opacity: var(--blob-opacity); filter: blur(100px);"></div>
+    <div class="blob-secondary fixed pointer-events-none z-0" style="width: 650px; height: 650px; top: 50%; left: -180px; background: linear-gradient(225deg, var(--gradient-end), var(--gradient-start), var(--gradient-bg)); opacity: var(--blob-opacity-med); filter: blur(90px);"></div>
+    <div class="blob-tertiary fixed pointer-events-none z-0" style="width: 550px; height: 550px; bottom: -80px; right: -100px; background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end)); opacity: var(--blob-opacity-low); filter: blur(80px);"></div>
 
     <!-- ==================== SPARKLE STARS ==================== -->
     <div class="fixed pointer-events-none" style="top: 3%; left: 8%; z-index: 5;">
@@ -402,7 +463,7 @@
                 <div class="text-center mb-5 relative">
                     <span class="sparkle-3 absolute -top-1 -left-1" style="color: #B0B0B0; font-size: 0.5rem;">&#10022;</span>
                     <a href="/" style="text-decoration: none;">
-                        <img src="../../images/aurorabranding-logo-RGB-01.png" alt="Aurora Branding Co." style="width: 280px; height: auto;">
+                        <img class="nav-logo" src="../../images/aurorabranding-logo-RGB-01.png" alt="Aurora Branding Co." style="width: 280px; height: auto;">
                     </a>
                 </div>
                 <!-- Hamburger Button (mobile only) -->
@@ -412,25 +473,25 @@
                 </button>
                 <!-- Desktop Nav Links -->
                 <div class="flex items-center gap-0 desktop-nav-links">
-                    <a href="/" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">Home</a>
-                    <span style="color: #EED6DC;">|</span>
-                    <a href="/#about" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">About</a>
-                    <span style="color: #EED6DC;">|</span>
-                    <a href="/blog" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300" style="font-size: 1rem; color: #9C9C9C; letter-spacing: 0.08em;">Blog</a>
-                    <span style="color: #EED6DC;">|</span>
-                    <a href="/aurora-circle" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">Aurora Circle</a>
-                    <a href="#" class="ml-6 transition-opacity duration-300 hover:opacity-60" style="color: #D38BA1;">
+                    <a href="/" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: var(--accent); letter-spacing: 0.08em;">Home</a>
+                    <span style="color: var(--separator);">|</span>
+                    <a href="/#about" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: var(--accent); letter-spacing: 0.08em;">About</a>
+                    <span style="color: var(--separator);">|</span>
+                    <a href="/blog" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300" style="font-size: 1rem; color: var(--text-secondary); letter-spacing: 0.08em;">Blog</a>
+                    <span style="color: var(--separator);">|</span>
+                    <a href="/aurora-circle" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: var(--accent); letter-spacing: 0.08em;">Aurora Circle</a>
+                    <a href="#" class="ml-6 transition-opacity duration-300 hover:opacity-60" style="color: var(--accent);">
                         <iconify-icon icon="solar:magnifer-linear" width="18" style="stroke-width: 1.5;"></iconify-icon>
                     </a>
                 </div>
             </div>
             <!-- Mobile Menu Panel -->
             <div class="mobile-menu-panel">
-                <div class="py-4 px-6" style="border-top: 1px solid #EED6DC;">
-                    <a href="/" style="color: #D38BA1;">Home</a>
-                    <a href="/#about" style="color: #D38BA1;">About</a>
-                    <a href="/blog" style="color: #9C9C9C;">Blog</a>
-                    <a href="/aurora-circle" style="color: #D38BA1;">Aurora Circle</a>
+                <div class="py-4 px-6" style="border-top: 1px solid var(--separator);">
+                    <a href="/" style="color: var(--accent);">Home</a>
+                    <a href="/#about" style="color: var(--accent);">About</a>
+                    <a href="/blog" style="color: var(--text-secondary);">Blog</a>
+                    <a href="/aurora-circle" style="color: var(--accent);">Aurora Circle</a>
                 </div>
             </div>
         </nav>
@@ -449,13 +510,13 @@
             </div>
 
             <!-- Gradient Overlay (white top → pink bottom, merging with nav) -->
-            <div class="absolute inset-0 z-[1]" style="background: linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 15%, rgba(238,214,220,0.5) 45%, rgba(238,214,220,0.85) 100%);"></div>
+            <div class="absolute inset-0 z-[1]" style="background: linear-gradient(to bottom, var(--hero-overlay-top) 0%, var(--hero-overlay-mid) 15%, var(--hero-overlay-pink) 45%, var(--hero-overlay-bottom) 100%);"></div>
 
-            <!-- Bottom fade to #FAF7F6 content background -->
-            <div class="absolute inset-x-0 bottom-0 z-[2]" style="height: 45%; background: linear-gradient(to bottom, transparent 0%, #FAF7F6 100%);"></div>
+            <!-- Bottom fade to content background -->
+            <div class="absolute inset-x-0 bottom-0 z-[2]" style="height: 45%; background: linear-gradient(to bottom, transparent 0%, var(--bg-secondary) 100%);"></div>
 
             <!-- Hero Blob (top right) -->
-            <div class="blob-secondary absolute pointer-events-none z-[1]" style="width: 500px; height: 500px; top: -80px; right: -120px; background: linear-gradient(135deg, #D38BA1, #EED6DC, #FAF7F6); opacity: 0.25; filter: blur(90px);"></div>
+            <div class="blob-secondary absolute pointer-events-none z-[1]" style="width: 500px; height: 500px; top: -80px; right: -120px; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end), var(--gradient-bg)); opacity: var(--blob-opacity-med); filter: blur(90px);"></div>
 
             <!-- Hero Sparkles -->
             <div class="absolute pointer-events-none" style="top: 18%; right: 14%; z-index: 5;">
@@ -470,11 +531,11 @@
 
             <!-- Article Title Content -->
             <div class="article-hero-content relative z-10 text-center px-6 pb-16 max-w-3xl mx-auto">
-                <p class="font-cursive mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: #D38BA1;">Client Experience</p>
-                <h2 class="font-serif mx-auto" style="font-size: 2.3rem; font-weight: 800; color: #4A4A4A; line-height: 2.6rem; max-width: 800px; letter-spacing: 0.02em; text-transform: capitalize;">
+                <p class="font-cursive mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: var(--accent);">Client Experience</p>
+                <h2 class="font-serif mx-auto" style="font-size: 2.3rem; font-weight: 800; color: var(--text-primary); line-height: 2.6rem; max-width: 800px; letter-spacing: 0.02em; text-transform: capitalize;">
                     Salon Policies For Beauty Businesses:<br class="hidden md:block"> What To Set And Why
                 </h2>
-                <p class="mt-4" style="font-size: 0.8125rem; color: #9C9C9C;">March 4, 2026</p>
+                <p class="mt-4" style="font-size: 0.8125rem; color: var(--text-secondary);">March 4, 2026</p>
             </div>
         </section>
 
@@ -725,12 +786,12 @@
                     </p>
 
                     <!-- Tag / metadata -->
-                    <div class="mt-16 pt-8" style="border-top: 1px solid rgba(238, 214, 220, 0.3);">
+                    <div class="mt-16 pt-8" style="border-top: 1px solid var(--glass-border-light);">
                         <div class="flex flex-wrap gap-2">
-                            <span class="inline-block rounded-full px-4 py-1.5 font-light" style="font-size: 0.6875rem; background: rgba(238, 214, 220, 0.3); color: #D38BA1; letter-spacing: 0.05em;">Salon Policies</span>
-                            <span class="inline-block rounded-full px-4 py-1.5 font-light" style="font-size: 0.6875rem; background: rgba(238, 214, 220, 0.3); color: #D38BA1; letter-spacing: 0.05em;">Client Experience</span>
-                            <span class="inline-block rounded-full px-4 py-1.5 font-light" style="font-size: 0.6875rem; background: rgba(238, 214, 220, 0.3); color: #D38BA1; letter-spacing: 0.05em;">Beauty Business</span>
-                            <span class="inline-block rounded-full px-4 py-1.5 font-light" style="font-size: 0.6875rem; background: rgba(238, 214, 220, 0.3); color: #D38BA1; letter-spacing: 0.05em;">Business Strategy</span>
+                            <span class="inline-block rounded-full px-4 py-1.5 font-light" style="font-size: 0.6875rem; background: rgba(238, 214, 220, 0.3); color: var(--accent); letter-spacing: 0.05em;">Salon Policies</span>
+                            <span class="inline-block rounded-full px-4 py-1.5 font-light" style="font-size: 0.6875rem; background: rgba(238, 214, 220, 0.3); color: var(--accent); letter-spacing: 0.05em;">Client Experience</span>
+                            <span class="inline-block rounded-full px-4 py-1.5 font-light" style="font-size: 0.6875rem; background: rgba(238, 214, 220, 0.3); color: var(--accent); letter-spacing: 0.05em;">Beauty Business</span>
+                            <span class="inline-block rounded-full px-4 py-1.5 font-light" style="font-size: 0.6875rem; background: rgba(238, 214, 220, 0.3); color: var(--accent); letter-spacing: 0.05em;">Business Strategy</span>
                         </div>
                     </div>
 
@@ -743,22 +804,22 @@
                         <!-- About Us -->
                         <div class="sidebar-card">
                             <h4>About Aurora</h4>
-                            <p class="font-light leading-relaxed" style="font-size: 0.875rem; color: #4A4A4A; opacity: 0.75; line-height: 1.7;">
+                            <p class="font-light leading-relaxed" style="font-size: 0.875rem; color: var(--text-primary); opacity: 0.75; line-height: 1.7;">
                                 Aurora Branding Co. helps beauty entrepreneurs build brands that feel as luxurious as their services. From strategy to visual identity — we're here to help you glow.
                             </p>
-                            <a href="/" class="inline-block mt-3 font-light" style="font-size: 0.8125rem; color: #D38BA1; border-bottom: 1px solid rgba(211, 139, 161, 0.3); transition: border-color 0.3s;" onmouseover="this.style.borderBottomColor='#D38BA1'" onmouseout="this.style.borderBottomColor='rgba(211,139,161,0.3)'">Learn more &#8594;</a>
+                            <a href="/" class="inline-block mt-3 font-light" style="font-size: 0.8125rem; color: var(--accent); border-bottom: 1px solid rgba(211, 139, 161, 0.3); transition: border-color 0.3s;" onmouseover="this.style.borderBottomColor='var(--accent)'" onmouseout="this.style.borderBottomColor='rgba(211,139,161,0.3)'">Learn more &#8594;</a>
                         </div>
 
                         <!-- Aurora Circle Signup -->
-                        <div class="sidebar-card" style="background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(238,214,220,0.15));">
+                        <div class="sidebar-card" style="background: linear-gradient(135deg, var(--glass-bg), rgba(238,214,220,0.15));">
                             <h4>Join The Aurora Circle</h4>
-                            <p class="font-light leading-relaxed mb-4" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.7; line-height: 1.6;">
+                            <p class="font-light leading-relaxed mb-4" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.7; line-height: 1.6;">
                                 Exclusive branding tips, resources, and inspiration — delivered with intention.
                             </p>
                             <form onsubmit="event.preventDefault();" class="space-y-2.5">
-                                <input type="text" placeholder="Name" class="aurora-input w-full rounded-xl font-light" style="padding: 11px 14px; background: #FAF7F6; border: 1.5px solid #EED6DC; color: #4A4A4A; font-size: 0.8125rem;">
-                                <input type="email" placeholder="Email" class="aurora-input w-full rounded-xl font-light" style="padding: 11px 14px; background: #FAF7F6; border: 1.5px solid #EED6DC; color: #4A4A4A; font-size: 0.8125rem;">
-                                <button type="submit" class="btn-fill w-full rounded-full uppercase tracking-widest font-light" style="padding: 12px; background: #E5A5B5; color: #FFFFFF; font-size: 0.6875rem; letter-spacing: 0.15em; border: none; cursor: pointer;">
+                                <input type="text" placeholder="Name" class="aurora-input w-full rounded-xl font-light" style="padding: 11px 14px; background: var(--input-bg); border: 1.5px solid var(--separator); color: var(--text-primary); font-size: 0.8125rem;">
+                                <input type="email" placeholder="Email" class="aurora-input w-full rounded-xl font-light" style="padding: 11px 14px; background: var(--input-bg); border: 1.5px solid var(--separator); color: var(--text-primary); font-size: 0.8125rem;">
+                                <button type="submit" class="btn-fill w-full rounded-full uppercase tracking-widest font-light" style="padding: 12px; background: var(--accent-light); color: #FFFFFF; font-size: 0.6875rem; letter-spacing: 0.15em; border: none; cursor: pointer;">
                                     Subscribe
                                 </button>
                             </form>
@@ -768,19 +829,19 @@
                         <div class="sidebar-card">
                             <h4>Latest Posts</h4>
                             <div class="space-y-3">
-                                <a href="/blog/salon-policies-for-beauty-businesses" class="block font-light leading-snug transition-colors duration-300 hover:opacity-70" style="font-size: 0.8125rem; color: #4A4A4A; text-decoration: none;">
+                                <a href="/blog/salon-policies-for-beauty-businesses" class="block font-light leading-snug transition-colors duration-300 hover:opacity-70" style="font-size: 0.8125rem; color: var(--text-primary); text-decoration: none;">
                                     Salon Policies For Beauty Businesses: What To Set And Why
                                 </a>
-                                <div style="height: 1px; background: #EED6DC; opacity: 0.2;"></div>
-                                <a href="#" class="block font-light leading-snug transition-colors duration-300 hover:opacity-70" style="font-size: 0.8125rem; color: #4A4A4A; text-decoration: none;">
+                                <div style="height: 1px; background: var(--separator); opacity: 0.2;"></div>
+                                <a href="#" class="block font-light leading-snug transition-colors duration-300 hover:opacity-70" style="font-size: 0.8125rem; color: var(--text-primary); text-decoration: none;">
                                     How To Create A Visual Identity That Attracts Your Dream Clients
                                 </a>
-                                <div style="height: 1px; background: #EED6DC; opacity: 0.2;"></div>
-                                <a href="#" class="block font-light leading-snug transition-colors duration-300 hover:opacity-70" style="font-size: 0.8125rem; color: #4A4A4A; text-decoration: none;">
+                                <div style="height: 1px; background: var(--separator); opacity: 0.2;"></div>
+                                <a href="#" class="block font-light leading-snug transition-colors duration-300 hover:opacity-70" style="font-size: 0.8125rem; color: var(--text-primary); text-decoration: none;">
                                     5 Signs Your Beauty Brand Needs A Strategic Refresh
                                 </a>
-                                <div style="height: 1px; background: #EED6DC; opacity: 0.2;"></div>
-                                <a href="#" class="block font-light leading-snug transition-colors duration-300 hover:opacity-70" style="font-size: 0.8125rem; color: #4A4A4A; text-decoration: none;">
+                                <div style="height: 1px; background: var(--separator); opacity: 0.2;"></div>
+                                <a href="#" class="block font-light leading-snug transition-colors duration-300 hover:opacity-70" style="font-size: 0.8125rem; color: var(--text-primary); text-decoration: none;">
                                     Instagram Content Ideas For Beauty Professionals Who Hate Posting
                                 </a>
                             </div>
@@ -790,12 +851,12 @@
                         <div class="sidebar-card">
                             <h4>Topics</h4>
                             <div class="flex flex-wrap gap-2">
-                                <a href="#" class="inline-block rounded-full px-3.5 py-1.5 font-light transition-all duration-300" style="font-size: 0.6875rem; border: 1px solid rgba(238, 214, 220, 0.5); color: #D38BA1; text-decoration: none;" onmouseover="this.style.background='rgba(238,214,220,0.3)'" onmouseout="this.style.background='transparent'">Branding &amp; Design</a>
-                                <a href="#" class="inline-block rounded-full px-3.5 py-1.5 font-light transition-all duration-300" style="font-size: 0.6875rem; border: 1px solid rgba(238, 214, 220, 0.5); color: #D38BA1; text-decoration: none;" onmouseover="this.style.background='rgba(238,214,220,0.3)'" onmouseout="this.style.background='transparent'">Business &amp; Strategy</a>
-                                <a href="#" class="inline-block rounded-full px-3.5 py-1.5 font-light transition-all duration-300" style="font-size: 0.6875rem; border: 1px solid rgba(238, 214, 220, 0.5); color: #D38BA1; text-decoration: none;" onmouseover="this.style.background='rgba(238,214,220,0.3)'" onmouseout="this.style.background='transparent'">Client Experience</a>
-                                <a href="#" class="inline-block rounded-full px-3.5 py-1.5 font-light transition-all duration-300" style="font-size: 0.6875rem; border: 1px solid rgba(238, 214, 220, 0.5); color: #D38BA1; text-decoration: none;" onmouseover="this.style.background='rgba(238,214,220,0.3)'" onmouseout="this.style.background='transparent'">Marketing &amp; Social Media</a>
-                                <a href="#" class="inline-block rounded-full px-3.5 py-1.5 font-light transition-all duration-300" style="font-size: 0.6875rem; border: 1px solid rgba(238, 214, 220, 0.5); color: #D38BA1; text-decoration: none;" onmouseover="this.style.background='rgba(238,214,220,0.3)'" onmouseout="this.style.background='transparent'">Founder's Notes</a>
-                                <a href="#" class="inline-block rounded-full px-3.5 py-1.5 font-light transition-all duration-300" style="font-size: 0.6875rem; border: 1px solid rgba(238, 214, 220, 0.5); color: #D38BA1; text-decoration: none;" onmouseover="this.style.background='rgba(238,214,220,0.3)'" onmouseout="this.style.background='transparent'">Salon Tools &amp; Templates</a>
+                                <a href="#" class="inline-block rounded-full px-3.5 py-1.5 font-light transition-all duration-300" style="font-size: 0.6875rem; border: 1px solid var(--glass-border-light); color: var(--accent); text-decoration: none;" onmouseover="this.style.background='rgba(238,214,220,0.3)'" onmouseout="this.style.background='transparent'">Branding &amp; Design</a>
+                                <a href="#" class="inline-block rounded-full px-3.5 py-1.5 font-light transition-all duration-300" style="font-size: 0.6875rem; border: 1px solid var(--glass-border-light); color: var(--accent); text-decoration: none;" onmouseover="this.style.background='rgba(238,214,220,0.3)'" onmouseout="this.style.background='transparent'">Business &amp; Strategy</a>
+                                <a href="#" class="inline-block rounded-full px-3.5 py-1.5 font-light transition-all duration-300" style="font-size: 0.6875rem; border: 1px solid var(--glass-border-light); color: var(--accent); text-decoration: none;" onmouseover="this.style.background='rgba(238,214,220,0.3)'" onmouseout="this.style.background='transparent'">Client Experience</a>
+                                <a href="#" class="inline-block rounded-full px-3.5 py-1.5 font-light transition-all duration-300" style="font-size: 0.6875rem; border: 1px solid var(--glass-border-light); color: var(--accent); text-decoration: none;" onmouseover="this.style.background='rgba(238,214,220,0.3)'" onmouseout="this.style.background='transparent'">Marketing &amp; Social Media</a>
+                                <a href="#" class="inline-block rounded-full px-3.5 py-1.5 font-light transition-all duration-300" style="font-size: 0.6875rem; border: 1px solid var(--glass-border-light); color: var(--accent); text-decoration: none;" onmouseover="this.style.background='rgba(238,214,220,0.3)'" onmouseout="this.style.background='transparent'">Founder's Notes</a>
+                                <a href="#" class="inline-block rounded-full px-3.5 py-1.5 font-light transition-all duration-300" style="font-size: 0.6875rem; border: 1px solid var(--glass-border-light); color: var(--accent); text-decoration: none;" onmouseover="this.style.background='rgba(238,214,220,0.3)'" onmouseout="this.style.background='transparent'">Salon Tools &amp; Templates</a>
                             </div>
                         </div>
 
@@ -806,7 +867,7 @@
 
             <!-- ==================== NEWSLETTER CTA ==================== -->
             <section class="relative w-full py-20 px-6 overflow-hidden">
-                <div class="absolute inset-0" style="background: linear-gradient(135deg, #D38BA1, #EED6DC);"></div>
+                <div class="absolute inset-0" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));"></div>
                 <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(211,139,161,0.1) 0%, rgba(238,214,220,0.2) 100%);"></div>
                 <div class="relative z-10 max-w-xl mx-auto text-center">
                     <h3 class="font-script mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: #FFFFFF;">Join the Aurora Circle</h3>
@@ -814,8 +875,8 @@
                         Branding insights, business strategies, and creative inspiration — delivered straight to your inbox.
                     </p>
                     <form onsubmit="event.preventDefault();" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                        <input type="email" placeholder="Your email address" class="flex-1 rounded-full font-light" style="padding: 14px 20px; background: rgba(255,255,255,0.95); border: none; color: #4A4A4A; font-size: 0.875rem; outline: none;">
-                        <button type="submit" class="rounded-full uppercase tracking-widest font-light transition-all duration-300" style="padding: 14px 28px; background: #FFFFFF; color: #D38BA1; font-size: 0.6875rem; letter-spacing: 0.15em; border: none; cursor: pointer; white-space: nowrap;" onmouseover="this.style.background='#4A4A4A'; this.style.color='#FFFFFF'" onmouseout="this.style.background='#FFFFFF'; this.style.color='#D38BA1'">
+                        <input type="email" placeholder="Your email address" class="flex-1 rounded-full font-light" style="padding: 14px 20px; background: rgba(255,255,255,0.95); border: none; color: var(--text-primary); font-size: 0.875rem; outline: none;">
+                        <button type="submit" class="rounded-full uppercase tracking-widest font-light transition-all duration-300" style="padding: 14px 28px; background: #FFFFFF; color: var(--accent); font-size: 0.6875rem; letter-spacing: 0.15em; border: none; cursor: pointer; white-space: nowrap;" onmouseover="this.style.background='var(--text-primary)'; this.style.color='#FFFFFF'" onmouseout="this.style.background='#FFFFFF'; this.style.color='var(--accent)'">
                             Join
                         </button>
                     </form>
@@ -825,44 +886,44 @@
             <!-- ==================== KEEP READING ==================== -->
             <section class="px-6 py-20">
                 <div class="max-w-[1100px] mx-auto">
-                    <h3 class="font-serif font-medium text-center mb-12" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: #4A4A4A;">Keep Reading</h3>
+                    <h3 class="font-serif font-medium text-center mb-12" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: var(--text-primary);">Keep Reading</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                         <!-- Related Card 1 -->
-                        <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid rgba(238, 214, 220, 0.3); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);">
+                        <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid var(--glass-border-light); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);">
                             <div class="relative overflow-hidden" style="height: 200px;">
                                 <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&q=80" alt="Brand design mood board" class="img-hover w-full h-full object-cover cursor-pointer">
                             </div>
                             <div class="p-7">
-                                <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Branding &amp; Design</p>
-                                <h4 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 1.6rem; color: #D38BA1; line-height: 2rem; letter-spacing: 0.02em;">
+                                <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">Branding &amp; Design</p>
+                                <h4 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 1.6rem; color: var(--accent); line-height: 2rem; letter-spacing: 0.02em;">
                                     How To Create A Visual Identity That Attracts Your Dream Clients
                                 </h4>
-                                <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">February 18, 2026</p>
-                                <div class="mb-4" style="height: 1px; background: #EED6DC; opacity: 0.3;"></div>
-                                <p class="font-light leading-relaxed mb-5" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.6;">
+                                <p class="font-light mb-4" style="font-size: 0.6875rem; color: var(--text-secondary);">February 18, 2026</p>
+                                <div class="mb-4" style="height: 1px; background: var(--separator); opacity: 0.3;"></div>
+                                <p class="font-light leading-relaxed mb-5" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.6;">
                                     Your visual identity is more than a logo — it's the first impression that tells potential clients who you are.
                                 </p>
-                                <a href="#" class="inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5 transition-all duration-300" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid #E5A5B5; color: #D38BA1;" onmouseover="this.style.background='#E5A5B5'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#D38BA1'">Read More</a>
+                                <a href="#" class="inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5 transition-all duration-300" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid var(--accent-light); color: var(--accent);" onmouseover="this.style.background='var(--accent-light)'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='var(--accent)'">Read More</a>
                             </div>
                         </article>
 
                         <!-- Related Card 2 -->
-                        <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid rgba(238, 214, 220, 0.3); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);">
+                        <article class="card-hover glass-card rounded-2xl overflow-hidden" style="border: 1px solid var(--glass-border-light); box-shadow: 0 2px 20px rgba(211, 139, 161, 0.08);">
                             <div class="relative overflow-hidden" style="height: 200px;">
                                 <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600&q=80" alt="Business planning" class="img-hover w-full h-full object-cover cursor-pointer">
                             </div>
                             <div class="p-7">
-                                <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Business &amp; Strategy</p>
-                                <h4 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 1.6rem; color: #D38BA1; line-height: 2rem; letter-spacing: 0.02em;">
+                                <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">Business &amp; Strategy</p>
+                                <h4 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 1.6rem; color: var(--accent); line-height: 2rem; letter-spacing: 0.02em;">
                                     5 Signs Your Beauty Brand Needs A Strategic Refresh
                                 </h4>
-                                <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">February 3, 2026</p>
-                                <div class="mb-4" style="height: 1px; background: #EED6DC; opacity: 0.3;"></div>
-                                <p class="font-light leading-relaxed mb-5" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.6;">
+                                <p class="font-light mb-4" style="font-size: 0.6875rem; color: var(--text-secondary);">February 3, 2026</p>
+                                <div class="mb-4" style="height: 1px; background: var(--separator); opacity: 0.3;"></div>
+                                <p class="font-light leading-relaxed mb-5" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.6;">
                                     If your brand no longer feels like you, it might be time for a strategic refresh that aligns with your growth.
                                 </p>
-                                <a href="#" class="inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5 transition-all duration-300" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid #E5A5B5; color: #D38BA1;" onmouseover="this.style.background='#E5A5B5'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#D38BA1'">Read More</a>
+                                <a href="#" class="inline-block rounded-full uppercase tracking-widest font-light px-6 py-2.5 transition-all duration-300" style="font-size: 0.625rem; letter-spacing: 0.15em; border: 1.5px solid var(--accent-light); color: var(--accent);" onmouseover="this.style.background='var(--accent-light)'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='var(--accent)'">Read More</a>
                             </div>
                         </article>
 
@@ -873,10 +934,10 @@
         </main>
 
         <!-- ==================== FOOTER ==================== -->
-        <footer class="py-8 px-6 relative z-20" style="border-top: 1px solid rgba(238, 214, 220, 0.1);">
+        <footer class="py-8 px-6 relative z-20" style="border-top: 1px solid var(--glass-border-light);">
             <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p class="uppercase tracking-widest font-light" style="font-size: 0.5625rem; color: #9C9C9C; letter-spacing: 0.15em;">Copyright &copy; 2026 &ndash; Aurora Branding Co.</p>
-                <a href="#" class="uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.15em;">Cookie Policy</a>
+                <p class="uppercase tracking-widest font-light" style="font-size: 0.5625rem; color: var(--text-secondary); letter-spacing: 0.15em;">Copyright &copy; 2026 &ndash; Aurora Branding Co.</p>
+                <a href="#" class="uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.15em;">Cookie Policy</a>
             </div>
         </footer>
 

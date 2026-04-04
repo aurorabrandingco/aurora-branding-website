@@ -5,6 +5,57 @@
 <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
 <style>
+/* === DARK MODE CUSTOM PROPERTIES === */
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #FAF7F6;
+  --bg-pink: #EED6DC;
+  --text-primary: #4A4A4A;
+  --text-secondary: #9C9C9C;
+  --accent: #D38BA1;
+  --accent-light: #E5A5B5;
+  --glass-bg: rgba(255,255,255,0.88);
+  --glass-bg-strong: rgba(250,247,246,0.8);
+  --glass-bg-strongest: rgba(255,255,255,0.98);
+  --glass-border: rgba(238,214,220,0.3);
+  --gradient-start: #D38BA1;
+  --gradient-end: #EED6DC;
+  --gradient-bg: #FAF7F6;
+  --blob-opacity: 0.35;
+  --blob-opacity-med: 0.28;
+  --separator: #EED6DC;
+  --input-bg: #FAF7F6;
+  --hero-overlay-start: rgba(238,214,220,0.35);
+  --hero-overlay-mid: rgba(238,214,220,0.5);
+  --hero-overlay-end: rgba(250,247,246,0.85);
+  --hero-top-blend: rgba(250,247,246,0.4);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1A1014;
+    --bg-secondary: #251820;
+    --bg-pink: #2E1E24;
+    --text-primary: #F2E8EA;
+    --text-secondary: #A08A90;
+    --accent: #C47A90;
+    --accent-light: #E5A5B5;
+    --glass-bg: rgba(26,16,20,0.85);
+    --glass-bg-strong: rgba(26,16,20,0.85);
+    --glass-bg-strongest: rgba(26,16,20,0.95);
+    --glass-border: rgba(46,30,36,0.3);
+    --gradient-start: #3A2830;
+    --gradient-end: #2E1E24;
+    --gradient-bg: #251820;
+    --blob-opacity: 0.20;
+    --blob-opacity-med: 0.15;
+    --separator: #2E1E24;
+    --input-bg: #251820;
+    --hero-overlay-start: rgba(46,30,36,0.35);
+    --hero-overlay-mid: rgba(46,30,36,0.5);
+    --hero-overlay-end: rgba(37,24,32,0.85);
+    --hero-top-blend: rgba(37,24,32,0.4);
+  }
+}
 @keyframes morphBlob1 {
 0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(0, 0) rotate(0deg) scale(1); }
 25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: translate(50px, -30px) rotate(45deg) scale(1.05); }
@@ -45,12 +96,12 @@ background-repeat: repeat;
 background-size: 128px 128px;
 }
 .glass-nav {
-background: rgba(250, 247, 246, 0.8);
+background: var(--glass-bg-strong);
 backdrop-filter: blur(16px);
 -webkit-backdrop-filter: blur(16px);
 }
 .glass-card {
-background: rgba(255, 255, 255, 0.88);
+background: var(--glass-bg);
 backdrop-filter: blur(16px);
 -webkit-backdrop-filter: blur(16px);
 }
@@ -65,7 +116,7 @@ body {
   font-weight: 400;
   line-height: 1.8rem;
   letter-spacing: 0.5px;
-  color: #4A4A4A;
+  color: var(--text-primary);
 }
 h1 {
   font-family: 'EB Garamond', serif;
@@ -148,7 +199,7 @@ nav a, .nav-link, .glass-nav a {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(255, 255, 255, 0.98);
+  background: var(--glass-bg-strongest);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -176,7 +227,7 @@ html { scroll-behavior: smooth; }
 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .aurora-input:focus {
-border-color: #E5A5B5;
+border-color: var(--accent-light);
 box-shadow: 0 0 0 3px rgba(229, 165, 181, 0.15);
 outline: none;
 }
@@ -184,7 +235,7 @@ outline: none;
 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .aurora-btn:hover {
-background-color: #D38BA1;
+background-color: var(--accent);
 box-shadow: 0 6px 28px rgba(211, 139, 161, 0.25);
 }
 /* Custom checkbox */
@@ -193,17 +244,17 @@ appearance: none;
 -webkit-appearance: none;
 width: 16px;
 height: 16px;
-border: 1.5px solid #EED6DC;
+border: 1.5px solid var(--separator);
 border-radius: 4px;
-background: #FAF7F6;
+background: var(--input-bg);
 cursor: pointer;
 transition: all 0.2s ease;
 position: relative;
 flex-shrink: 0;
 }
 .custom-checkbox:checked {
-background: #E5A5B5;
-border-color: #E5A5B5;
+background: var(--accent-light);
+border-color: var(--accent-light);
 }
 .custom-checkbox:checked::after {
 content: '';
@@ -220,17 +271,22 @@ transform: rotate(45deg);
 box-shadow: 0 0 0 3px rgba(229, 165, 181, 0.2);
 outline: none;
 }
+/* === DARK MODE OVERRIDES === */
+@media (prefers-color-scheme: dark) {
+  .nav-logo { filter: brightness(2); }
+  .hamburger-btn svg { stroke: var(--accent); }
+}
 </style></head>
-<body style="background-color: #FAF7F6; color: #4A4A4A; overflow-x: hidden; position: relative; min-height: 100vh; font-size: 1.1rem;">
+<body style="background-color: var(--bg-secondary); color: var(--text-primary); overflow-x: hidden; position: relative; min-height: 100vh; font-size: 1.1rem;">
 
     <!-- Noise Overlay -->
     <div class="noise-overlay fixed inset-0 pointer-events-none z-50" style="opacity: 0.4;"></div>
 
     <!-- Animated Blob 1 - Upper Right -->
-    <div class="blob-primary fixed pointer-events-none z-0" style="width: 850px; height: 850px; top: -180px; right: -220px; background: linear-gradient(135deg, #D38BA1, #EED6DC, #FAF7F6); opacity: 0.35; filter: blur(100px);"></div>
+    <div class="blob-primary fixed pointer-events-none z-0" style="width: 850px; height: 850px; top: -180px; right: -220px; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end), var(--gradient-bg)); opacity: var(--blob-opacity); filter: blur(100px);"></div>
 
     <!-- Animated Blob 2 - Lower Left -->
-    <div class="blob-secondary fixed pointer-events-none z-0" style="width: 650px; height: 650px; bottom: -120px; left: -180px; background: linear-gradient(225deg, #EED6DC, #D38BA1, #FAF7F6); opacity: 0.28; filter: blur(90px);"></div>
+    <div class="blob-secondary fixed pointer-events-none z-0" style="width: 650px; height: 650px; bottom: -120px; left: -180px; background: linear-gradient(225deg, var(--gradient-end), var(--gradient-start), var(--gradient-bg)); opacity: var(--blob-opacity-med); filter: blur(90px);"></div>
 
     <!-- ==================== SPARKLE STARS ==================== -->
     <!-- Near header -->
@@ -279,7 +335,7 @@ outline: none;
                 <div class="text-center mb-5 relative">
                     <span class="sparkle-3 absolute -top-1 -left-1" style="color: #B0B0B0; font-size: 0.5rem;">✦</span>
                     <a href="/" style="text-decoration: none;">
-                        <img src="../images/aurorabranding-logo-RGB-01.png" alt="Aurora Branding Co." style="width: 280px; height: auto;">
+                        <img class="nav-logo" src="../images/aurorabranding-logo-RGB-01.png" alt="Aurora Branding Co." style="width: 280px; height: auto;">
                     </a>
                 </div>
                 <!-- Hamburger Button (mobile only) -->
@@ -289,25 +345,25 @@ outline: none;
                 </button>
                 <!-- Desktop Nav Links -->
                 <div class="flex items-center gap-0 desktop-nav-links">
-                    <a href="/" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">Home</a>
-                    <span style="color: #EED6DC;">|</span>
-                    <a href="/#about" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">About</a>
-                    <span style="color: #EED6DC;">|</span>
-                    <a href="/blog" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">Blog</a>
-                    <span style="color: #EED6DC;">|</span>
-                    <a href="/aurora-circle" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300" style="font-size: 1rem; color: #9C9C9C; letter-spacing: 0.08em;">Aurora Circle</a>
-                    <a href="#" class="ml-6 transition-opacity duration-300 hover:opacity-60" style="color: #D38BA1;">
+                    <a href="/" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: var(--accent); letter-spacing: 0.08em;">Home</a>
+                    <span style="color: var(--separator);">|</span>
+                    <a href="/#about" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: var(--accent); letter-spacing: 0.08em;">About</a>
+                    <span style="color: var(--separator);">|</span>
+                    <a href="/blog" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: var(--accent); letter-spacing: 0.08em;">Blog</a>
+                    <span style="color: var(--separator);">|</span>
+                    <a href="/aurora-circle" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300" style="font-size: 1rem; color: var(--text-secondary); letter-spacing: 0.08em;">Aurora Circle</a>
+                    <a href="#" class="ml-6 transition-opacity duration-300 hover:opacity-60" style="color: var(--accent);">
                         <iconify-icon icon="solar:magnifer-linear" width="18" style="stroke-width: 1.5;"></iconify-icon>
                     </a>
                 </div>
             </div>
             <!-- Mobile Menu Panel -->
             <div class="mobile-menu-panel">
-                <div class="py-4 px-6" style="border-top: 1px solid #EED6DC;">
-                    <a href="/" style="color: #D38BA1;">Home</a>
-                    <a href="/#about" style="color: #D38BA1;">About</a>
-                    <a href="/blog" style="color: #D38BA1;">Blog</a>
-                    <a href="/aurora-circle" style="color: #9C9C9C;">Aurora Circle</a>
+                <div class="py-4 px-6" style="border-top: 1px solid var(--separator);">
+                    <a href="/" style="color: var(--accent);">Home</a>
+                    <a href="/#about" style="color: var(--accent);">About</a>
+                    <a href="/blog" style="color: var(--accent);">Blog</a>
+                    <a href="/aurora-circle" style="color: var(--text-secondary);">Aurora Circle</a>
                 </div>
             </div>
         </nav>
@@ -318,22 +374,22 @@ outline: none;
             <div class="relative w-full" style="height: clamp(250px, 40vw, 420px);">
                 <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1400&amp;q=80" alt="Beauty flatlay with makeup brushes, lipstick and eyeshadow palettes in soft pink tones" class="w-full h-full object-cover">
                 <!-- Pink gradient overlay -->
-                <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(238, 214, 220, 0.35) 0%, rgba(238, 214, 220, 0.5) 60%, rgba(250, 247, 246, 0.85) 100%);"></div>
+                <div class="absolute inset-0" style="background: linear-gradient(180deg, var(--hero-overlay-start) 0%, var(--hero-overlay-mid) 60%, var(--hero-overlay-end) 100%);"></div>
                 <!-- Extra soft top overlay for blending with nav -->
-                <div class="absolute inset-x-0 top-0" style="height: 80px; background: linear-gradient(180deg, rgba(250, 247, 246, 0.4) 0%, transparent 100%);"></div>
+                <div class="absolute inset-x-0 top-0" style="height: 80px; background: linear-gradient(180deg, var(--hero-top-blend) 0%, transparent 100%);"></div>
             </div>
 
             <!-- Signup Card - overlapping hero -->
             <div class="relative z-20 flex justify-center px-4 sm:px-6" style="margin-top: clamp(-200px, -22vw, -180px);">
-                <div class="glass-card card-breathe w-full" style="max-width: 580px; border: 1px solid rgba(238, 214, 220, 0.3); border-radius: 22px; box-shadow: 0 8px 40px rgba(211, 139, 161, 0.12); padding: clamp(32px, 5vw, 52px);">
+                <div class="glass-card card-breathe w-full" style="max-width: 580px; border: 1px solid var(--glass-border); border-radius: 22px; box-shadow: 0 8px 40px rgba(211, 139, 161, 0.12); padding: clamp(32px, 5vw, 52px);">
 
                     <!-- Script heading -->
                     <div class="text-center mb-2">
-                        <h2 class="font-cursive tracking-tight" style="font-size: 2.4rem; line-height: 3.2rem; color: #D38BA1;">Join the Aurora Circle</h2>
+                        <h2 class="font-cursive tracking-tight" style="font-size: 2.4rem; line-height: 3.2rem; color: var(--accent);">Join the Aurora Circle</h2>
                     </div>
 
                     <!-- Description -->
-                    <p class="text-center font-light leading-relaxed mb-6" style="color: #4A4A4A; opacity: 0.7; font-size: clamp(0.875rem, 1.3vw, 0.9375rem); line-height: 1.7; max-width: 440px; margin-left: auto; margin-right: auto;">
+                    <p class="text-center font-light leading-relaxed mb-6" style="color: var(--text-primary); opacity: 0.7; font-size: clamp(0.875rem, 1.3vw, 0.9375rem); line-height: 1.7; max-width: 440px; margin-left: auto; margin-right: auto;">
                         Get notified about new blog posts and receive exclusive tips and insider branding secrets — only for Aurora Circle subscribers.
                     </p>
 
@@ -341,25 +397,25 @@ outline: none;
                     <form onsubmit="event.preventDefault();" class="space-y-3">
                         <!-- Name field -->
                         <div>
-                            <input type="text" placeholder="Name" class="aurora-input w-full rounded-xl font-light" style="padding: 14px 18px; background: #FAF7F6; border: 1.5px solid #EED6DC; color: #4A4A4A; font-size: 0.875rem;" onfocus="this.style.borderColor='#E5A5B5'; this.style.boxShadow='0 0 0 3px rgba(229,165,181,0.15)'" onblur="this.style.borderColor='#EED6DC'; this.style.boxShadow='none'">
+                            <input type="text" placeholder="Name" class="aurora-input w-full rounded-xl font-light" style="padding: 14px 18px; background: var(--input-bg); border: 1.5px solid var(--separator); color: var(--text-primary); font-size: 0.875rem;" onfocus="this.style.borderColor='var(--accent-light)'; this.style.boxShadow='0 0 0 3px rgba(229,165,181,0.15)'" onblur="this.style.borderColor='var(--separator)'; this.style.boxShadow='none'">
                         </div>
 
                         <!-- Email field -->
                         <div>
-                            <input type="email" placeholder="Email" class="aurora-input w-full rounded-xl font-light" style="padding: 14px 18px; background: #FAF7F6; border: 1.5px solid #EED6DC; color: #4A4A4A; font-size: 0.875rem;" onfocus="this.style.borderColor='#E5A5B5'; this.style.boxShadow='0 0 0 3px rgba(229,165,181,0.15)'" onblur="this.style.borderColor='#EED6DC'; this.style.boxShadow='none'">
+                            <input type="email" placeholder="Email" class="aurora-input w-full rounded-xl font-light" style="padding: 14px 18px; background: var(--input-bg); border: 1.5px solid var(--separator); color: var(--text-primary); font-size: 0.875rem;" onfocus="this.style.borderColor='var(--accent-light)'; this.style.boxShadow='0 0 0 3px rgba(229,165,181,0.15)'" onblur="this.style.borderColor='var(--separator)'; this.style.boxShadow='none'">
                         </div>
 
                         <!-- Checkbox -->
                         <div class="flex items-start gap-2.5 pt-2">
                             <input type="checkbox" class="custom-checkbox mt-0.5" id="privacyCheck">
-                            <label for="privacyCheck" class="font-light" style="font-size: 0.8125rem; color: #9C9C9C; line-height: 1.5; cursor: pointer;">
-                                I have read and agree to the <a href="#" class="transition-all duration-200" style="color: #D38BA1; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Privacy Policy</a>.
+                            <label for="privacyCheck" class="font-light" style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5; cursor: pointer;">
+                                I have read and agree to the <a href="#" class="transition-all duration-200" style="color: var(--accent); text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Privacy Policy</a>.
                             </label>
                         </div>
 
                         <!-- CTA Button -->
                         <div class="pt-3">
-                            <button type="submit" class="aurora-btn w-full uppercase tracking-widest font-light rounded-full" style="padding: 16px 24px; background: #4A4A4A; color: #FFFFFF; font-size: 0.75rem; letter-spacing: 0.2em; box-shadow: 0 4px 20px rgba(211, 139, 161, 0.15); border: none; cursor: pointer;">
+                            <button type="submit" class="aurora-btn w-full uppercase tracking-widest font-light rounded-full" style="padding: 16px 24px; background: var(--text-primary); color: var(--bg-primary); font-size: 0.75rem; letter-spacing: 0.2em; box-shadow: 0 4px 20px rgba(211, 139, 161, 0.15); border: none; cursor: pointer;">
                                 Join the Aurora Circle
                             </button>
                         </div>
@@ -369,17 +425,17 @@ outline: none;
 
             <!-- Reassurance text -->
             <div class="text-center pt-12 pb-20">
-                <p class="font-light" style="color: #9C9C9C; font-size: 0.75rem; letter-spacing: 0.05em;">
+                <p class="font-light" style="color: var(--text-secondary); font-size: 0.75rem; letter-spacing: 0.05em;">
                     No spam. Just real value, delivered with intention. <span style="color: #B0B0B0;">✦</span>
                 </p>
             </div>
         </main>
 
         <!-- ==================== FOOTER ==================== -->
-        <footer class="py-8 px-6 relative z-20" style="border-top: 1px solid rgba(238, 214, 220, 0.25);">
+        <footer class="py-8 px-6 relative z-20" style="border-top: 1px solid var(--glass-border);">
             <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p class="uppercase tracking-widest font-light" style="font-size: 0.5625rem; color: #9C9C9C; letter-spacing: 0.15em;">Copyright © 2026 – Aurora Branding Co.</p>
-                <a href="#" class="uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.15em;">Cookie Policy</a>
+                <p class="uppercase tracking-widest font-light" style="font-size: 0.5625rem; color: var(--text-secondary); letter-spacing: 0.15em;">Copyright © 2026 – Aurora Branding Co.</p>
+                <a href="#" class="uppercase tracking-widest font-light transition-opacity duration-300 hover:opacity-70" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.15em;">Cookie Policy</a>
             </div>
         </footer>
 
