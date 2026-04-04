@@ -80,6 +80,18 @@ aurora-branding-website/
 - **Grain texture:** Finom noise overlay 2-3% opacity.
 - **NINCS scroll-triggered animáció.** Minden CSS-only, page load-tól fut.
 
+### Dark mode
+- Automatikusan követi az OS beállítást (@media prefers-color-scheme: dark)
+- CSS custom property-k a :root-ban definiálva, dark értékek @media query-ben
+- Dark háttér: #1A1014 (fő), #251820 (másodlagos), #2E1E24 (pink megfelelője)
+- Dark szöveg: #F2E8EA (fő), #A08A90 (másodlagos)
+- Dark akcentus: #C47A90 (pink), #E5A5B5 (változatlan)
+- Dark gradiens: #3A2830 → #2E1E24
+- Dark glassmorphism: rgba(26,16,20,0.8) + backdrop-blur
+- Logó: filter: brightness(2) dark módban
+- Blobok: alacsonyabb opacity (0.15-0.20)
+- Csillagok: #B0B0B0 mindkét módban
+
 ## Navigáció (minden oldalon azonos)
 - Logó: images/aurorabranding-logo-RGB-01.png — centered, link a főoldalra
 - Linkek: HOME | ABOUT | BLOG | AURORA CIRCLE (DM Sans, 1rem, 600, uppercase, 0.08em)
