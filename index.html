@@ -183,6 +183,53 @@ nav a, .nav-link, .glass-nav a {
   line-height: 1.2rem;
   letter-spacing: 0.08em;
 }
+/* === MOBILE HAMBURGER MENU === */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hamburger-btn svg {
+  display: block;
+}
+.mobile-menu-panel {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.mobile-menu-panel.open {
+  max-height: 320px;
+}
+.mobile-menu-panel a {
+  display: block;
+  text-align: center;
+  padding: 14px 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+.mobile-menu-panel a:hover {
+  opacity: 0.7;
+}
+@media (max-width: 767px) {
+  .hamburger-btn { display: block; }
+  .desktop-nav-links { display: none !important; }
+  .mobile-menu-panel { display: block; }
+}
 </style></head>
   <body style="background-color: #FAF7F6; color: #4A4A4A; overflow-x: hidden; position: relative; font-size: 1.1rem;">
     <!-- Noise Overlay -->
@@ -203,7 +250,7 @@ nav a, .nav-link, .glass-nav a {
     <div class="relative z-10">
       <!-- ==================== NAVIGATION ==================== -->
       <nav class="glass-nav w-full py-6 relative z-30">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col items-center">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col items-center relative">
           <!-- Logo -->
           <div class="text-center mb-5 relative">
             <span class="sparkle-3 absolute -top-1 -left-1" style="color: #B0B0B0; font-size: 0.5rem;">
@@ -213,8 +260,20 @@ nav a, .nav-link, .glass-nav a {
               <img src="images/aurorabranding-logo-RGB-01.png" alt="Aurora Branding Co." style="width: 280px; height: auto;">
             </a>
           </div>
-          <!-- Nav Links -->
-          <div class="flex items-center gap-0">
+          <!-- Hamburger Button (mobile only) -->
+          <button class="hamburger-btn" onclick="toggleMobileMenu(this)" aria-label="Menu">
+            <svg class="hamburger-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D38BA1" stroke-width="2" stroke-linecap="round">
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+            <svg class="close-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D38BA1" stroke-width="2" stroke-linecap="round" style="display:none;">
+              <line x1="6" y1="6" x2="18" y2="18"/>
+              <line x1="6" y1="18" x2="18" y2="6"/>
+            </svg>
+          </button>
+          <!-- Desktop Nav Links -->
+          <div class="flex items-center gap-0 desktop-nav-links">
             <a href="/" class="uppercase tracking-widest px-5 py-1 transition-colors duration-300" style="font-size: 1rem; color: #9C9C9C; letter-spacing: 0.08em;">
               Home
             </a>
@@ -233,6 +292,15 @@ nav a, .nav-link, .glass-nav a {
             <a href="#" class="ml-6 transition-opacity duration-300 hover:opacity-60" style="color: #D38BA1;">
               <iconify-icon icon="solar:magnifer-linear" width="18" style="stroke-width: 1.5;"></iconify-icon>
             </a>
+          </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div class="mobile-menu-panel">
+          <div class="py-4 px-6" style="border-top: 1px solid #EED6DC;">
+            <a href="/" style="color: #9C9C9C;">Home</a>
+            <a href="/#about" style="color: #D38BA1;">About</a>
+            <a href="/blog" style="color: #D38BA1;">Blog</a>
+            <a href="/aurora-circle" style="color: #D38BA1;">Aurora Circle</a>
           </div>
         </div>
       </nav>
@@ -801,5 +869,22 @@ nav a, .nav-link, .glass-nav a {
           if (blob3) blob3.style.bottom = `calc(10% - ${scrollY * 0.02}px)`;
       });
     </script>
-  
+    <script>
+      function toggleMobileMenu(btn) {
+        const panel = btn.closest('nav').querySelector('.mobile-menu-panel');
+        const hamburger = btn.querySelector('.hamburger-icon');
+        const close = btn.querySelector('.close-icon');
+        const isOpen = panel.classList.contains('open');
+        if (isOpen) {
+          panel.classList.remove('open');
+          hamburger.style.display = 'block';
+          close.style.display = 'none';
+        } else {
+          panel.classList.add('open');
+          hamburger.style.display = 'none';
+          close.style.display = 'block';
+        }
+      }
+    </script>
+
 </body></html>
