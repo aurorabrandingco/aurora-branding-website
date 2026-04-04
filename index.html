@@ -158,6 +158,11 @@ transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
 max-height: 300px;
 }
 html { scroll-behavior: smooth; }
+/* Hero CTA button hover — CSS-only, dark mode compatible */
+.hero-btn:hover {
+  background: var(--accent) !important;
+  color: #FFFFFF !important;
+}
 /* Hero text responsive */
 @media (max-width: 768px) {
   .hero-script { font-size: 1.6rem !important; line-height: 2.2rem !important; }
@@ -425,7 +430,7 @@ nav a, .nav-link, .glass-nav a {
           <p class="hero-subtitle mb-10 max-w-lg mx-auto" style="font-family: 'DM Sans', sans-serif; color: var(--text-secondary); font-size: 1.15rem; font-weight: 400; letter-spacing: 0.03em; line-height: 1.8;">
             Luxury visuals and timeless strategy for modern beauty entrepreneurs.
           </p>
-          <a href="/blog" class="btn-hover inline-block rounded-full uppercase transition-all duration-300 hero-btn" style="background: var(--text-primary); color: var(--bg-primary); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 50px; padding: 18px 48px;" onmouseover="this.style.background='var(--accent)';this.style.color='#FFFFFF'" onmouseout="this.style.background='var(--text-primary)';this.style.color='#FFFFFF'">
+          <a href="/blog" class="btn-hover inline-block rounded-full uppercase transition-all duration-300 hero-btn" style="background: var(--text-primary); color: var(--bg-primary); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 50px; padding: 18px 48px;">
             EXPLORE THE BLOG
           </a>
         </div>
