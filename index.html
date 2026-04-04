@@ -26,7 +26,7 @@ if (blob2) blob2.style.top = `calc(50% + ${scrollY * 0.03}px)`;
 if (blob3) blob3.style.bottom = `calc(10% - ${scrollY * 0.02}px)`;
 });
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Dancing+Script:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
 <style>
 @keyframes morphBlob1 {
 0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(0, 0) rotate(0deg) scale(1); }
@@ -80,10 +80,10 @@ background: rgba(255,255,255,0.95);
 backdrop-filter: blur(16px);
 -webkit-backdrop-filter: blur(16px);
 }
-* { font-family: 'Lato', sans-serif; }
-.font-script { font-family: 'Great Vibes', cursive; }
-.font-cursive { font-family: 'Dancing Script', cursive; }
-.font-serif { font-family: 'Playfair Display', serif; }
+* { font-family: 'DM Sans', sans-serif; font-size: inherit; }
+.font-script { font-family: 'Pinyon Script', cursive; }
+.font-cursive { font-family: 'Pinyon Script', cursive; }
+.font-serif { font-family: 'EB Garamond', serif; letter-spacing: 0.025em; }
 .btn-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 .btn-hover:hover { transform: scale(1.02); }
 .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -100,7 +100,7 @@ max-height: 300px;
 }
 html { scroll-behavior: smooth; }
 </style></head>
-  <body style="background-color: #FAF7F6; color: #4A4A4A; overflow-x: hidden; position: relative;">
+  <body style="background-color: #FAF7F6; color: #4A4A4A; overflow-x: hidden; position: relative; font-size: 1.1rem;">
     <!-- Noise Overlay -->
     <div class="noise-overlay fixed inset-0 pointer-events-none z-50" style="opacity: 0.4;"></div>
 

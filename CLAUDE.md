@@ -7,7 +7,7 @@ Beauty szakembereknek szóló mentoring brand — blog-központú edukációs pl
 ## Tech stack
 - Statikus HTML
 - Tailwind CSS (CDN)
-- Google Fonts (Great Vibes, Dancing Script, Playfair Display, Lato)
+- Google Fonts (Pinyon Script, EB Garamond, DM Sans)
 - Iconify (ikonok)
 - CSS animációk (inline <style> tagben)
 - Vercel hosting
@@ -40,11 +40,11 @@ aurora-branding-website/
 | Gradiens | #D38BA1 → #EED6DC | Bal→jobb vagy lent→fel |
 
 ## Tipográfia
-- **Logo:** Great Vibes (elegant script) — "Aurora"
-- **Dekoratív:** Dancing Script cursive — alcímek, form headingek
-- **Címek:** Playfair Display serif — H1, H2 headingek
-- **Body:** Lato light/regular — törzsszöveg
-- **Labels:** Lato uppercase, wide letter-spacing
+- **Logo:** Pinyon Script (elegant script) — "Aurora"
+- **Dekoratív:** Pinyon Script cursive — alcímek, form headingek
+- **Címek:** EB Garamond serif (letter-spacing: 0.025em) — H1, H2 headingek
+- **Body:** DM Sans light/regular — törzsszöveg (font-size: 1.1rem a body-n)
+- **Labels:** DM Sans uppercase, wide letter-spacing
 
 ## Design rendszer szabályok
 - **Animated gradient blobs:** 2-3 nagy lágy blob (#D38BA1 → #EED6DC → #FAF7F6), CSS @keyframes morphing, 20-30s infinite, opacity 0.2-0.4, blur(80-120px). Mindig jelen vannak, NEM scroll-triggered.
