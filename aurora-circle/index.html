@@ -58,6 +58,78 @@ backdrop-filter: blur(16px);
 .font-script { font-family: 'Pinyon Script', cursive; }
 .font-cursive { font-family: 'Pinyon Script', cursive; }
 .font-serif { font-family: 'EB Garamond', serif; letter-spacing: 0.025em; }
+/* === AURORA TYPOGRAPHY SYSTEM === */
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  letter-spacing: 0.5px;
+  color: #4A4A4A;
+}
+h1 {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  line-height: 3.3rem;
+  letter-spacing: 0.03em;
+}
+h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.3rem;
+  font-weight: 800;
+  text-transform: capitalize;
+  line-height: 2.6rem;
+  letter-spacing: 0.02em;
+}
+h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  line-height: 2.8rem;
+  letter-spacing: 0.02em;
+}
+h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 2rem;
+  letter-spacing: 0.02em;
+}
+h5 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 1.8rem;
+  letter-spacing: 0.02em;
+}
+h6 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  line-height: 1.7rem;
+  letter-spacing: 0.5px;
+}
+.brand-accent, [style*="Pinyon Script"] {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 3.2rem;
+  letter-spacing: 0;
+}
+nav a, .nav-link, .glass-nav a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.2rem;
+  letter-spacing: 0.08em;
+}
 html { scroll-behavior: smooth; }
 .aurora-input {
 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -165,15 +237,15 @@ outline: none;
             <div class="max-w-6xl mx-auto px-6 flex flex-col items-center">
                 <div class="text-center mb-4 relative">
                     <span class="sparkle-3 absolute -top-1 -left-1" style="color: #B0B0B0; font-size: 0.5rem;">✦</span>
-                    <h1 class="font-script tracking-tight" style="font-size: clamp(2rem, 5vw, 2.75rem); color: #D38BA1; line-height: 1;">Aurora</h1>
-                    <p class="uppercase tracking-widest font-light" style="font-size: 0.625rem; color: #9C9C9C; letter-spacing: 0.25em;">Branding Co.</p>
+                    <h1 class="font-script tracking-tight" style="font-size: 2.4rem; line-height: 3.2rem; color: #D38BA1;">Aurora</h1>
+                    <p class="uppercase tracking-widest font-light" style="font-size: 0.625rem; color: #9C9C9C; letter-spacing: 0.08em;">Branding Co.</p>
                 </div>
                 <div class="flex items-center gap-0">
-                    <a href="#" class="uppercase tracking-widest font-light px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 0.625rem; color: #D38BA1; letter-spacing: 0.2em;">Home</a>
+                    <a href="#" class="uppercase tracking-widest px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">Home</a>
                     <span style="color: #EED6DC;">|</span>
-                    <a href="#" class="uppercase tracking-widest font-light px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 0.625rem; color: #D38BA1; letter-spacing: 0.2em;">Blog</a>
+                    <a href="#" class="uppercase tracking-widest px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">Blog</a>
                     <span style="color: #EED6DC;">|</span>
-                    <a href="#" class="uppercase tracking-widest px-4 py-1 transition-colors duration-300" style="font-size: 0.625rem; color: #D38BA1; letter-spacing: 0.2em; font-weight: 400; border-bottom: 1.5px solid #D38BA1; padding-bottom: 2px;">Aurora Circle</a>
+                    <a href="#" class="uppercase tracking-widest px-4 py-1 transition-colors duration-300" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em; border-bottom: 1.5px solid #D38BA1; padding-bottom: 2px;">Aurora Circle</a>
                     <a href="#" class="ml-6 transition-opacity duration-300 hover:opacity-60" style="color: #D38BA1;">
                         <iconify-icon icon="solar:magnifer-linear" width="18" style="stroke-width: 1.5;"></iconify-icon>
                     </a>
@@ -198,7 +270,7 @@ outline: none;
 
                     <!-- Script heading -->
                     <div class="text-center mb-2">
-                        <h2 class="font-cursive tracking-tight" style="font-size: clamp(1.75rem, 4vw, 2.125rem); color: #D38BA1; line-height: 1.2;">Join the Aurora Circle</h2>
+                        <h2 class="font-cursive tracking-tight" style="font-size: 2.4rem; line-height: 3.2rem; color: #D38BA1;">Join the Aurora Circle</h2>
                     </div>
 
                     <!-- Description -->

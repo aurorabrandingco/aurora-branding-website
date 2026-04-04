@@ -75,6 +75,79 @@
         }
         html { scroll-behavior: smooth; }
 
+        /* === AURORA TYPOGRAPHY SYSTEM === */
+        body {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 1.1rem;
+          font-weight: 400;
+          line-height: 1.8rem;
+          letter-spacing: 0.5px;
+          color: #4A4A4A;
+        }
+        h1 {
+          font-family: 'EB Garamond', serif;
+          font-size: 2.8rem;
+          font-weight: 600;
+          text-transform: capitalize;
+          line-height: 3.3rem;
+          letter-spacing: 0.03em;
+        }
+        h2 {
+          font-family: 'EB Garamond', serif;
+          font-size: 2.3rem;
+          font-weight: 800;
+          text-transform: capitalize;
+          line-height: 2.6rem;
+          letter-spacing: 0.02em;
+        }
+        h3 {
+          font-family: 'EB Garamond', serif;
+          font-size: 2.1rem;
+          font-weight: 600;
+          text-transform: capitalize;
+          line-height: 2.8rem;
+          letter-spacing: 0.02em;
+        }
+        h4 {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 1.6rem;
+          font-weight: 500;
+          text-transform: capitalize;
+          line-height: 2rem;
+          letter-spacing: 0.02em;
+        }
+        h5 {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 1.3rem;
+          font-weight: 500;
+          text-transform: capitalize;
+          line-height: 1.8rem;
+          letter-spacing: 0.02em;
+        }
+        h6 {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 1.1rem;
+          font-weight: 600;
+          text-transform: capitalize;
+          line-height: 1.7rem;
+          letter-spacing: 0.5px;
+        }
+        .brand-accent, [style*="Pinyon Script"] {
+          font-family: 'Pinyon Script', cursive;
+          font-size: 2.4rem;
+          font-weight: 400;
+          line-height: 3.2rem;
+          letter-spacing: 0;
+        }
+        nav a, .nav-link, .glass-nav a {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 1rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          line-height: 1.2rem;
+          letter-spacing: 0.08em;
+        }
+
         .filter-scroll::-webkit-scrollbar { display: none; }
         .filter-scroll { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -151,16 +224,16 @@
                 <!-- Logo -->
                 <div class="text-center mb-4 relative">
                     <span class="sparkle-3 absolute -top-1 -left-1" style="color: #B0B0B0; font-size: 0.5rem;">✦</span>
-                    <h1 class="font-script tracking-tight" style="font-size: clamp(2rem, 5vw, 2.75rem); color: #D38BA1; line-height: 1;">Aurora</h1>
-                    <p class="uppercase tracking-widest font-light" style="font-size: 0.625rem; color: #9C9C9C; letter-spacing: 0.25em;">Branding Co.</p>
+                    <h1 class="font-script tracking-tight" style="font-size: 2.4rem; line-height: 3.2rem; color: #D38BA1;">Aurora</h1>
+                    <p class="uppercase tracking-widest font-light" style="font-size: 0.625rem; color: #9C9C9C; letter-spacing: 0.08em;">Branding Co.</p>
                 </div>
                 <!-- Nav Links -->
                 <div class="flex items-center gap-0">
-                    <a href="#" class="uppercase tracking-widest font-light px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 0.625rem; color: #D38BA1; letter-spacing: 0.2em;">Home</a>
+                    <a href="#" class="uppercase tracking-widest px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">Home</a>
                     <span style="color: #EED6DC;">|</span>
-                    <a href="#" class="uppercase tracking-widest px-4 py-1 transition-colors duration-300" style="font-size: 0.625rem; color: #D38BA1; letter-spacing: 0.2em; font-weight: 400; border-bottom: 1.5px solid #D38BA1; padding-bottom: 2px;">Blog</a>
+                    <a href="#" class="uppercase tracking-widest px-4 py-1 transition-colors duration-300" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em; border-bottom: 1.5px solid #D38BA1; padding-bottom: 2px;">Blog</a>
                     <span style="color: #EED6DC;">|</span>
-                    <a href="#" class="uppercase tracking-widest font-light px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 0.625rem; color: #D38BA1; letter-spacing: 0.2em;">Aurora Circle</a>
+                    <a href="#" class="uppercase tracking-widest px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">Aurora Circle</a>
                     <a href="#" class="ml-6 transition-opacity duration-300 hover:opacity-60" style="color: #D38BA1;">
                         <iconify-icon icon="solar:magnifer-linear" width="18" style="stroke-width: 1.5;"></iconify-icon>
                     </a>
@@ -171,7 +244,7 @@
         <!-- ==================== HERO SECTION ==================== -->
         <section class="relative px-6" style="padding-top: 100px; padding-bottom: 110px;">
             <div class="max-w-3xl mx-auto text-center relative">
-                <h2 class="font-serif font-medium tracking-tight mb-8" style="font-size: clamp(2rem, 5vw, 3rem); color: #4A4A4A; line-height: 1.15;">
+                <h2 class="font-serif font-medium tracking-tight mb-8" style="font-size: 2.3rem; color: #4A4A4A; line-height: 2.6rem; letter-spacing: 0.02em;">
                     Strategy &amp; Style For<br>Beauty Entrepreneurs
                 </h2>
                 <p class="font-light leading-relaxed mb-6 max-w-2xl mx-auto" style="color: #9C9C9C; font-size: clamp(0.875rem, 1.4vw, 1rem); line-height: 1.8;">
@@ -211,7 +284,7 @@
                         </div>
                         <div class="p-7">
                             <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Client Experience</p>
-                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 1.125rem; color: #D38BA1; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: #D38BA1; line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                                 Salon Policies For Beauty Businesses: What To Set And Why
                             </h3>
                             <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">March 4, 2026</p>
@@ -230,7 +303,7 @@
                         </div>
                         <div class="p-7">
                             <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Branding &amp; Design</p>
-                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 1.125rem; color: #D38BA1; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: #D38BA1; line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                                 How To Create A Visual Identity That Attracts Your Dream Clients
                             </h3>
                             <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">February 18, 2026</p>
@@ -249,7 +322,7 @@
                         </div>
                         <div class="p-7">
                             <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Business &amp; Strategy</p>
-                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 1.125rem; color: #D38BA1; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: #D38BA1; line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                                 5 Signs Your Beauty Brand Needs A Strategic Refresh
                             </h3>
                             <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">February 3, 2026</p>
@@ -268,7 +341,7 @@
                         </div>
                         <div class="p-7">
                             <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Marketing &amp; Social Media</p>
-                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 1.125rem; color: #D38BA1; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: #D38BA1; line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                                 Instagram Content Ideas For Beauty Professionals Who Hate Posting
                             </h3>
                             <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">January 20, 2026</p>
@@ -287,7 +360,7 @@
                         </div>
                         <div class="p-7">
                             <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Founder's Notes</p>
-                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 1.125rem; color: #D38BA1; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: #D38BA1; line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                                 Why I Built Aurora — And What It Means For Your Brand
                             </h3>
                             <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">January 8, 2026</p>
@@ -306,7 +379,7 @@
                         </div>
                         <div class="p-7">
                             <p class="uppercase tracking-widest font-light mb-2.5" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">Salon Tools &amp; Templates</p>
-                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 1.125rem; color: #D38BA1; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            <h3 class="font-serif font-medium tracking-tight mb-2.5" style="font-size: 2.1rem; color: #D38BA1; line-height: 2.8rem; letter-spacing: 0.02em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                                 Free Consultation Form Template For Beauty Professionals
                             </h3>
                             <p class="font-light mb-4" style="font-size: 0.6875rem; color: #9C9C9C;">December 15, 2025</p>

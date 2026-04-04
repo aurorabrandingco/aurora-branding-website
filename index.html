@@ -99,6 +99,78 @@ transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
 max-height: 300px;
 }
 html { scroll-behavior: smooth; }
+/* === AURORA TYPOGRAPHY SYSTEM === */
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  letter-spacing: 0.5px;
+  color: #4A4A4A;
+}
+h1 {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  line-height: 3.3rem;
+  letter-spacing: 0.03em;
+}
+h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.3rem;
+  font-weight: 800;
+  text-transform: capitalize;
+  line-height: 2.6rem;
+  letter-spacing: 0.02em;
+}
+h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  line-height: 2.8rem;
+  letter-spacing: 0.02em;
+}
+h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 2rem;
+  letter-spacing: 0.02em;
+}
+h5 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 1.8rem;
+  letter-spacing: 0.02em;
+}
+h6 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  line-height: 1.7rem;
+  letter-spacing: 0.5px;
+}
+.brand-accent, [style*="Pinyon Script"] {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 3.2rem;
+  letter-spacing: 0;
+}
+nav a, .nav-link, .glass-nav a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.2rem;
+  letter-spacing: 0.08em;
+}
 </style></head>
   <body style="background-color: #FAF7F6; color: #4A4A4A; overflow-x: hidden; position: relative; font-size: 1.1rem;">
     <!-- Noise Overlay -->
@@ -125,24 +197,24 @@ html { scroll-behavior: smooth; }
             <span class="sparkle-3 absolute -top-1 -left-1" style="color: #B0B0B0; font-size: 0.5rem;">
               ✦
             </span>
-            <h1 class="font-script tracking-tight" style="font-size: clamp(2rem, 5vw, 2.75rem); color: #D38BA1; line-height: 1;">
+            <h1 class="font-script tracking-tight" style="font-size: 2.4rem; color: #D38BA1; line-height: 3.2rem;">
               Aurora
             </h1>
-            <p class="uppercase tracking-widest font-light" style="font-size: 0.625rem; color: #9C9C9C; letter-spacing: 0.25em;">
+            <p class="uppercase tracking-widest font-light" style="font-size: 0.625rem; color: #9C9C9C; letter-spacing: 0.08em;">
               Branding Co.
             </p>
           </div>
           <!-- Nav Links -->
           <div class="flex items-center gap-0">
-            <a href="#" class="uppercase tracking-widest font-light px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 0.625rem; color: #D38BA1; letter-spacing: 0.2em;">
+            <a href="#" class="uppercase tracking-widest px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">
               Home
             </a>
             <span style="color: #EED6DC;">|</span>
-            <a href="#" class="uppercase tracking-widest font-light px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 0.625rem; color: #D38BA1; letter-spacing: 0.2em;">
+            <a href="#" class="uppercase tracking-widest px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">
               Blog
             </a>
             <span style="color: #EED6DC;">|</span>
-            <a href="#" class="uppercase tracking-widest font-light px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 0.625rem; color: #D38BA1; letter-spacing: 0.2em;">
+            <a href="#" class="uppercase tracking-widest px-4 py-1 transition-colors duration-300 hover:opacity-70" style="font-size: 1rem; color: #D38BA1; letter-spacing: 0.08em;">
               Aurora Circle
             </a>
             <a href="#" class="ml-6 transition-opacity duration-300 hover:opacity-60" style="color: #D38BA1;">
@@ -197,10 +269,10 @@ html { scroll-behavior: smooth; }
           </span>
         </div>
         <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
-          <p class="font-cursive mb-4" style="font-size: clamp(1.125rem, 3vw, 1.5rem); color: #D38BA1;">
+          <p class="font-cursive mb-4" style="font-size: 2.4rem; line-height: 3.2rem; color: #D38BA1;">
             If you're ready to build your dream beauty brand
           </p>
-          <h2 class="font-serif font-medium tracking-tight mb-6" style="font-size: clamp(2.25rem, 6vw, 3.75rem); color: #4A4A4A; line-height: 1.1;">
+          <h2 class="font-serif font-medium tracking-tight mb-6" style="font-size: 2.3rem; color: #4A4A4A; line-height: 2.6rem; letter-spacing: 0.02em;">
             ELEVATE YOUR
             <br>
             BEAUTY BRAND
@@ -292,7 +364,7 @@ html { scroll-behavior: smooth; }
             </div>
             <!-- Right: Content -->
             <div class="glass-card rounded-2xl p-10 relative" style="border: 1px solid rgba(238, 214, 220, 0.3);">
-              <h3 class="font-serif font-medium tracking-tight mb-2" style="font-size: clamp(1.5rem, 3vw, 2rem); color: #4A4A4A;">
+              <h3 class="font-serif font-medium tracking-tight mb-2" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: #4A4A4A;">
                 More Than A Brand Studio
               </h3>
               <p class="font-cursive mb-6" style="color: #D38BA1; font-size: clamp(1rem, 1.5vw, 1.125rem);">
@@ -329,7 +401,7 @@ html { scroll-behavior: smooth; }
             <p class="uppercase tracking-widest font-light mb-3" style="font-size: 0.625rem; color: #9C9C9C; letter-spacing: 0.25em;">
               Discover What Awaits
             </p>
-            <h3 class="font-serif font-medium tracking-tight" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #4A4A4A;">
+            <h3 class="font-serif font-medium tracking-tight" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: #4A4A4A;">
               EXPLORE AURORA
             </h3>
           </div>
@@ -346,7 +418,7 @@ html { scroll-behavior: smooth; }
                 </div>
               </div>
               <div class="p-8 pt-8 text-center">
-                <h4 class="font-cursive mb-3" style="font-size: 1.375rem; color: #4A4A4A;">
+                <h4 class="font-cursive mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: #4A4A4A;">
                   Learn &amp; Grow
                 </h4>
                 <p class="font-light mb-6 leading-relaxed" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.65;">
@@ -369,7 +441,7 @@ html { scroll-behavior: smooth; }
                 </div>
               </div>
               <div class="p-8 pt-8 text-center">
-                <h4 class="font-cursive mb-3" style="font-size: 1.375rem; color: #4A4A4A;">
+                <h4 class="font-cursive mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: #4A4A4A;">
                   Join The Circle
                 </h4>
                 <p class="font-light mb-6 leading-relaxed" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.65;">
@@ -392,7 +464,7 @@ html { scroll-behavior: smooth; }
                 </div>
               </div>
               <div class="p-8 pt-8 text-center">
-                <h4 class="font-cursive mb-3" style="font-size: 1.375rem; color: #4A4A4A;">
+                <h4 class="font-cursive mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: #4A4A4A;">
                   Start For Free
                 </h4>
                 <p class="font-light mb-6 leading-relaxed" style="font-size: 0.8125rem; color: #4A4A4A; opacity: 0.65;">
@@ -414,7 +486,7 @@ html { scroll-behavior: smooth; }
         <div class="max-w-6xl mx-auto">
           <!-- Section Header -->
           <div class="text-center mb-16">
-            <h3 class="font-serif font-medium tracking-tight mb-3" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #4A4A4A;">
+            <h3 class="font-serif font-medium tracking-tight mb-3" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: #4A4A4A;">
               Latest From The Blog
             </h3>
             <p class="font-light" style="color: #9C9C9C; font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);">
@@ -433,7 +505,7 @@ html { scroll-behavior: smooth; }
               <p class="uppercase tracking-widest font-light mb-2" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">
                 Client Experience
               </p>
-              <h4 class="font-serif font-medium mb-2 tracking-tight group-hover:opacity-70 transition-opacity" style="font-size: 1.25rem; color: #4A4A4A;">
+              <h4 class="font-serif font-medium mb-2 tracking-tight group-hover:opacity-70 transition-opacity" style="font-size: 1.6rem; line-height: 2rem; letter-spacing: 0.02em; color: #4A4A4A;">
                 How To Create A Luxury Client Experience That Keeps Them Coming
                 Back
               </h4>
@@ -455,7 +527,7 @@ html { scroll-behavior: smooth; }
               <p class="uppercase tracking-widest font-light mb-2" style="font-size: 0.5625rem; color: #D38BA1; letter-spacing: 0.2em;">
                 Brand Strategy
               </p>
-              <h4 class="font-serif font-medium mb-2 tracking-tight group-hover:opacity-70 transition-opacity" style="font-size: 1.25rem; color: #4A4A4A;">
+              <h4 class="font-serif font-medium mb-2 tracking-tight group-hover:opacity-70 transition-opacity" style="font-size: 1.6rem; line-height: 2rem; letter-spacing: 0.02em; color: #4A4A4A;">
                 5 Signs Your Beauty Brand Is Ready For A Visual Refresh
               </h4>
               <p class="font-light mb-3" style="font-size: 0.75rem; color: #9C9C9C;">
@@ -487,7 +559,7 @@ html { scroll-behavior: smooth; }
             </div>
             <!-- Right: Form -->
             <div class="glass-card rounded-2xl p-10" style="border: 1px solid rgba(238, 214, 220, 0.3);">
-              <h3 class="font-script tracking-tight mb-4" style="font-size: clamp(2rem, 4vw, 2.75rem); color: #D38BA1;">
+              <h3 class="font-script tracking-tight mb-4" style="font-size: 2.4rem; line-height: 3.2rem; color: #D38BA1;">
                 Join The Aurora Circle
               </h3>
               <p class="font-light leading-relaxed mb-8" style="font-size: 0.9375rem; color: #4A4A4A; opacity: 0.65;">
@@ -550,7 +622,7 @@ html { scroll-behavior: smooth; }
         <div class="max-w-5xl mx-auto">
           <!-- Section Header -->
           <div class="text-center mb-16">
-            <h3 class="font-script tracking-tight mb-3" style="font-size: clamp(1.75rem, 4vw, 2.5rem); color: #D38BA1;">
+            <h3 class="font-script tracking-tight mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: #D38BA1;">
               Frequently Asked Questions
             </h3>
             <p class="font-serif" style="font-size: clamp(0.875rem, 1.5vw, 1.0625rem); color: #4A4A4A;">
