@@ -379,7 +379,13 @@
         </nav>
 
         <!-- ==================== ARTICLE HERO ==================== -->
-        <section class="relative w-full flex items-center justify-center overflow-hidden" style="min-height: 60vh; padding-bottom: 140px;">
+        <style>
+            @media (max-width: 768px) {
+                .article-hero-section { min-height: 70vh !important; }
+                .article-hero-content { padding-top: 140px !important; }
+            }
+        </style>
+        <section class="article-hero-section relative w-full flex items-center justify-center overflow-hidden" style="min-height: 60vh; padding-bottom: 140px;">
             <!-- Background Image (low opacity lifestyle/beauty) -->
             <div class="absolute inset-0 z-0">
                 <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1600&q=80" alt="Beauty products flatlay with warm pink tones" class="w-full h-full object-cover" style="opacity: 0.17;">
@@ -406,7 +412,7 @@
             </div>
 
             <!-- Article Title Content -->
-            <div class="relative z-10 text-center px-6 pb-16 max-w-3xl mx-auto">
+            <div class="article-hero-content relative z-10 text-center px-6 pb-16 max-w-3xl mx-auto">
                 <p class="font-cursive mb-3" style="font-size: 2.4rem; line-height: 3.2rem; color: #D38BA1;">Client Experience</p>
                 <h2 class="font-serif mx-auto" style="font-size: 2.3rem; font-weight: 800; color: #4A4A4A; line-height: 2.6rem; max-width: 800px; letter-spacing: 0.02em; text-transform: capitalize;">
                     Salon Policies For Beauty Businesses:<br class="hidden md:block"> What To Set And Why
