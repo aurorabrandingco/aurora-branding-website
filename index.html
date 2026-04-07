@@ -633,33 +633,41 @@ nav a, .nav-link, .glass-nav a {
       <section class="relative py-24 px-6" style="background: var(--bg-primary);">
         <div class="max-w-6xl mx-auto">
           <!-- Section Header -->
-          <div class="text-center mb-16">
-            <h3 class="font-serif font-medium tracking-tight mb-3" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: var(--text-primary);">
-              Latest From The Blog
-            </h3>
-            <p class="font-light" style="color: var(--text-secondary); font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);">
-              Insights, inspiration and practical guidance for your beauty brand
-              journey.
-            </p>
+          <div class="flex items-center justify-between gap-6 mb-16">
+            <div class="text-left">
+              <h3 class="font-serif font-medium tracking-tight mb-3" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: var(--text-primary);">
+                Latest From The Blog
+              </h3>
+              <p class="font-light" style="color: var(--text-secondary); font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);">
+                Insights, inspiration and practical guidance for your beauty brand
+                journey.
+              </p>
+            </div>
+            <a href="/blog" class="btn-hover inline-block rounded-full uppercase tracking-widest font-light px-8 py-3.5 transition-all duration-300 flex-shrink-0" style="border: 1.5px solid var(--accent-light); color: var(--accent); font-size: 0.6875rem; letter-spacing: 0.2em;" onmouseover="this.style.background='var(--accent-light)'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='var(--accent)'">
+              Read The Blog
+            </a>
           </div>
 
           <!-- Blog Posts Grid -->
-          <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-10">
             <!-- Blog Post 1 -->
             <div class="card-hover group cursor-pointer">
-              <div class="overflow-hidden rounded-xl mb-5" style="height: 240px;">
+              <div class="overflow-hidden rounded-2xl mb-5" style="height: 340px;">
                 <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=600&amp;q=80" alt="Blog post" class="img-hover w-full h-full object-cover">
               </div>
-              <p class="uppercase tracking-widest font-light mb-2" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">
-                Client Experience
-              </p>
-              <h4 class="font-serif font-medium mb-2 tracking-tight group-hover:opacity-70 transition-opacity" style="font-size: 1.6rem; line-height: 2rem; letter-spacing: 0.02em; color: var(--text-primary);">
+              <div class="flex items-center gap-3 mb-2">
+                <p class="uppercase tracking-widest font-light" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">
+                  Client Experience
+                </p>
+                <span style="color: var(--text-secondary); font-size: 0.5625rem;">•</span>
+                <p class="font-light" style="font-size: 0.75rem; color: var(--text-secondary);">
+                  January 15, 2026
+                </p>
+              </div>
+              <h4 class="font-serif font-medium mb-3 tracking-tight group-hover:opacity-70 transition-opacity" style="font-size: 1.6rem; line-height: 2rem; letter-spacing: 0.02em; color: var(--text-primary);">
                 How To Create A Luxury Client Experience That Keeps Them Coming
                 Back
               </h4>
-              <p class="font-light mb-3" style="font-size: 0.75rem; color: var(--text-secondary);">
-                January 15, 2026
-              </p>
               <p class="font-light leading-relaxed" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.6;">
                 Discover the key touchpoints that transform a simple appointment
                 into a memorable brand experience your clients will rave
@@ -669,44 +677,40 @@ nav a, .nav-link, .glass-nav a {
 
             <!-- Blog Post 2 -->
             <div class="card-hover group cursor-pointer">
-              <div class="overflow-hidden rounded-xl mb-5" style="height: 240px;">
+              <div class="overflow-hidden rounded-2xl mb-5" style="height: 340px;">
                 <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&amp;q=80" alt="Blog post" class="img-hover w-full h-full object-cover">
               </div>
-              <p class="uppercase tracking-widest font-light mb-2" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">
-                Brand Strategy
-              </p>
-              <h4 class="font-serif font-medium mb-2 tracking-tight group-hover:opacity-70 transition-opacity" style="font-size: 1.6rem; line-height: 2rem; letter-spacing: 0.02em; color: var(--text-primary);">
+              <div class="flex items-center gap-3 mb-2">
+                <p class="uppercase tracking-widest font-light" style="font-size: 0.5625rem; color: var(--accent); letter-spacing: 0.2em;">
+                  Brand Strategy
+                </p>
+                <span style="color: var(--text-secondary); font-size: 0.5625rem;">•</span>
+                <p class="font-light" style="font-size: 0.75rem; color: var(--text-secondary);">
+                  January 8, 2026
+                </p>
+              </div>
+              <h4 class="font-serif font-medium mb-3 tracking-tight group-hover:opacity-70 transition-opacity" style="font-size: 1.6rem; line-height: 2rem; letter-spacing: 0.02em; color: var(--text-primary);">
                 5 Signs Your Beauty Brand Is Ready For A Visual Refresh
               </h4>
-              <p class="font-light mb-3" style="font-size: 0.75rem; color: var(--text-secondary);">
-                January 8, 2026
-              </p>
               <p class="font-light leading-relaxed" style="font-size: 0.8125rem; color: var(--text-primary); opacity: 0.6;">
                 Your brand has grown — but has your visual identity kept up?
                 Here are the telltale signs it's time to evolve your look...
               </p>
             </div>
           </div>
-
-          <!-- CTA Button -->
-          <div class="text-center mt-14">
-            <a href="/blog" class="btn-hover inline-block rounded-full uppercase tracking-widest font-light px-8 py-3.5 transition-all duration-300" style="border: 1.5px solid var(--accent-light); color: var(--accent); font-size: 0.6875rem; letter-spacing: 0.2em;" onmouseover="this.style.background='var(--accent-light)'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='var(--accent)'">
-              Read The Blog
-            </a>
-          </div>
         </div>
       </section>
 
       <!-- ==================== JOIN THE AURORA CIRCLE ==================== -->
       <section class="relative py-24 px-6" style="background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-pink-subtle) 50%, var(--bg-secondary) 100%);">
-        <div class="max-w-6xl mx-auto">
-          <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="max-w-5xl mx-auto">
+          <div class="glass-card rounded-3xl overflow-hidden grid md:grid-cols-2 items-stretch" style="border: 1px solid var(--glass-border);">
             <!-- Left: Image -->
-            <div class="overflow-hidden rounded-2xl" style="height: 480px;">
+            <div class="overflow-hidden" style="min-height: 480px;">
               <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700&amp;q=80" alt="Beauty products flatlay" class="w-full h-full object-cover">
             </div>
             <!-- Right: Form -->
-            <div class="glass-card rounded-2xl p-10" style="border: 1px solid var(--glass-border);">
+            <div class="p-10">
               <h3 class="font-script tracking-tight mb-4" style="font-size: 2.4rem; line-height: 3.2rem; color: var(--accent);">
                 Join The Aurora Circle
               </h3>
