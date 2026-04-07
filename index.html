@@ -491,8 +491,8 @@ nav a, .nav-link, .glass-nav a {
             ✦
           </span>
         </div>
-        <div class="max-w-6xl mx-auto relative z-10">
-          <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="max-w-5xl mx-auto relative z-10">
+          <div class="grid md:grid-cols-2 gap-10 items-center justify-items-center">
             <!-- Left: Monogram -->
             <div class="flex justify-center">
               <div class="relative" style="width: 280px; height: 280px;">
@@ -500,12 +500,12 @@ nav a, .nav-link, .glass-nav a {
                 <div class="absolute inset-0 rounded-full" style="border: 1px solid rgba(201, 149, 107, 0.3);"></div>
                 <!-- Gradient border ring -->
                 <div class="absolute rounded-full" style="inset: 12px; padding: 2px; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));">
-                  <div class="w-full h-full rounded-full flex items-center justify-center" style="background: var(--bg-primary);">
-                    <img src="images/aurorabranding-logo-RGB-02.png" alt="Aurora Branding Co." class="monogram-logo" style="width: 130px; height: auto;">
-                  </div>
+                  <div class="w-full h-full rounded-full" style="background: var(--bg-primary);"></div>
                 </div>
                 <!-- Decorative outer ring -->
                 <div class="absolute rounded-full" style="inset: -8px; border: 1px solid rgba(201, 149, 107, 0.15);"></div>
+                <!-- Overflowing logo -->
+                <img src="images/aurorabranding-logo-RGB-02.png" alt="Aurora Branding Co." class="monogram-logo absolute" style="width: 330px; max-width: none; height: auto; top: -15%; left: -10%; z-index: 2;">
                 <div class="sparkle-2 absolute" style="top: -5px; right: 40px; color: #B0B0B0; font-size: 0.75rem;">
                   ✦
                 </div>
