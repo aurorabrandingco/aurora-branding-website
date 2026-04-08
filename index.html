@@ -952,11 +952,14 @@ nav a, .nav-link, .glass-nav a {
       </section>
 
       <!-- ==================== FOOTER ==================== -->
-      <footer class="py-16 px-6" style="border-top: 1px solid var(--separator);">
+      <footer class="py-24 px-6" style="border-top: 1px solid var(--separator); background: rgba(238, 214, 220, 0.05);">
         <div class="max-w-6xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-0 text-center md:text-left">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-0 text-center md:text-left">
             <!-- Column 1: Brand -->
             <div>
+              <p class="font-cursive mb-3" style="font-size: 1.4rem; line-height: 1.8rem; color: var(--accent);">
+                Build your dream beauty brand
+              </p>
               <a href="/" class="inline-block mb-5">
                 <img src="images/aurorabranding-logo-RGB-01.png" alt="Aurora Branding Co." style="width: 200px; height: auto;">
               </a>
@@ -978,7 +981,7 @@ nav a, .nav-link, .glass-nav a {
 
             <!-- Column 2: Explore -->
             <div class="md:ml-24">
-              <h4 class="uppercase mb-5" style="font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.1em;">
+              <h4 class="font-cursive mb-5" style="font-size: 1.5rem; line-height: 1.9rem; color: var(--text-secondary);">
                 Explore
               </h4>
               <ul class="space-y-3">
@@ -991,7 +994,7 @@ nav a, .nav-link, .glass-nav a {
 
             <!-- Column 3: Legal -->
             <div class="md:ml-6">
-              <h4 class="uppercase mb-5" style="font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.1em;">
+              <h4 class="font-cursive mb-5" style="font-size: 1.5rem; line-height: 1.9rem; color: var(--text-secondary);">
                 Legal
               </h4>
               <ul class="space-y-3">
@@ -1000,6 +1003,22 @@ nav a, .nav-link, .glass-nav a {
                 <li><a href="#" class="footer-link transition-colors duration-300" style="font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--text-secondary);">Terms of Service</a></li>
                 <li><a href="#" class="footer-link transition-colors duration-300" style="font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--text-secondary);">Imprint</a></li>
               </ul>
+            </div>
+
+            <!-- Column 4: Newsletter -->
+            <div class="md:ml-24">
+              <h4 class="font-cursive mb-3" style="font-size: 1.5rem; line-height: 1.9rem; color: var(--text-secondary);">
+                Stay in the loop
+              </h4>
+              <p class="font-light leading-relaxed mb-5" style="font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--text-secondary);">
+                Get exclusive brand tips and resources delivered weekly.
+              </p>
+              <form onsubmit="event.preventDefault();" class="space-y-3">
+                <input type="email" placeholder="Your email" class="w-full rounded-full font-light outline-none transition-colors duration-300" style="font-family: 'DM Sans', sans-serif; font-size: 0.875rem; padding: 12px 16px; border: 1px solid var(--separator); background: var(--bg-secondary); color: var(--text-primary);" onfocus="this.style.borderColor='var(--accent-light)'" onblur="this.style.borderColor='var(--separator)'">
+                <button type="submit" class="w-full rounded-full uppercase tracking-widest font-light transition-colors duration-300" style="font-family: 'DM Sans', sans-serif; font-size: 0.75rem; letter-spacing: 0.15em; padding: 12px; background: var(--accent); color: #FFFFFF; border: 0;" onmouseover="this.style.background='var(--accent-light)'" onmouseout="this.style.background='var(--accent)'">
+                  Join
+                </button>
+              </form>
             </div>
           </div>
 
