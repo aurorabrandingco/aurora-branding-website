@@ -297,6 +297,23 @@ nav a, .nav-link, .glass-nav a {
   .mobile-menu-panel { display: block; }
   .nav-logo-wrap { transform: translateX(-10px); }
 }
+/* === RESPONSIVE SECTION PADDING === */
+.section-py-lg {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+@media (min-width: 768px) {
+  .section-py-lg {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
+@media (min-width: 1200px) {
+  .section-py-lg {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+}
 /* === DARK MODE OVERRIDES === */
 @media (prefers-color-scheme: dark) {
   .nav-logo { filter: brightness(2); }
@@ -444,7 +461,7 @@ nav a, .nav-link, .glass-nav a {
       <!-- /Viewport-filling wrapper -->
 
       <!-- ==================== BRAND STATEMENT ==================== -->
-      <section class="relative px-6" style="background: var(--bg-secondary); padding: 160px 1.5rem;">
+      <section class="relative px-6 section-py-lg" style="background: var(--bg-secondary);">
         <div class="max-w-3xl mx-auto text-center relative">
           <!-- Top decorative line -->
           <div class="w-24 h-px mx-auto mb-8" style="background: var(--gold-accent); opacity: 0.4;"></div>
@@ -465,7 +482,7 @@ nav a, .nav-link, .glass-nav a {
       </section>
 
       <!-- ==================== ABOUT - MORE THAN A BRAND STUDIO ==================== -->
-      <section class="relative px-6" style="padding: 160px 1.5rem; background: rgba(238, 214, 220, 0.07);">
+      <section class="relative px-6 section-py-lg" style="background: rgba(238, 214, 220, 0.07);">
         <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
           <span class="sparkle-1 absolute" style="top: 8%; color: #888888; font-size: 1.2rem; opacity: 0.65;">✦</span>
           <span class="sparkle-5 absolute" style="top: 35%; left: 5%; color: #888888; font-size: 1.2rem; opacity: 0.65;">
@@ -546,7 +563,7 @@ nav a, .nav-link, .glass-nav a {
       </section>
 
       <!-- ==================== EXPLORE AURORA ==================== -->
-      <section class="relative px-6" style="padding: 160px 1.5rem; background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-pink-subtle) 50%, var(--bg-secondary) 100%);">
+      <section class="relative px-6 section-py-lg" style="background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-pink-subtle) 50%, var(--bg-secondary) 100%);">
         <div class="max-w-6xl mx-auto">
           <!-- Section Header -->
           <div class="text-center mb-16">
