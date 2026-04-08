@@ -165,17 +165,22 @@ html { scroll-behavior: smooth; }
 }
 .footer-link:hover { font-weight: 700 !important; }
 .footer-social:hover { color: #C0C0C0 !important; transform: scale(1.1); }
-/* Hero text responsive */
-@media (max-width: 768px) {
-  .hero-script { font-size: 1.6rem !important; line-height: 2.2rem !important; }
-  .hero-heading { font-size: 2.1rem !important; letter-spacing: 0.12em !important; }
+/* Hero text — fluid scaling via clamp() */
+.hero-heading {
+  font-size: clamp(2rem, 4.2vw + 0.5rem, 3.6rem) !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0.12em !important;
+}
+.hero-script {
+  font-size: clamp(1.6rem, 2.8vw + 0.3rem, 2.8rem) !important;
+  line-height: 1.2 !important;
+}
+@media (max-width: 767.98px) {
   .hero-btn { padding: 14px 36px !important; font-size: 0.8rem !important; }
 }
-@media (min-width: 769px) and (max-width: 1024px) {
-  .hero-heading { font-size: 2.7rem !important; }
-}
-@media (min-width: 1200px) {
-  .hero-heading { }
+/* Monogram logo — shrink on mobile to prevent overflow */
+@media (max-width: 767.98px) {
+  .monogram-logo { width: 280px !important; left: -8% !important; top: -5% !important; }
 }
 /* === AURORA TYPOGRAPHY SYSTEM === */
 body {
@@ -442,11 +447,11 @@ nav a, .nav-link, .glass-nav a {
             ✦
           </span>
         </div>
-        <div class="relative z-10 text-center px-6 w-full mx-auto hero-text-container">
-          <p class="font-cursive hero-script mb-4" style="font-size: 2.8rem; line-height: 3.5rem; color: var(--accent); font-weight: 400; letter-spacing: 0;">
+        <div class="relative z-10 text-center px-6 w-full max-w-4xl mx-auto hero-text-container">
+          <p class="font-cursive hero-script mb-4" style="color: var(--accent); font-weight: 400; letter-spacing: 0;">
             If you're ready to build your dream beauty brand
           </p>
-          <h2 class="font-serif hero-heading mb-6" style="font-size: 3.3rem; color: var(--text-primary); line-height: 1.15; letter-spacing: 0.12em; font-weight: 700; text-transform: uppercase;">
+          <h2 class="font-serif hero-heading mb-6" style="color: var(--text-primary); font-weight: 700; text-transform: uppercase;">
             ELEVATE YOUR BEAUTY BRAND
           </h2>
           <p class="hero-subtitle mb-10 max-w-lg mx-auto" style="font-family: 'DM Sans', sans-serif; color: var(--text-secondary); font-size: 1.15rem; font-weight: 400; letter-spacing: 0.03em; line-height: 1.8;">
@@ -482,7 +487,7 @@ nav a, .nav-link, .glass-nav a {
       </section>
 
       <!-- ==================== ABOUT - MORE THAN A BRAND STUDIO ==================== -->
-      <section class="relative px-6 section-py-lg" style="background: rgba(238, 214, 220, 0.07);">
+      <section id="about" class="relative px-6 section-py-lg" style="background: rgba(238, 214, 220, 0.07);">
         <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
           <span class="sparkle-1 absolute" style="top: 8%; color: #888888; font-size: 1.2rem; opacity: 0.65;">✦</span>
           <span class="sparkle-5 absolute" style="top: 35%; left: 5%; color: #888888; font-size: 1.2rem; opacity: 0.65;">
@@ -704,7 +709,7 @@ nav a, .nav-link, .glass-nav a {
       <section class="relative py-24 px-6" style="background: var(--bg-primary);">
         <div class="max-w-6xl mx-auto">
           <!-- Section Header -->
-          <div class="flex items-center justify-between gap-6 mb-16">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16">
             <div class="text-left">
               <h3 class="font-serif font-medium tracking-tight mb-3" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: var(--text-primary);">
                 Latest From The Blog
@@ -781,7 +786,7 @@ nav a, .nav-link, .glass-nav a {
               <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700&amp;q=80" alt="Beauty products flatlay" class="w-full h-full object-cover">
             </div>
             <!-- Right: Form -->
-            <div class="p-14">
+            <div class="p-8 md:p-10 lg:p-14">
               <h3 class="font-script tracking-tight mb-4" style="font-size: 2.4rem; line-height: 3.2rem; color: var(--accent);">
                 Join The Aurora Circle
               </h3>
