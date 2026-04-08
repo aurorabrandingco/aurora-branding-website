@@ -4,6 +4,8 @@
 Az Aurora Branding Co. publikus marketing weboldala. Statikus HTML, Vercel-re deployolva.
 Beauty szakembereknek szóló mentoring brand — blog-központú edukációs platform.
 
+**Lokális mappa:** `~/Projects/aurora-branding-website` (Mac, single source of truth — NEM Google Drive-ról dolgozunk!)
+
 ## Tech stack
 - Statikus HTML
 - Tailwind CSS (CDN)
