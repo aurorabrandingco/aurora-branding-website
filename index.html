@@ -346,6 +346,93 @@ body, p, span, a, button, label, input, textarea,
 .brand-accent {
   font-family: 'Pinyon Script', cursive !important;
 }
+
+/* === AURORA GLOBÁLIS TIPOGRÁFIA RENDSZER === */
+body, p {
+  font-size: 1.1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.8 !important;
+  letter-spacing: 0.03em !important;
+  color: var(--text-primary);
+}
+h1 {
+  font-size: 2.8rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: capitalize;
+}
+h2 {
+  font-size: 2.3rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: capitalize;
+}
+h3 {
+  font-size: 2.1rem !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: capitalize;
+}
+h4 {
+  font-size: 1.6rem !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: capitalize;
+}
+h5 {
+  font-size: 1.3rem !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: capitalize;
+}
+h6 {
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: capitalize;
+}
+/* Display heading kategória — kivétel: megengedett UPPERCASE */
+.display-heading {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: 2.5rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+}
+/* Hero heading — display kategória, fluid clamp méret marad */
+.hero-heading {
+  font-weight: 600 !important;
+  letter-spacing: 0.03em !important;
+}
+/* Mobil méretek */
+@media (max-width: 768px) {
+  body, p { font-size: 1rem !important; }
+  h1 { font-size: 2.1rem !important; }
+  h2 { font-size: 1.8rem !important; }
+  h3 { font-size: 1.6rem !important; }
+  h4 { font-size: 1.3rem !important; }
+  h5 { font-size: 1.15rem !important; }
+  h6 { font-size: 1.1rem !important; }
+  .display-heading { font-size: 1.9rem !important; }
+}
+/* Pinyon Script akcentus — globális alapértékek */
+.pinyon-accent, .hero-script {
+  font-size: 2.4rem !important;
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+@media (max-width: 768px) {
+  .pinyon-accent, .hero-script { font-size: 1.8rem !important; }
+}
 </style></head>
   <body style="background-color: var(--bg-secondary); color: var(--text-primary); overflow-x: hidden; position: relative; font-size: 1.1rem;">
   <div style="overflow-x: hidden; width: 100%; position: relative;">
@@ -625,7 +712,7 @@ body, p, span, a, button, label, input, textarea,
             <p class="font-cursive mb-3" style="font-size: 1.9rem; line-height: 2.4rem; color: var(--accent);">
               Discover what awaits
             </p>
-            <h3 class="font-serif font-medium tracking-tight" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: var(--text-primary);">
+            <h3 class="display-heading font-serif font-medium tracking-tight" style="color: var(--text-primary);">
               EXPLORE AURORA
             </h3>
           </div>
@@ -761,7 +848,7 @@ body, p, span, a, button, label, input, textarea,
           <!-- Section Header -->
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16">
             <div class="text-left">
-              <h3 class="font-serif font-medium tracking-tight mb-3" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: var(--text-primary);">
+              <h3 class="display-heading font-serif font-medium tracking-tight mb-3" style="color: var(--text-primary);">
                 Latest From The Blog
               </h3>
               <p class="font-light" style="color: var(--text-secondary); font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);">
@@ -900,7 +987,7 @@ body, p, span, a, button, label, input, textarea,
         <div class="max-w-5xl mx-auto">
           <!-- Section Header -->
           <div class="text-center mb-16">
-            <h3 class="font-serif font-medium tracking-tight mb-3" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);">
+            <h3 class="display-heading font-serif font-medium tracking-tight mb-3" style="color: var(--text-primary);">
               Frequently Asked Questions
             </h3>
             <p class="font-serif" style="font-size: clamp(0.875rem, 1.5vw, 1.0625rem); color: var(--text-primary);">
