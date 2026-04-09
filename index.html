@@ -325,6 +325,27 @@ nav a, .nav-link, .glass-nav a {
   .hamburger-btn svg { stroke: var(--accent); }
   .monogram-logo { filter: brightness(1.5); }
 }
+
+/* === AURORA TIPOGRÁFIA RENDSZER — felülbírálja a Tailwind .font-serif / .font-sans utility-ket === */
+h1, h2, h3,
+.font-serif {
+  font-family: 'EB Garamond', Georgia, serif !important;
+}
+
+h4, h5, h6,
+body, p, span, a, button, label, input, textarea,
+.font-sans {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+/* Pinyon Script kategória — akcentusként (felülbírálja a fenti szabályokat) */
+.font-script,
+.font-cursive,
+.hero-script,
+.pinyon-accent,
+.brand-accent {
+  font-family: 'Pinyon Script', cursive !important;
+}
 </style></head>
   <body style="background-color: var(--bg-secondary); color: var(--text-primary); overflow-x: hidden; position: relative; font-size: 1.1rem;">
   <div style="overflow-x: hidden; width: 100%; position: relative;">
