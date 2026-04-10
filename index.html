@@ -26,6 +26,7 @@ if (blob2) blob2.style.top = `calc(50% + ${scrollY * 0.03}px)`;
 if (blob3) blob3.style.bottom = `calc(10% - ${scrollY * 0.02}px)`;
 });
 </script>
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css" />
 <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
 <style>
 /* === DARK MODE CUSTOM PROPERTIES === */
@@ -513,7 +514,11 @@ h6 {
   display: inline-block;
   transition: transform 0.3s ease;
 }
-.explore-cta-link:hover .arrow { transform: translateX(3px); }
+.explore-cta-link:hover .arrow,
+.explore-cta-link:hover .cta-arrow { transform: translateX(3px); }
+/* Explore card icon hover lift */
+.explore-card:hover .explore-icon { transform: scale(1.08); }
+.explore-icon { transition: transform 0.3s ease; }
 /* FAQ question — H6 stílus span-re */
 .faq-question {
   font-family: 'DM Sans', sans-serif !important;
@@ -832,112 +837,82 @@ h6 {
           <!-- Cards Grid -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
 
-            <!-- Card 1 -->
-            <div class="glass-card overflow-hidden rounded-3xl flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
-              <div class="aspect-[4/3] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600&amp;q=80" alt="Learn and Grow" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            <!-- Card 1: Learn & Grow -->
+            <div class="explore-card glass-card relative overflow-hidden rounded-3xl p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
+              <div class="absolute top-0 left-0 right-0 h-[2px]" style="background: linear-gradient(to right, #D38BA1, #EED6DC);"></div>
+              <div class="mb-6">
+                <i class="ph-thin ph-book-open explore-icon" style="font-size: 44px; color: #D38BA1;"></i>
               </div>
-              <div class="p-8 flex flex-col flex-1 text-center">
-                <h4 class="font-serif font-medium mb-3 tracking-tight" style="color: var(--text-primary);">
-                  Learn &amp; Grow
-                </h4>
-                <p class="flex-1 leading-relaxed" style="color: var(--text-primary); opacity: 0.65;">
-                  Explore articles and resources designed to help you refine your brand strategy and creative direction.
-                </p>
-                <a href="/blog" class="explore-cta-link justify-center mt-6">
-                  Read The Blog <span class="arrow">→</span>
-                </a>
-              </div>
+              <h4 class="font-serif text-2xl md:text-3xl text-left mb-4" style="color: #4A4A4A;">Learn &amp; Grow</h4>
+              <p class="text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.7;">Explore articles and resources designed to help you refine your brand strategy and creative direction.</p>
+              <a href="/blog" class="explore-cta-link text-left inline-flex items-center gap-2 uppercase tracking-wider text-sm font-medium transition-all" style="color: #D38BA1;">
+                Discover <span class="cta-arrow transition-transform">→</span>
+              </a>
             </div>
 
-            <!-- Card 2 -->
-            <div class="glass-card overflow-hidden rounded-3xl flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
-              <div class="aspect-[4/3] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&amp;q=80" alt="Join The Circle" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            <!-- Card 2: Join The Circle -->
+            <div class="explore-card glass-card relative overflow-hidden rounded-3xl p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
+              <div class="absolute top-0 left-0 right-0 h-[2px]" style="background: linear-gradient(to right, #D38BA1, #EED6DC);"></div>
+              <div class="mb-6">
+                <i class="ph-thin ph-heart explore-icon" style="font-size: 44px; color: #D38BA1;"></i>
               </div>
-              <div class="p-8 flex flex-col flex-1 text-center">
-                <h4 class="font-serif font-medium mb-3 tracking-tight" style="color: var(--text-primary);">
-                  Join The Circle
-                </h4>
-                <p class="flex-1 leading-relaxed" style="color: var(--text-primary); opacity: 0.65;">
-                  Become part of a supportive community of beauty entrepreneurs who share your ambition and vision.
-                </p>
-                <a href="/aurora-circle" class="explore-cta-link justify-center mt-6">
-                  Join More <span class="arrow">→</span>
-                </a>
-              </div>
+              <h4 class="font-serif text-2xl md:text-3xl text-left mb-4" style="color: #4A4A4A;">Join The Circle</h4>
+              <p class="text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.7;">Become part of a supportive community of beauty entrepreneurs who share your ambition and vision.</p>
+              <a href="/aurora-circle" class="explore-cta-link text-left inline-flex items-center gap-2 uppercase tracking-wider text-sm font-medium transition-all" style="color: #D38BA1;">
+                Discover <span class="cta-arrow transition-transform">→</span>
+              </a>
             </div>
 
-            <!-- Card 3 -->
-            <div class="glass-card overflow-hidden rounded-3xl flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
-              <div class="aspect-[4/3] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&amp;q=80" alt="Free Resources" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            <!-- Card 3: Start For Free -->
+            <div class="explore-card glass-card relative overflow-hidden rounded-3xl p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
+              <div class="absolute top-0 left-0 right-0 h-[2px]" style="background: linear-gradient(to right, #D38BA1, #EED6DC);"></div>
+              <div class="mb-6">
+                <i class="ph-thin ph-sparkle explore-icon" style="font-size: 44px; color: #D38BA1;"></i>
               </div>
-              <div class="p-8 flex flex-col flex-1 text-center">
-                <h4 class="font-serif font-medium mb-3 tracking-tight" style="color: var(--text-primary);">
-                  Start For Free
-                </h4>
-                <p class="flex-1 leading-relaxed" style="color: var(--text-primary); opacity: 0.65;">
-                  Download beautifully designed templates, checklists and guides to start elevating your brand today.
-                </p>
-                <a href="#" class="explore-cta-link justify-center mt-6">
-                  Get Free Resources <span class="arrow">→</span>
-                </a>
-              </div>
+              <h4 class="font-serif text-2xl md:text-3xl text-left mb-4" style="color: #4A4A4A;">Start For Free</h4>
+              <p class="text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.7;">Download beautifully designed templates, checklists and guides to start elevating your brand today.</p>
+              <a href="#" class="explore-cta-link text-left inline-flex items-center gap-2 uppercase tracking-wider text-sm font-medium transition-all" style="color: #D38BA1;">
+                Discover <span class="cta-arrow transition-transform">→</span>
+              </a>
             </div>
 
-            <!-- Card 4 -->
-            <div class="glass-card overflow-hidden rounded-3xl flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
-              <div class="aspect-[4/3] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1503236823255-94609f598e71?w=600&amp;q=80" alt="Style Guide" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            <!-- Card 4: Style Guide -->
+            <div class="explore-card glass-card relative overflow-hidden rounded-3xl p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
+              <div class="absolute top-0 left-0 right-0 h-[2px]" style="background: linear-gradient(to right, #D38BA1, #EED6DC);"></div>
+              <div class="mb-6">
+                <i class="ph-thin ph-palette explore-icon" style="font-size: 44px; color: #D38BA1;"></i>
               </div>
-              <div class="p-8 flex flex-col flex-1 text-center">
-                <h4 class="font-serif font-medium mb-3 tracking-tight" style="color: var(--text-primary);">
-                  Style Guide
-                </h4>
-                <p class="flex-1 leading-relaxed" style="color: var(--text-primary); opacity: 0.65;">
-                  Discover the visual language and brand essentials that make your beauty business stand out.
-                </p>
-                <a href="#" class="explore-cta-link justify-center mt-6">
-                  Explore Style <span class="arrow">→</span>
-                </a>
-              </div>
+              <h4 class="font-serif text-2xl md:text-3xl text-left mb-4" style="color: #4A4A4A;">Style Guide</h4>
+              <p class="text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.7;">Discover the visual language and brand essentials that make your beauty business stand out.</p>
+              <a href="#" class="explore-cta-link text-left inline-flex items-center gap-2 uppercase tracking-wider text-sm font-medium transition-all" style="color: #D38BA1;">
+                Discover <span class="cta-arrow transition-transform">→</span>
+              </a>
             </div>
 
-            <!-- Card 5 -->
-            <div class="glass-card overflow-hidden rounded-3xl flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
-              <div class="aspect-[4/3] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&amp;q=80" alt="Mentorship" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            <!-- Card 5: Mentorship -->
+            <div class="explore-card glass-card relative overflow-hidden rounded-3xl p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
+              <div class="absolute top-0 left-0 right-0 h-[2px]" style="background: linear-gradient(to right, #D38BA1, #EED6DC);"></div>
+              <div class="mb-6">
+                <i class="ph-thin ph-compass explore-icon" style="font-size: 44px; color: #D38BA1;"></i>
               </div>
-              <div class="p-8 flex flex-col flex-1 text-center">
-                <h4 class="font-serif font-medium mb-3 tracking-tight" style="color: var(--text-primary);">
-                  Mentorship
-                </h4>
-                <p class="flex-1 leading-relaxed" style="color: var(--text-primary); opacity: 0.65;">
-                  Get personalized guidance from industry experts who've built successful beauty brands.
-                </p>
-                <a href="#" class="explore-cta-link justify-center mt-6">
-                  Book A Call <span class="arrow">→</span>
-                </a>
-              </div>
+              <h4 class="font-serif text-2xl md:text-3xl text-left mb-4" style="color: #4A4A4A;">Mentorship</h4>
+              <p class="text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.7;">Get personalized guidance from industry experts who've built successful beauty brands.</p>
+              <a href="#" class="explore-cta-link text-left inline-flex items-center gap-2 uppercase tracking-wider text-sm font-medium transition-all" style="color: #D38BA1;">
+                Discover <span class="cta-arrow transition-transform">→</span>
+              </a>
             </div>
 
-            <!-- Card 6 -->
-            <div class="glass-card overflow-hidden rounded-3xl flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
-              <div class="aspect-[4/3] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&amp;q=80" alt="Inspiration" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            <!-- Card 6: Inspiration -->
+            <div class="explore-card glass-card relative overflow-hidden rounded-3xl p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
+              <div class="absolute top-0 left-0 right-0 h-[2px]" style="background: linear-gradient(to right, #D38BA1, #EED6DC);"></div>
+              <div class="mb-6">
+                <i class="ph-thin ph-storefront explore-icon" style="font-size: 44px; color: #D38BA1;"></i>
               </div>
-              <div class="p-8 flex flex-col flex-1 text-center">
-                <h4 class="font-serif font-medium mb-3 tracking-tight" style="color: var(--text-primary);">
-                  Inspiration
-                </h4>
-                <p class="flex-1 leading-relaxed" style="color: var(--text-primary); opacity: 0.65;">
-                  Browse curated mood boards and visual references to spark your next creative direction.
-                </p>
-                <a href="#" class="explore-cta-link justify-center mt-6">
-                  Get Inspired <span class="arrow">→</span>
-                </a>
-              </div>
+              <h4 class="font-serif text-2xl md:text-3xl text-left mb-4" style="color: #4A4A4A;">Inspiration</h4>
+              <p class="text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.7;">Browse curated mood boards and visual references to spark your next creative direction.</p>
+              <a href="#" class="explore-cta-link text-left inline-flex items-center gap-2 uppercase tracking-wider text-sm font-medium transition-all" style="color: #D38BA1;">
+                Discover <span class="cta-arrow transition-transform">→</span>
+              </a>
             </div>
 
           </div>
