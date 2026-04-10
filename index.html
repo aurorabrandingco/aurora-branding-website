@@ -335,6 +335,20 @@ nav a, .nav-link, .glass-nav a {
     padding-bottom: 96px;
   }
 }
+/* === RESPONSIVE HORIZONTAL SECTION PADDING === */
+.section-px {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media (min-width: 768px) {
+  .section-px { padding-left: 48px; padding-right: 48px; }
+}
+@media (min-width: 1024px) {
+  .section-px { padding-left: 80px; padding-right: 80px; }
+}
+@media (min-width: 1440px) {
+  .section-px { padding-left: 120px; padding-right: 120px; }
+}
 /* === DARK MODE OVERRIDES === */
 @media (prefers-color-scheme: dark) {
   .nav-logo { filter: brightness(2); }
@@ -562,7 +576,7 @@ h6 {
       </nav>
 
       <!-- ==================== HERO ==================== -->
-      <section class="relative flex flex-1 items-center justify-center overflow-hidden" style="padding-bottom: 5vh;">
+      <section class="relative flex flex-1 items-center justify-center overflow-hidden section-px" style="padding-bottom: 5vh;">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
           <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&amp;q=80" alt="Beauty workspace" class="w-full h-full object-cover" style="opacity: 0.09;">
@@ -605,7 +619,7 @@ h6 {
             ✦
           </span>
         </div>
-        <div class="relative z-10 text-center px-6 w-full max-w-4xl mx-auto hero-text-container">
+        <div class="relative z-10 text-center w-full max-w-4xl mx-auto hero-text-container">
           <p class="font-cursive hero-script mb-4" style="color: var(--accent); font-weight: 400; letter-spacing: 0;">
             Where talent meets strategy
           </p>
@@ -624,7 +638,7 @@ h6 {
       <!-- /Viewport-filling wrapper -->
 
       <!-- ==================== BRAND STATEMENT — PULL QUOTE + 3 PILLARS ==================== -->
-      <section class="relative px-6 section-py-md" style="background: var(--bg-primary);">
+      <section class="relative section-px section-py-md" style="background: var(--bg-primary);">
         <div class="max-w-6xl mx-auto relative z-10">
 
           <!-- PULL QUOTE -->
@@ -674,7 +688,7 @@ h6 {
       </section>
 
       <!-- ==================== ABOUT - MORE THAN A BRAND STUDIO ==================== -->
-      <section id="about" class="relative px-6 section-py-md" style="background: rgba(238, 214, 220, 0.07);">
+      <section id="about" class="relative section-px section-py-md" style="background: rgba(238, 214, 220, 0.07);">
         <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
           <span class="sparkle-1 absolute" style="top: 8%; color: #888888; font-size: 1.2rem; opacity: 0.65;">✦</span>
           <span class="sparkle-5 absolute" style="top: 35%; left: 5%; color: #888888; font-size: 1.2rem; opacity: 0.65;">
@@ -755,7 +769,7 @@ h6 {
       </section>
 
       <!-- ==================== EXPLORE AURORA ==================== -->
-      <section class="relative px-6 section-py-lg" style="background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-pink-subtle) 50%, var(--bg-secondary) 100%);">
+      <section class="relative section-px section-py-lg" style="background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-pink-subtle) 50%, var(--bg-secondary) 100%);">
         <div class="max-w-6xl mx-auto">
           <!-- Section Header -->
           <div class="text-center mb-16">
@@ -893,7 +907,7 @@ h6 {
       </section>
 
       <!-- ==================== LATEST FROM THE BLOG ==================== -->
-      <section class="relative py-24 px-6" style="background: var(--bg-primary);">
+      <section class="relative py-24 section-px" style="background: var(--bg-primary);">
         <div class="max-w-6xl mx-auto">
           <!-- Section Header -->
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16">
@@ -965,7 +979,7 @@ h6 {
       </section>
 
       <!-- ==================== JOIN THE AURORA CIRCLE ==================== -->
-      <section class="relative py-24 px-6" style="background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-pink-subtle) 50%, var(--bg-secondary) 100%);">
+      <section class="relative py-24 section-px" style="background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-pink-subtle) 50%, var(--bg-secondary) 100%);">
         <div class="max-w-5xl mx-auto">
           <div class="glass-card rounded-3xl overflow-hidden grid md:grid-cols-1 lg:grid-cols-[40%_60%] items-stretch" style="border: 1px solid var(--glass-border);">
             <!-- Left: Image -->
@@ -1017,7 +1031,7 @@ h6 {
       </section>
 
       <!-- ==================== MOTIVATION STRIP ==================== -->
-      <section class="py-14 px-6" style="background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));">
+      <section class="py-14 section-px" style="background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));">
         <div class="max-w-4xl mx-auto text-center">
           <p class="font-normal" style="color: white; font-size: clamp(1.4rem, 2.7vw, 1.7rem) !important; font-weight: 400 !important; line-height: 1.5 !important;">
             <span class="font-normal" style="font-weight: 600;">
@@ -1033,7 +1047,7 @@ h6 {
       </section>
 
       <!-- ==================== FAQ ==================== -->
-      <section class="relative py-24 px-6" style="background: var(--bg-secondary);">
+      <section class="relative py-24 section-px" style="background: var(--bg-secondary);">
         <div class="max-w-5xl mx-auto">
           <!-- Section Header -->
           <div class="text-center mb-16">
@@ -1161,7 +1175,7 @@ h6 {
       </section>
 
       <!-- ==================== FOOTER ==================== -->
-      <footer class="py-24 px-6" style="border-top: 1px solid var(--separator); background: linear-gradient(to right, var(--bg-primary) 0%, rgba(238, 214, 220, 0.08) 50%, rgba(238, 214, 220, 0.12) 100%);">
+      <footer class="py-24 section-px" style="border-top: 1px solid var(--separator); background: linear-gradient(to right, var(--bg-primary) 0%, rgba(238, 214, 220, 0.08) 50%, rgba(238, 214, 220, 0.12) 100%);">
         <div class="max-w-6xl mx-auto">
           <div class="grid grid-cols-1 gap-x-8 gap-y-12 text-left items-start md:grid-cols-2 lg:gap-0 lg:grid-cols-[1.5fr_0.8fr_0.8fr_1.9fr]">
             <!-- Column 1: Brand -->
