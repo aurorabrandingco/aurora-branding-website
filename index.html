@@ -463,6 +463,37 @@ h6 {
 @media (max-width: 768px) {
   .pinyon-accent, .hero-script { font-size: 1.8rem !important; }
 }
+/* About tagline — kisebb Pinyon a H3 alatt */
+.about-tagline {
+  font-family: 'Pinyon Script', cursive !important;
+  font-size: 1.6rem !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+@media (max-width: 768px) {
+  .about-tagline { font-size: 1.3rem !important; }
+}
+/* About key message — accent left border */
+.about-key-message {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+}
+/* About CTA text-link */
+.about-cta-link {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--accent) !important;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+.about-cta-link:hover {
+  text-decoration: underline;
+}
 /* FAQ question — H6 stílus span-re */
 .faq-question {
   font-family: 'DM Sans', sans-serif !important;
@@ -717,9 +748,9 @@ h6 {
           </span>
         </div>
         <div class="max-w-5xl mx-auto relative z-10">
-          <div class="grid md:grid-cols-[280px_1fr] gap-12 md:gap-16 lg:gap-32 items-center">
+          <div class="grid md:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] gap-12 md:gap-16 lg:gap-32 items-center">
             <!-- Left: Monogram -->
-            <div class="relative" style="width: 280px; height: 280px;">
+            <div class="relative" style="width: 220px; height: 220px;">
                 <!-- Outer gold ring -->
                 <div class="absolute inset-0 rounded-full" style="border: 1px solid rgba(201, 149, 107, 0.3);"></div>
                 <!-- Gradient border ring -->
@@ -729,7 +760,7 @@ h6 {
                 <!-- Decorative outer ring -->
                 <div class="absolute rounded-full" style="inset: -8px; border: 1px solid rgba(201, 149, 107, 0.15);"></div>
                 <!-- Overflowing logo -->
-                <img src="images/aurorabranding-logo-RGB-02.png" alt="Aurora Branding Co." class="monogram-logo absolute" style="width: 360px; max-width: none; height: auto; top: -8%; left: -16%; z-index: 2;">
+                <img src="images/aurorabranding-logo-RGB-02.png" alt="Aurora Branding Co." class="monogram-logo absolute" style="width: 280px; max-width: none; height: auto; top: -8%; left: -14%; z-index: 2;">
                 <div class="sparkle-2 absolute" style="top: -5px; right: 40px; color: #B0B0B0; font-size: 0.75rem;">
                   ✦
                 </div>
@@ -738,18 +769,18 @@ h6 {
                 </div>
             </div>
             <!-- Right: Content -->
-            <div class="glass-card rounded-2xl p-14 relative" style="border: 1px solid var(--glass-border);">
+            <div class="rounded-2xl p-14 relative" style="background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.8);">
               <h3 class="font-serif font-medium tracking-tight mb-2" style="font-size: 2.1rem; line-height: 2.8rem; letter-spacing: 0.02em; color: var(--text-primary);">
                 More Than A Brand Studio
               </h3>
-              <p class="font-cursive pinyon-accent mb-6" style="color: var(--accent);">
+              <p class="about-tagline mb-6" style="color: var(--accent);">
                 — built from experience, not theory
               </p>
               <div class="space-y-4" style="color: var(--text-primary); opacity: 0.65;">
                 <p class="font-light leading-relaxed" style="font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);">
                   Aurora was born from watching talented beauty professionals work incredibly hard — and still feel stuck. Not because they lacked skill, but because no one ever taught them how to build a business around it.
                 </p>
-                <p class="font-light leading-relaxed" style="font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);">
+                <p class="font-light leading-relaxed about-key-message" style="font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);">
                   Aurora is a mentor-brand that teaches real systems for branding, marketing, and business — the three foundations that turn a skilled professional into a sustainable entrepreneur. Built from years of experience in the beauty industry, not from generic business theory.
                 </p>
                 <p class="font-light leading-relaxed" style="font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);">
@@ -757,8 +788,8 @@ h6 {
                 </p>
               </div>
               <div class="mt-8">
-                <a href="/about" class="btn-hover inline-block rounded-full uppercase transition-all duration-300" style="background: var(--accent); color: #FFFFFF; border: 0; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 50px; padding: 18px 48px; box-shadow: 0 4px 20px rgba(211, 139, 161, 0.25);">
-                  LEARN MORE ABOUT AURORA
+                <a href="/about" class="about-cta-link">
+                  LEARN MORE ABOUT AURORA →
                 </a>
               </div>
             </div>
