@@ -1175,7 +1175,7 @@ h6 {
         </div>
 
         <!-- FAQ Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto relative z-10 items-start">
 
           <!-- FAQ 1 -->
           <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
@@ -1331,17 +1331,11 @@ h6 {
     </div>
 
     <script>
-      // FAQ accordion — exclusive mode (one open at a time)
+      // FAQ accordion — multi-open mode
       document.querySelectorAll('.faq-toggle').forEach(toggle => {
         toggle.addEventListener('click', () => {
-          const clickedCard = toggle.closest('.faq-card');
-          const wasOpen = clickedCard.classList.contains('open');
-          document.querySelectorAll('.faq-card').forEach(card => {
-            card.classList.remove('open');
-          });
-          if (!wasOpen) {
-            clickedCard.classList.add('open');
-          }
+          const card = toggle.closest('.faq-card');
+          card.classList.toggle('open');
         });
       });
 
