@@ -534,16 +534,25 @@ h6 {
 .explore-icon { transition: transform 0.3s ease; }
 /* FAQ card styles */
 .faq-card {
-  transition: box-shadow 0.3s ease;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #EED6DC;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  padding: 0;
 }
-.faq-card:hover {
-  box-shadow: 0 4px 20px rgba(211, 139, 161, 0.08);
+.faq-card:last-child {
+  border-bottom: none;
+}
+.faq-card:hover .faq-question {
+  color: #2a2a2a;
 }
 .faq-card .faq-toggle {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem 0;
   width: 100%;
   text-align: left;
 }
@@ -557,12 +566,12 @@ h6 {
 .faq-card .faq-answer {
   max-height: 0;
   overflow: hidden;
-  padding: 0 1.5rem;
+  padding: 0;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
 }
 .faq-card.open .faq-answer {
   max-height: 500px;
-  padding: 0 1.5rem 1.25rem 1.5rem;
+  padding: 0 0 1.5rem 0;
 }
 .faq-question {
   font-family: 'EB Garamond', serif !important;
@@ -1182,10 +1191,10 @@ h6 {
         </div>
 
         <!-- FAQ Grid -->
-        <div class="flex flex-col gap-3 md:gap-4 max-w-3xl mx-auto relative z-10">
+        <div class="flex flex-col max-w-3xl mx-auto relative z-10">
 
           <!-- FAQ 1 -->
-          <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
+          <div class="faq-card relative">
             <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left">
               <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">Who is Aurora for?</h5>
               <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
@@ -1196,7 +1205,7 @@ h6 {
           </div>
 
           <!-- FAQ 2 -->
-          <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
+          <div class="faq-card relative">
             <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left">
               <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">Is everything really free?</h5>
               <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
@@ -1207,7 +1216,7 @@ h6 {
           </div>
 
           <!-- FAQ 3 -->
-          <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
+          <div class="faq-card relative">
             <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left">
               <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">How much time does it take to get started?</h5>
               <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
@@ -1218,7 +1227,7 @@ h6 {
           </div>
 
           <!-- FAQ 4 -->
-          <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
+          <div class="faq-card relative">
             <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left">
               <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">Where should I start?</h5>
               <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
@@ -1229,7 +1238,7 @@ h6 {
           </div>
 
           <!-- FAQ 5 -->
-          <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
+          <div class="faq-card relative">
             <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left">
               <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">What makes Aurora different from other business coaches for beauty pros?</h5>
               <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
@@ -1240,7 +1249,7 @@ h6 {
           </div>
 
           <!-- FAQ 6 -->
-          <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
+          <div class="faq-card relative">
             <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left">
               <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">What if I'm already experienced? Will Aurora still help me?</h5>
               <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
