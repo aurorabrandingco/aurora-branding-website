@@ -534,13 +534,19 @@ h6 {
 .explore-icon { transition: transform 0.3s ease; }
 /* FAQ card styles */
 .faq-card {
+  display: flex;
+  flex-direction: column;
   transition: box-shadow 0.3s ease;
-}
-.faq-card:not(.open) {
-  min-height: 5.75rem;
 }
 .faq-card:hover {
   box-shadow: 0 4px 20px rgba(211, 139, 161, 0.08);
+}
+.faq-card .faq-toggle {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
 }
 .faq-card .faq-chevron {
   transition: transform 0.3s ease;
@@ -1178,7 +1184,7 @@ h6 {
         </div>
 
         <!-- FAQ Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto relative z-10 items-start">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto relative z-10 items-stretch">
 
           <!-- FAQ 1 -->
           <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
