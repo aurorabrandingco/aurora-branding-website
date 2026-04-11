@@ -1179,7 +1179,7 @@ h6 {
 
           <!-- FAQ 1 -->
           <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
-            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left">
               <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">What is Aurora Branding Co.?</h5>
               <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
             </button>
@@ -1190,7 +1190,7 @@ h6 {
 
           <!-- FAQ 2 -->
           <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
-            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left">
               <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">Who is Aurora designed for?</h5>
               <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
             </button>
@@ -1201,7 +1201,7 @@ h6 {
 
           <!-- FAQ 3 -->
           <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
-            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left">
               <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">What is the Aurora Circle?</h5>
               <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
             </button>
@@ -1212,7 +1212,7 @@ h6 {
 
           <!-- FAQ 4 -->
           <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
-            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left">
               <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">Are the resources really free?</h5>
               <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
             </button>
@@ -1223,7 +1223,7 @@ h6 {
 
           <!-- FAQ 5 -->
           <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
-            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left">
               <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">How often is the blog updated?</h5>
               <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
             </button>
@@ -1234,7 +1234,7 @@ h6 {
 
           <!-- FAQ 6 -->
           <div class="faq-card glass-card relative" style="border-radius: 1rem; overflow: hidden;">
-            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left">
               <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">Can I suggest a blog topic?</h5>
               <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
             </button>
@@ -1331,25 +1331,19 @@ h6 {
     </div>
 
     <script>
-      function toggleFaq(button) {
-          const content = button.nextElementSibling;
-          const icon = button.querySelector('.faq-icon');
-          const isOpen = content.classList.contains('open');
-
-          // Close all other FAQs
-          document.querySelectorAll('.faq-content').forEach(item => {
-              item.classList.remove('open');
+      // FAQ accordion — exclusive mode (one open at a time)
+      document.querySelectorAll('.faq-toggle').forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const clickedCard = toggle.closest('.faq-card');
+          const wasOpen = clickedCard.classList.contains('open');
+          document.querySelectorAll('.faq-card').forEach(card => {
+            card.classList.remove('open');
           });
-          document.querySelectorAll('.faq-icon').forEach(ic => {
-              ic.style.transform = 'rotate(0deg)';
-          });
-
-          // Toggle current
-          if (!isOpen) {
-              content.classList.add('open');
-              icon.style.transform = 'rotate(180deg)';
+          if (!wasOpen) {
+            clickedCard.classList.add('open');
           }
-      }
+        });
+      });
 
       // Parallax effect for blobs on scroll
       window.addEventListener('scroll', () => {
