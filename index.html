@@ -532,6 +532,31 @@ h6 {
 /* Explore card icon hover lift */
 .explore-card:hover .explore-icon { transform: translateX(-2px); }
 .explore-icon { transition: transform 0.3s ease; }
+/* FAQ card styles */
+.faq-card {
+  transition: border-color 0.3s ease;
+}
+.faq-card:hover {
+  border-color: #E5A5B5;
+}
+.faq-card .faq-chevron {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.faq-card.open .faq-chevron {
+  transform: rotate(180deg);
+}
+.faq-card .faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+}
+.faq-card.open .faq-answer {
+  max-height: 300px;
+}
+.faq-question {
+  text-transform: none !important;
+}
 /* Explore disabled CTA */
 .explore-cta-disabled {
   color: #9C9C9C !important;
@@ -1126,130 +1151,96 @@ h6 {
       </section>
 
       <!-- ==================== FAQ ==================== -->
-      <section class="relative section-py-md section-px" style="background: var(--bg-secondary);">
-        <div class="max-w-5xl mx-auto">
-          <!-- Section Header -->
-          <div class="text-center mb-16">
-            <h3 class="display-heading font-serif font-medium tracking-tight mb-3" style="color: var(--text-primary);">
-              Frequently Asked Questions
-            </h3>
-            <p class="font-serif" style="font-size: clamp(0.875rem, 1.5vw, 1.0625rem); color: var(--text-primary);">
-              Everything you need to know about Aurora
-            </p>
-          </div>
+      <section class="relative section-py-md section-px" style="background: linear-gradient(to bottom, #FAF7F6, rgba(238, 214, 220, 0.12), #FAF7F6);">
+        <!-- Sparkle stars -->
+        <span class="sparkle-3 absolute pointer-events-none" style="top: 5%; left: 4%; color: #888888; font-size: 1.1rem; opacity: 0.6;">✦</span>
+        <span class="sparkle-7 absolute pointer-events-none" style="top: 8%; right: 6%; color: #888888; font-size: 1.35rem; opacity: 0.55;">✦</span>
+        <span class="sparkle-1 absolute pointer-events-none" style="bottom: 12%; left: 7%; color: #888888; font-size: 1.2rem; opacity: 0.6;">✦</span>
+        <span class="sparkle-5 absolute pointer-events-none" style="bottom: 6%; right: 10%; color: #888888; font-size: 0.95rem; opacity: 0.55;">✦</span>
+        <span class="sparkle-9 absolute pointer-events-none" style="top: 50%; left: 2%; color: #888888; font-size: 1rem; opacity: 0.5;">✦</span>
 
-          <!-- FAQ Grid -->
-          <div class="grid md:grid-cols-2 gap-5 items-start" id="faqGrid">
-            <!-- FAQ 1 -->
-            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid var(--glass-border);">
-              <button class="w-full text-left px-7 py-5 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                <span class="faq-question" style="color: var(--text-primary);">
-                  What is Aurora Branding Co.?
-                </span>
-                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: var(--accent); transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
-              </button>
-              <div class="faq-content px-7" style="color: var(--text-primary); opacity: 0.65;">
-                <p class="font-light pb-5 leading-relaxed" style="font-size: 0.8125rem;">
-                  Aurora Branding Co. is a mentoring and design resource hub
-                  created specifically for beauty professionals. We provide
-                  strategic guidance, brand inspiration, and community support
-                  to help you build a beauty brand that feels luxurious,
-                  intentional, and authentically you.
-                </p>
-              </div>
-            </div>
+        <!-- Section Header -->
+        <div class="relative z-10 text-center mb-12 md:mb-16">
+          <p style="font-family: 'Pinyon Script', cursive; color: #D38BA1; font-size: clamp(1.5rem, 2.5vw, 2rem);">
+            Everything you want to know
+          </p>
+          <h2 style="font-family: 'EB Garamond', serif; text-transform: uppercase; letter-spacing: 0.02em;">
+            Before you start with Aurora
+          </h2>
+          <p class="max-w-2xl mx-auto mt-6" style="color: #4A4A4A; line-height: 1.8; font-size: 15px;">
+            The answers to the questions we hear most often. Still curious? Send us a message — we'd love to help.
+          </p>
+        </div>
 
-            <!-- FAQ 2 -->
-            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid var(--glass-border);">
-              <button class="w-full text-left px-7 py-5 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                <span class="faq-question" style="color: var(--text-primary);">
-                  Who is Aurora designed for?
-                </span>
-                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: var(--accent); transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
-              </button>
-              <div class="faq-content px-7" style="color: var(--text-primary); opacity: 0.65;">
-                <p class="font-light pb-5 leading-relaxed" style="font-size: 0.8125rem;">
-                  Aurora is for beauty entrepreneurs — hairstylists, makeup
-                  artists, estheticians, nail artists, and anyone in the beauty
-                  industry who wants to elevate their brand presence and attract
-                  their dream clients with confidence.
-                </p>
-              </div>
-            </div>
+        <!-- FAQ Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto relative z-10">
 
-            <!-- FAQ 3 -->
-            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid var(--glass-border);">
-              <button class="w-full text-left px-7 py-5 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                <span class="faq-question" style="color: var(--text-primary);">
-                  What is the Aurora Circle?
-                </span>
-                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: var(--accent); transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
-              </button>
-              <div class="faq-content px-7" style="color: var(--text-primary); opacity: 0.65;">
-                <p class="font-light pb-5 leading-relaxed" style="font-size: 0.8125rem;">
-                  The Aurora Circle is our exclusive newsletter community.
-                  Members receive early access to resources, brand tips,
-                  behind-the-scenes insights, and special invitations to
-                  workshops and events — all designed to support your beauty
-                  brand growth.
-                </p>
-              </div>
-            </div>
-
-            <!-- FAQ 4 -->
-            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid var(--glass-border);">
-              <button class="w-full text-left px-7 py-5 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                <span class="faq-question" style="color: var(--text-primary);">
-                  Are the resources really free?
-                </span>
-                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: var(--accent); transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
-              </button>
-              <div class="faq-content px-7" style="color: var(--text-primary); opacity: 0.65;">
-                <p class="font-light pb-5 leading-relaxed" style="font-size: 0.8125rem;">
-                  Yes! We offer a curated selection of completely free resources
-                  including brand checklists, social media templates, and
-                  strategy guides. We believe every beauty professional deserves
-                  access to quality tools regardless of budget.
-                </p>
-              </div>
-            </div>
-
-            <!-- FAQ 5 -->
-            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid var(--glass-border);">
-              <button class="w-full text-left px-7 py-5 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                <span class="faq-question" style="color: var(--text-primary);">
-                  How often is the blog updated?
-                </span>
-                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: var(--accent); transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
-              </button>
-              <div class="faq-content px-7" style="color: var(--text-primary); opacity: 0.65;">
-                <p class="font-light pb-5 leading-relaxed" style="font-size: 0.8125rem;">
-                  We publish new articles weekly, covering topics from brand
-                  strategy and client experience to social media tips and
-                  industry trends. Join the Aurora Circle to get notified the
-                  moment a new post goes live.
-                </p>
-              </div>
-            </div>
-
-            <!-- FAQ 6 -->
-            <div class="glass-card rounded-xl overflow-hidden faq-item" style="border: 1px solid var(--glass-border);">
-              <button class="w-full text-left px-7 py-5 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                <span class="faq-question" style="color: var(--text-primary);">
-                  Can I suggest a blog topic?
-                </span>
-                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" style="color: var(--accent); transition: transform 0.3s ease; flex-shrink: 0;" class="faq-icon"></iconify-icon>
-              </button>
-              <div class="faq-content px-7" style="color: var(--text-primary); opacity: 0.65;">
-                <p class="font-light pb-5 leading-relaxed" style="font-size: 0.8125rem;">
-                  Absolutely! We love hearing from our community. You can reach
-                  out through our contact form or reply to any Aurora Circle
-                  email with your topic suggestions. Our content is shaped by
-                  what matters most to you.
-                </p>
-              </div>
+          <!-- FAQ 1 -->
+          <div class="faq-card glass-card relative" style="border: 1px solid #EED6DC; border-radius: 1rem; overflow: hidden;">
+            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+              <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">What is Aurora Branding Co.?</h5>
+              <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p style="color: #5A5A5A; line-height: 1.8; font-size: 14px;">Aurora Branding Co. is a mentoring and design resource hub created specifically for beauty professionals. We provide strategic guidance, brand inspiration, and community support to help you build a beauty brand that feels luxurious, intentional, and authentically you.</p>
             </div>
           </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-card glass-card relative" style="border: 1px solid #EED6DC; border-radius: 1rem; overflow: hidden;">
+            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+              <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">Who is Aurora designed for?</h5>
+              <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p style="color: #5A5A5A; line-height: 1.8; font-size: 14px;">Aurora is for beauty entrepreneurs — hairstylists, makeup artists, estheticians, nail artists, and anyone in the beauty industry who wants to elevate their brand presence and attract their dream clients with confidence.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-card glass-card relative" style="border: 1px solid #EED6DC; border-radius: 1rem; overflow: hidden;">
+            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+              <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">What is the Aurora Circle?</h5>
+              <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p style="color: #5A5A5A; line-height: 1.8; font-size: 14px;">The Aurora Circle is our exclusive newsletter community. Members receive early access to resources, brand tips, behind-the-scenes insights, and special invitations to workshops and events — all designed to support your beauty brand growth.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-card glass-card relative" style="border: 1px solid #EED6DC; border-radius: 1rem; overflow: hidden;">
+            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+              <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">Are the resources really free?</h5>
+              <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p style="color: #5A5A5A; line-height: 1.8; font-size: 14px;">Yes! We offer a curated selection of completely free resources including brand checklists, social media templates, and strategy guides. We believe every beauty professional deserves access to quality tools regardless of budget.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-card glass-card relative" style="border: 1px solid #EED6DC; border-radius: 1rem; overflow: hidden;">
+            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+              <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">How often is the blog updated?</h5>
+              <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p style="color: #5A5A5A; line-height: 1.8; font-size: 14px;">We publish new articles weekly, covering topics from brand strategy and client experience to social media tips and industry trends. Join the Aurora Circle to get notified the moment a new post goes live.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-card glass-card relative" style="border: 1px solid #EED6DC; border-radius: 1rem; overflow: hidden;">
+            <button class="faq-toggle w-full flex justify-between items-center px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+              <h5 class="faq-question" style="margin: 0; color: #4A4A4A;">Can I suggest a blog topic?</h5>
+              <i class="ph-light ph-caret-down faq-chevron" style="font-size: 20px; color: #D38BA1;"></i>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p style="color: #5A5A5A; line-height: 1.8; font-size: 14px;">Absolutely! We love hearing from our community. You can reach out through our contact form or reply to any Aurora Circle email with your topic suggestions. Our content is shaped by what matters most to you.</p>
+            </div>
+          </div>
+
         </div>
       </section>
 
