@@ -27,6 +27,7 @@ if (blob3) blob3.style.bottom = `calc(10% - ${scrollY * 0.02}px)`;
 });
 </script>
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css" />
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css" />
 <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
 <style>
 /* === DARK MODE CUSTOM PROPERTIES === */
@@ -518,7 +519,15 @@ h6 {
 .explore-cta-link:hover .cta-arrow { transform: translateX(3px); }
 /* Explore card left accent border */
 .explore-card {
-  border-left: 3px solid #D38BA1 !important;
+  border-left: 2px solid #E5A5B5 !important;
+}
+/* Hover off for Coming soon cards */
+.explore-card:has(.explore-cta-disabled):hover {
+  transform: none !important;
+  box-shadow: inherit !important;
+}
+.explore-card:has(.explore-cta-disabled):hover .explore-icon {
+  transform: none !important;
 }
 /* Explore card icon hover lift */
 .explore-card:hover .explore-icon { transform: translateX(-2px); }
@@ -851,10 +860,10 @@ h6 {
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
 
             <!-- Card 1: The Blog -->
-            <div class="explore-card glass-card relative overflow-hidden rounded-3xl pl-10 md:pl-12 pr-8 md:pr-10 py-8 md:py-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
+            <div class="explore-card glass-card relative overflow-hidden rounded-3xl pl-8 md:pl-10 pr-6 md:pr-8 py-6 md:py-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
 
               <div class="flex items-center gap-4 mb-4">
-                <i class="ph-thin ph-book-open explore-icon" style="font-size: 26px; color: #D38BA1;"></i>
+                <i class="ph-light ph-book-open explore-icon" style="font-size: 26px; color: #D38BA1;"></i>
                 <h4 class="font-serif text-xl md:text-2xl text-left" style="color: #4A4A4A; margin: 0;">The Blog</h4>
               </div>
               <p class="text-[14px] text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.8;">In-depth articles on branding, marketing, and running a beauty business. Practical knowledge from years in the industry — free to read, built to apply.</p>
@@ -864,65 +873,65 @@ h6 {
             </div>
 
             <!-- Card 2: Guided Journeys -->
-            <div class="explore-card glass-card relative overflow-hidden rounded-3xl pl-10 md:pl-12 pr-8 md:pr-10 py-8 md:py-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
+            <div class="explore-card glass-card relative overflow-hidden rounded-3xl pl-8 md:pl-10 pr-6 md:pr-8 py-6 md:py-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
 
               <div class="flex items-center gap-4 mb-4">
-                <i class="ph-thin ph-compass explore-icon" style="font-size: 26px; color: #D38BA1;"></i>
+                <i class="ph-light ph-compass explore-icon" style="font-size: 26px; color: #D38BA1;"></i>
                 <h4 class="font-serif text-xl md:text-2xl text-left" style="color: #4A4A4A; margin: 0;">Guided Journeys</h4>
               </div>
-              <p class="text-[14px] text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.8;">Free email courses that take you step by step through one topic at a time — from brand foundations to pricing strategy. Expert-led, self-paced, built to finish.</p>
+              <p class="text-[14px] text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.8;">Free email courses that walk you through brand foundations, pricing, and marketing. Expert-led, self-paced, and built to actually finish.</p>
               <a href="#" class="explore-cta-disabled text-left inline-flex items-center gap-2 uppercase tracking-wider text-sm font-medium" style="">
                 Coming soon
               </a>
             </div>
 
             <!-- Card 3: Aurora Circle -->
-            <div class="explore-card glass-card relative overflow-hidden rounded-3xl pl-10 md:pl-12 pr-8 md:pr-10 py-8 md:py-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
+            <div class="explore-card glass-card relative overflow-hidden rounded-3xl pl-8 md:pl-10 pr-6 md:pr-8 py-6 md:py-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
 
               <div class="flex items-center gap-4 mb-4">
-                <i class="ph-thin ph-heart explore-icon" style="font-size: 26px; color: #D38BA1;"></i>
+                <i class="ph-light ph-heart explore-icon" style="font-size: 26px; color: #D38BA1;"></i>
                 <h4 class="font-serif text-xl md:text-2xl text-left" style="color: #4A4A4A; margin: 0;">Aurora Circle</h4>
               </div>
-              <p class="text-[14px] text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.8;">The inside track for beauty professionals. A letter with new lessons, early access, and what we're building next — sent whenever we have something worth sharing.</p>
+              <p class="text-[14px] text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.8;">The inside track for beauty professionals. A letter with new lessons, early access, and what we're building next — sent when it matters.</p>
               <a href="aurora-circle/index.html" class="explore-cta-link text-left inline-flex items-center gap-2 uppercase tracking-wider text-sm font-medium transition-all" style="color: #D38BA1;">
                 Join the Circle <span class="cta-arrow transition-transform">→</span>
               </a>
             </div>
 
             <!-- Card 4: The Brand Kit -->
-            <div class="explore-card glass-card relative overflow-hidden rounded-3xl pl-10 md:pl-12 pr-8 md:pr-10 py-8 md:py-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
+            <div class="explore-card glass-card relative overflow-hidden rounded-3xl pl-8 md:pl-10 pr-6 md:pr-8 py-6 md:py-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
 
               <div class="flex items-center gap-4 mb-4">
-                <i class="ph-thin ph-palette explore-icon" style="font-size: 26px; color: #D38BA1;"></i>
+                <i class="ph-light ph-palette explore-icon" style="font-size: 26px; color: #D38BA1;"></i>
                 <h4 class="font-serif text-xl md:text-2xl text-left" style="color: #4A4A4A; margin: 0;">The Brand Kit</h4>
               </div>
-              <p class="text-[14px] text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.8;">Premium, editable Canva templates designed for beauty professionals. Price lists, social posts, client welcome kits — built to look expensive, priced to start with.</p>
+              <p class="text-[14px] text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.8;">Premium, editable Canva templates made for beauty professionals. Price lists, social posts, welcome kits — built to look expensive, priced to start.</p>
               <a href="#" class="explore-cta-disabled text-left inline-flex items-center gap-2 uppercase tracking-wider text-sm font-medium" style="">
                 Coming soon
               </a>
             </div>
 
             <!-- Card 5: Salon Essentials -->
-            <div class="explore-card glass-card relative overflow-hidden rounded-3xl pl-10 md:pl-12 pr-8 md:pr-10 py-8 md:py-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
+            <div class="explore-card glass-card relative overflow-hidden rounded-3xl pl-8 md:pl-10 pr-6 md:pr-8 py-6 md:py-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
 
               <div class="flex items-center gap-4 mb-4">
-                <i class="ph-thin ph-storefront explore-icon" style="font-size: 26px; color: #D38BA1;"></i>
+                <i class="ph-light ph-storefront explore-icon" style="font-size: 26px; color: #D38BA1;"></i>
                 <h4 class="font-serif text-xl md:text-2xl text-left" style="color: #4A4A4A; margin: 0;">Salon Essentials</h4>
               </div>
-              <p class="text-[14px] text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.8;">Curated physical products for your salon and your clients. Thoughtfully designed pieces that elevate your space and celebrate your craft.</p>
+              <p class="text-[14px] text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.8;">Curated physical products for your salon and your clients. Thoughtfully designed pieces that elevate your space and celebrate your craft every day.</p>
               <a href="#" class="explore-cta-disabled text-left inline-flex items-center gap-2 uppercase tracking-wider text-sm font-medium" style="">
                 Coming soon
               </a>
             </div>
 
             <!-- Card 6: Aurora OS -->
-            <div class="explore-card glass-card relative overflow-hidden rounded-3xl pl-10 md:pl-12 pr-8 md:pr-10 py-8 md:py-10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
+            <div class="explore-card glass-card relative overflow-hidden rounded-3xl pl-8 md:pl-10 pr-6 md:pr-8 py-6 md:py-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="border: 1px solid var(--glass-border);">
 
               <div class="flex items-center gap-4 mb-4">
-                <i class="ph-thin ph-sparkle explore-icon" style="font-size: 26px; color: #D38BA1;"></i>
+                <i class="ph-light ph-sparkle explore-icon" style="font-size: 26px; color: #D38BA1;"></i>
                 <h4 class="font-serif text-xl md:text-2xl text-left" style="color: #4A4A4A; margin: 0;">Aurora OS</h4>
               </div>
-              <p class="text-[14px] text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.8;">The complete business platform for beauty professionals. Your website, online booking, client emails, and payments — everything in one place, built around how you actually work.</p>
+              <p class="text-[14px] text-left flex-1 mb-6" style="color: #4A4A4A; line-height: 1.8;">The complete business platform for beauty professionals. Website, bookings, client emails, and payments — one calm place that runs everything for you.</p>
               <a href="#" class="explore-cta-disabled text-left inline-flex items-center gap-2 uppercase tracking-wider text-sm font-medium" style="">
                 Coming soon
               </a>
