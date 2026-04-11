@@ -592,6 +592,19 @@ h6 {
 .explore-cta-disabled .cta-arrow {
   display: none;
 }
+/* Legal links in footer */
+.legal-link {
+  color: #9C9C9C;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'DM Sans', sans-serif;
+  transition: color 200ms;
+  text-decoration: none;
+}
+.legal-link:hover {
+  color: #D38BA1;
+}
 /* FAQ question — see consolidated rule above */
 /* Pull quote — Brand statement feature quote */
 .pull-quote {
@@ -1263,20 +1276,21 @@ h6 {
       </section>
 
       <!-- ==================== FOOTER ==================== -->
-      <footer class="section-py-md section-px" style="padding-bottom: 1.5rem; border-top: 1px solid var(--separator); background: linear-gradient(to right, var(--bg-primary) 0%, rgba(238, 214, 220, 0.08) 50%, rgba(238, 214, 220, 0.12) 100%);">
-        <div class="max-w-5xl mx-auto">
-          <div class="grid grid-cols-1 gap-x-8 gap-y-12 text-left items-start md:grid-cols-2 lg:gap-0 lg:grid-cols-[1.5fr_0.8fr_0.8fr_1.9fr]">
-            <!-- Column 1: Brand -->
+      <footer class="relative" style="padding-top: 4rem; padding-bottom: 2rem; background: linear-gradient(to right, var(--bg-primary) 0%, rgba(238, 214, 220, 0.08) 50%, rgba(238, 214, 220, 0.12) 100%);">
+        <div class="max-w-5xl mx-auto px-6">
+
+          <!-- FELSŐ BLOKK: 2 oszlop -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 mb-12">
+
+            <!-- BAL: Brand info -->
             <div>
-              <a href="/" class="inline-block mb-5">
-                <div style="padding: 8px 20px 20px 0;">
-                  <img src="images/aurorabranding-logo-RGB-01.png" alt="Aurora Branding Co." style="width: 290px; max-width: none; height: auto; display: block;">
-                </div>
+              <a href="/" class="inline-block mb-6">
+                <img src="images/aurorabranding-logo-RGB-01.png" alt="Aurora Branding Co." style="width: 280px; height: auto;">
               </a>
-              <p class="font-light leading-relaxed mb-6" style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-secondary);">
+              <p class="max-w-sm mb-6" style="color: #4A4A4A; font-size: 14px; line-height: 1.8;">
                 Mentoring and design resources for beauty entrepreneurs ready to build sophisticated, intentional brands.
               </p>
-              <div class="flex gap-4">
+              <div class="flex items-center gap-4">
                 <a href="#" aria-label="Instagram" class="footer-social inline-block" style="color: var(--accent); transition: all 0.3s ease;">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24ZM8.25 5.5C6.73 5.5 5.5 6.73 5.5 8.25V15.75C5.5 17.27 6.73 18.5 8.25 18.5H15.75C17.27 18.5 18.5 17.27 18.5 15.75V8.25C18.5 6.73 17.27 5.5 15.75 5.5H8.25ZM12 15.25C13.7949 15.25 15.25 13.7949 15.25 12C15.25 10.2051 13.7949 8.75 12 8.75C10.2051 8.75 8.75 10.2051 8.75 12C8.75 13.7949 10.2051 15.25 12 15.25ZM16.25 8.5C16.8023 8.5 17.25 8.05228 17.25 7.5C17.25 6.94772 16.8023 6.5 16.25 6.5C15.6977 6.5 15.25 6.94772 15.25 7.5C15.25 8.05228 15.6977 8.5 16.25 8.5Z"/></svg>
                 </a>
@@ -1289,38 +1303,12 @@ h6 {
               </div>
             </div>
 
-            <!-- Column 2: Explore -->
-            <div class="lg:ml-24 md:pt-9">
-              <h4 class="font-serif mb-5" style="color: var(--text-primary); font-family: 'EB Garamond', serif; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;">
-                Explore
-              </h4>
-              <ul class="space-y-3">
-                <li><a href="/" class="footer-link transition-colors duration-300" style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-secondary);">Home</a></li>
-                <li><a href="/#about" class="footer-link transition-colors duration-300" style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-secondary);">About</a></li>
-                <li><a href="/blog" class="footer-link transition-colors duration-300" style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-secondary);">Blog</a></li>
-                <li><a href="/aurora-circle" class="footer-link transition-colors duration-300" style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-secondary);">Aurora Circle</a></li>
-              </ul>
-            </div>
-
-            <!-- Column 3: Legal -->
-            <div class="lg:ml-6 md:pt-9">
-              <h4 class="font-serif mb-5" style="color: var(--text-primary); font-family: 'EB Garamond', serif; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;">
-                Legal
-              </h4>
-              <ul class="space-y-3">
-                <li><a href="#" class="footer-link transition-colors duration-300" style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-secondary);">Privacy Policy</a></li>
-                <li><a href="#" class="footer-link transition-colors duration-300" style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-secondary);">Cookie Policy</a></li>
-                <li><a href="#" class="footer-link transition-colors duration-300" style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-secondary);">Terms of Service</a></li>
-                <li><a href="#" class="footer-link transition-colors duration-300" style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-secondary);">Imprint</a></li>
-              </ul>
-            </div>
-
-            <!-- Column 4: Newsletter -->
-            <div class="lg:ml-24 md:pt-9">
-              <h4 class="font-serif mb-3" style="color: var(--text-primary); font-family: 'EB Garamond', serif; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;">
-                Stay In The Loop
-              </h4>
-              <p class="font-light leading-relaxed mb-5" style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-secondary);">
+            <!-- JOBB: Newsletter -->
+            <div>
+              <p class="mb-4" style="font-family: 'EB Garamond', serif; text-transform: uppercase; letter-spacing: 0.05em; font-size: 1.125rem; color: #4A4A4A;">
+                Stay in the loop
+              </p>
+              <p class="mb-5" style="color: #4A4A4A; font-size: 14px; line-height: 1.8;">
                 Get exclusive brand tips and resources delivered weekly.
               </p>
               <form onsubmit="event.preventDefault();" class="space-y-3">
@@ -1333,15 +1321,30 @@ h6 {
             </div>
           </div>
 
-          <!-- Separator + Copyright -->
-          <div class="mt-12 pt-8 text-center" style="border-top: 1px solid var(--separator); opacity: 1;">
-            <p class="uppercase mb-3" style="font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.1em; color: var(--text-secondary);">
-              Build Your Dream Beauty Brand
+          <!-- ELVÁLASZTÓ VONAL -->
+          <hr style="border: none; border-top: 1px solid #EED6DC; margin: 0;">
+
+          <!-- LEGAL LINKEK — inline, egy sorban -->
+          <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mt-8 mb-8">
+            <a href="#" class="legal-link">Privacy Policy</a>
+            <span style="color: #9C9C9C;">·</span>
+            <a href="#" class="legal-link">Cookie Policy</a>
+            <span style="color: #9C9C9C;">·</span>
+            <a href="#" class="legal-link">Terms of Service</a>
+            <span style="color: #9C9C9C;">·</span>
+            <a href="#" class="legal-link">Imprint</a>
+          </div>
+
+          <!-- TAGLINE PINYON SCRIPT + COPYRIGHT -->
+          <div class="text-center">
+            <p class="mb-3" style="font-family: 'Pinyon Script', cursive; color: #D38BA1; font-size: clamp(1.5rem, 2.5vw, 1.875rem);">
+              Build your dream beauty brand
             </p>
-            <p style="font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: var(--text-secondary);">
+            <p style="color: #9C9C9C; font-size: 13px; font-weight: 400;">
               © 2026 Aurora Branding Co. All rights reserved.
             </p>
           </div>
+
         </div>
       </footer>
     </div>
