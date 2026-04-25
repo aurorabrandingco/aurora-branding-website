@@ -406,6 +406,22 @@ h6 {
   text-transform: none !important;
 }
 
+/* === BLOG HERO WRAPPER — egybefüggő gradient nav + hero + kategória szűrő alatt === */
+.blog-hero-wrapper {
+  background: linear-gradient(to bottom,
+    #F0D4DD 0%,
+    #F5E1E8 25%,
+    #FAF0F2 60%,
+    #FAF7F6 85%,
+    transparent 100%
+  );
+}
+.blog-hero-wrapper .glass-nav {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
 /* === KATEGÓRIA SZŰRŐ PILLEK === */
 .category-filter {
   padding: 0.5rem 1.25rem;
@@ -449,6 +465,9 @@ h6 {
 
   <!-- Main Content -->
   <div class="relative z-10">
+
+    <!-- ==================== BLOG HERO WRAPPER (NAV + HERO + KATEGÓRIA SZŰRŐ) ==================== -->
+    <div class="blog-hero-wrapper">
 
     <!-- ==================== NAVIGATION ==================== -->
     <nav class="glass-nav w-full pt-6 pb-3 relative z-30">
@@ -503,7 +522,7 @@ h6 {
     </nav>
 
     <!-- ==================== HERO / FEJLÉC ==================== -->
-    <section class="relative section-px section-py-md text-center" style="background: linear-gradient(to bottom, #FAF7F6, rgba(238, 214, 220, 0.15), #FAF7F6);">
+    <section class="relative section-px section-py-md text-center" style="background: transparent;">
       <!-- Sparkle stars -->
       <span class="sparkle-1 absolute pointer-events-none" style="top: 10%; left: 6%; color: #888888; font-size: 1.2rem; opacity: 0.6;">✦</span>
       <span class="sparkle-4 absolute pointer-events-none" style="top: 8%; right: 8%; color: #888888; font-size: 1.4rem; opacity: 0.55;">✦</span>
@@ -534,6 +553,9 @@ h6 {
         <button class="category-filter" data-category="tools">Sablonok és eszközök</button>
       </div>
     </section>
+
+    </div>
+    <!-- ==================== /BLOG HERO WRAPPER ==================== -->
 
     <!-- ==================== BLOG KÁRTYA GRID ==================== -->
     <section class="relative section-px" style="padding-bottom: 96px;">
