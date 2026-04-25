@@ -408,6 +408,8 @@ h6 {
 
 /* === BLOG HERO WRAPPER — egybefüggő gradient nav + hero + kategória szűrő alatt === */
 .blog-hero-wrapper {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(to bottom,
     #FFFFFF 0%,
     #FAF7F6 20%,
@@ -470,6 +472,14 @@ h6 {
     <!-- ==================== BLOG HERO WRAPPER (NAV + HERO + KATEGÓRIA SZŰRŐ) ==================== -->
     <div class="blog-hero-wrapper">
 
+    <!-- Hero háttérkép — beauty workspace, nagyon halvány -->
+    <div class="pointer-events-none" style="position: absolute; inset: 0; z-index: 0;">
+      <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80"
+           alt=""
+           aria-hidden="true"
+           style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.08;">
+    </div>
+
     <!-- ==================== NAVIGATION ==================== -->
     <nav class="glass-nav w-full pt-6 pb-3 relative z-30">
       <div class="max-w-5xl mx-auto px-6 flex flex-col items-center relative">
@@ -523,7 +533,7 @@ h6 {
     </nav>
 
     <!-- ==================== HERO / FEJLÉC ==================== -->
-    <section class="relative section-px section-py-md text-center" style="background: transparent;">
+    <section class="relative z-10 section-px section-py-md text-center" style="background: transparent;">
       <!-- Sparkle stars -->
       <span class="sparkle-1 absolute pointer-events-none" style="top: 10%; left: 6%; color: #888888; font-size: 1.2rem; opacity: 0.6;">✦</span>
       <span class="sparkle-4 absolute pointer-events-none" style="top: 8%; right: 8%; color: #888888; font-size: 1.4rem; opacity: 0.55;">✦</span>
@@ -544,7 +554,7 @@ h6 {
     </section>
 
     <!-- ==================== KATEGÓRIA SZŰRŐ ==================== -->
-    <section class="relative section-px" style="padding-top: 0; padding-bottom: 24px;">
+    <section class="relative z-10 section-px" style="padding-top: 0; padding-bottom: 24px;">
       <div class="flex flex-wrap justify-center gap-3 mt-8 mb-12 max-w-4xl mx-auto">
         <button class="category-filter active" data-category="all">Összes</button>
         <button class="category-filter" data-category="branding">Branding és design</button>
